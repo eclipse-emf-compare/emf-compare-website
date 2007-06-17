@@ -1,12 +1,12 @@
 <?php 
 $introText = <<<EOT
-	<p>EMF Compare brings model comparison to the EMF framework, this tool provides generic support for any kind of metamodel in order to compare and merge models.
+	<p><a href="http://wiki.eclipse.org/index.php/EMF_Compare">EMF Compare</a> brings model comparison to the EMF framework, this tool provides generic support for any kind of metamodel in order to compare and merge models.
 The objectives of this component are to provide a stable and efficient generic implementation of model comparison and to provide an extensible framework for specific needs.</p>
 EOT;
     	
 $detailText = <<<EOT
 	<p>	
-	EMF Compare brings model comparison to the EMF framework, this tool provides generic support for any kind of metamodel in order to compare and merge models.
+	<a href="http://wiki.eclipse.org/index.php/EMF_Compare">EMF Compare</a> brings model comparison to the EMF framework, this tool provides generic support for any kind of metamodel in order to compare and merge models.
 The objectives of this component are to provide a stable and efficient generic implementation of model comparison and to provide an extensible framework for specific needs.
 	</p>
 	<p>
