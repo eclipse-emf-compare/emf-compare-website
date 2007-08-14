@@ -31,6 +31,9 @@ The objectives of this component are to provide a stable and efficient generic i
     	- Slides: <a href="doc/eclipsecon2007/cedric.pdf">C&eacute;dric Brun</a>, <a href="doc/eclipsecon2007/antoine.pdf">Antoine Toulm&eacute;</a></li>
     <li><em>10/2006</em> <a href="doc/EMFCompare-description.pdf">Initial Project Description </a></li>
  </ul>
+ <p>
+ More information is available on the <a href="http://wiki.eclipse.org/index.php/EMF_Compare">wiki page for EMF compare</a>.
+ </p>
 </li>
 <li style="border-style: none;">
  <h2>Contributors</h2>
