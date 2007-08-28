@@ -1,4 +1,1 @@
-<?php 
-	$pre="../../"; 
-	$proj = explode("/",$_SERVER["SCRIPT_NAME"]); $proj = $proj[sizeof($proj)-2];  
-	include "../index.php"; ?>
+<?php header("Location: /modeling/emft/?project=compare#compare"); ?>
