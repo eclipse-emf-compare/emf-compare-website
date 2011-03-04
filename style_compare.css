@@ -133,6 +133,7 @@ customizing of yahoo pipes
 	}
 	
 #screencast {
+    margin-top: 30px;
 	margin-bottom: 10px;
 }
 
@@ -207,7 +208,7 @@ customizing of yahoo pipes
 #obeo a {
 	display: block;
 	padding: 0;
-	margin-top: 10px;
+	margin-top: 0px;
 	margin-left: auto;
 	margin-right: auto;
 }
