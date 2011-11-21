@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ASCII"?>
+<version:Product xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:version="http://www.obeo.fr/dsl/version" xsi:schemaLocation="http://www.obeo.fr/dsl/version ../../fr.obeo.dsl.version/model/version.ecore" name="EMF Compare" current="//@versions.0" stable="//@versions.0">
+  <versions id="1.2"/>
+  <versions id="1.3M3"/>
+  <versions id="1.1"/>
+  <versions id="1.0"/>
+  <features name="Model Comparison and Merge" initialRelease="//@versions.3" description="EMF Compare provides comparison and merge facility for any kind of EMF Model.">
+    <updates version="//@versions.2" description="Using EMF-XSD and EMF Compare, you get a strong support for comparing your custom XML Files.">
+      <references title="Comparing pom.xml files while waiting for indigo" uri="http://model-driven-blogging.blogspot.com/2011/06/comparing-pomxml-files-while-waiting.html" kind="blog"/>
+    </updates>
+    <updates version="//@versions.2" description="The component detects any addition or removal of fragments into the logical model tree."/>
+    <updates version="//@versions.0" description="Diff dependencies and  merge consistency"/>
+    <updates version="//@versions.0" description="More than 5000 unit tests are now validating the merge consistency."/>
+  </features>
+  <features name="SCM Integration" initialRelease="//@versions.2" description="">
+    <updates version="//@versions.2" description="Specific handlers for the SVN Team provider (Subversive) has been developped to work around a few issues."/>
+    <updates version="//@versions.0" description="Integration with eGit"/>
+  </features>
+  <features name="Logical Model" initialRelease="//@versions.0">
+    <updates version="//@versions.1" description="Efficient workspace indexing and cross referencing is now used for the logical model support."/>
+    <references title="Logical Model Support in EMF Compare" uri="http://wiki.eclipse.org/EMF_Compare/Logical_model_support"/>
+    <references title="What the heck are logical models ?" uri="http://tasktop.com/blog/eclipse/what-the-heck-are-logical-models" kind="blog"/>
+  </features>
+  <features name="APIs" description="EMF Compare, just like the EMF Core, provides standalone APIs. You can use them outside of Eclipse or any OSGi context. ">
+    <updates version="//@versions.0" description="A new API to scope the matching process."/>
+    <updates version="//@versions.1" description="API's are existing to collect differences and integrate with the compare editor.">
+      <references title="Compare UI APIs" uri="http://wiki.eclipse.org/EMF_Compare/CompareUMLPapyrusAPI"/>
+    </updates>
+  </features>
+  <features name="Comparison User Interface" initialRelease="//@versions.3" description="The main user interface is a triple-paned tree showing versions of the model at the bottom and the list of differences at the top.">
+    <updates version="//@versions.0" description="User might now group the differences per kind.">
+      <references title="Grouping Facility" uri="http://wiki.eclipse.org/EMF_Compare/Grouping_facility"/>
+    </updates>
+    <updates version="//@versions.0" description="User might filter out some differences from the user interface.">
+      <references title="Filtering Facility" uri="http://wiki.eclipse.org/EMF_Compare/Filtering_facility"/>
+    </updates>
+    <updates version="//@versions.0" description="Textual Comparison for multi-line attributes"/>
+    <updates description="Restrict comparison on selection.">
+      <references title="Restrict Comparison on Selection technical documentation" uri="http://wiki.eclipse.org/EMF_Compare/Restrict_comparison_on_selection"/>
+    </updates>
+  </features>
+  <features name="Matching Strategies" initialRelease="//@versions.3" description="Two main families of strategies are supported by EMF Compare : matching elements by ID or using the elements data. If ID's are provided, it will use them by default but you can change this behavior using the preferences page."/>
+  <features name="High Level Diff" initialRelease="//@versions.3" description="Sometime it might be usefull to hide a set of model differences behind a unique differences which makes more sense for the end user. The components allows you to do so with the &quot;Diff Extension&quot; extension point.">
+    <updates version="//@versions.0" description="UML Support">
+      <references title="UML Support in EMF Compare - technical documentation" uri="http://wiki.eclipse.org/EMF_Compare/UML_Compare"/>
+    </updates>
+    <updates version="//@versions.1" description="SysML dedicated support"/>
+  </features>
+  <features name="Diff Export" initialRelease="//@versions.3" description="It is possible to export a diff into several formats. Furthermore this is extensible : you might provide your own export mechanism."/>
+  <features name="Model Independent Patch" initialRelease="//@versions.2"/>
+  <features name="EPatch DSL" initialRelease="//@versions.3">
+    <updates version="//@versions.0" description="The ePatch DSL is no longer maintained and is replaced by MPatch." endOfLife="true"/>
+  </features>
+  <features name="Graphical Modeler Integration" initialRelease="//@versions.0">
+    <updates version="//@versions.1" description="EcoreTools Integration"/>
+    <updates version="//@versions.1" description="Papyrus Integration"/>
+    <references title="GMF Notation Model Comparison - technical documentation" uri="http://wiki.eclipse.org/EMF_Compare/GMF_Notation_model_Comparison"/>
+  </features>
+  <features name="Performances" initialRelease="//@versions.2" description="EMF compare performances and scalability highly depends on your use case in particular whether you use ID's or not.">
+    <updates version="//@versions.1" description="A specific work has been done to make sure the component scales well with huge UML models and ID based matching. Some algorithms have been enhanced and other memorry leaks have been tracked down.">
+      <references title="1.3M3 Performances and Scalability" uri="http://www.eclipse.org/emf/compare/doc/compare_scalability.pdf"/>
+    </updates>
+    <updates version="//@versions.1" description="We are now measuring performance and scalability for each release."/>
+  </features>
+</version:Product>
