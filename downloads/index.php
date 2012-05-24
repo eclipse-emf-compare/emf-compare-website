@@ -7,9 +7,10 @@
 	$pageTitle 		= "EMF Compare - Download";
 	
 	$PWD = $App->getDownloadBasePath() . "/modeling/emf/compare/downloads/drops";
+	$branches = loadDirSimple($PWD, ".*", "d");
 
 	$html  = '<div id="midcolumn">';
-	$html .= getPWD("/downloads/drops");
+	$html .= $branches;
 	$html .= "</div>";
 	
 	# Generate the web page
