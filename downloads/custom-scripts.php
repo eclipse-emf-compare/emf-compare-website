@@ -42,34 +42,34 @@
 	}
 	
 	function generateHTMLReleaseList($releases) {
-		$html = "";
+		$releaseList = "";
 		if (sizeof($releases) > 0) {
-			$html .= "<div class=\"homeitem3col\">\n";
-			$html .= "<h3>Releases</h3>\n";
-			$html .= "<ul>\n";
+			$releaseList .= "<div class=\"homeitem3col\">\n";
+			$releaseList .= "<h3>Releases</h3>\n";
+			$releaseList .= "<ul>\n";
 			
 			foreach ($releases as $version => $branchReleases) {
-				$html .= "<li>";
-				$html .= $version . " Releases\n";
-				$html .= "<ul>\n";
+				$releaseList .= "<li>";
+				$releaseList .= $version . " Releases\n";
+				$releaseList .= "<ul>\n";
 				
 				foreach ($branchReleases as $rID => $rbranch) {
 					$branch = preg_replace("/.$/", "", $rbranch);
 					$ID = preg_replace("/^(\d{12})([IMNRS])$/", "$2$1", $rID);
 					
-					$html .= "<li>";
-					$html .= $branch . "\n";
+					$releaseList .= "<li>";
+					$releaseList .= $branch . "\n";
 					
-					$html .= "<\li>\n";
+					$releaseList .= "<\li>\n";
 				}
 				
-				$html .= "<\ul>\n";
-				$html .= "<\li>\n";
+				$releaseList .= "<\ul>\n";
+				$releaseList .= "<\li>\n";
 			}
 				
-			$html .= "</ul>\n";
-			$html .= "</div>\n";
+			$releaseList .= "</ul>\n";
+			$releaseList .= "</div>\n";
 		}
-		return $html;
+		return $releaseList;
 	}
 ?>
