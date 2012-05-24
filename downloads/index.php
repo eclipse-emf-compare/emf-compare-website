@@ -9,7 +9,7 @@
 	$PWD = $App->getDownloadBasePath() . "/modeling/emf/compare/downloads/drops";
 
 	$html  = '<div id="midcolumn">';
-	$html .= $PWD;
+	$html .= getPWD("/downloads/drops");
 	$html .= "</div>";
 	
 	# Generate the web page
