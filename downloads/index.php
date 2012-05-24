@@ -2,7 +2,7 @@
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/modeling/includes/buildServer-common.php");
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/modeling/includes/downloads-scripts.php");
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/modeling/includes/scripts.php");
-	require_once("./scripts-override.php");
+	require_once("./custom-scripts.php");
 	
 	$projectTitle = "EMF Compare";
 	$PR = "modeling/emf/compare";
@@ -24,16 +24,16 @@
 	// Retrieve the list of builds from the disk (folder list only)
 	$builds = getBuildsFrom($branches, $PWD);
 	
-	$builds = reorderAndSplitArray($builds, $buildTypes);
+	$builds = reorderAndSplitBuilds($builds, $buildTypes);
 	$releases = $builds[1];
 	$builds = $builds[0];
 	
 	print_r($releases);
 	print_r($builds);
 	
-	$html  = '<div id="midcolumn">';
-	$html .= "EMF Compare downloads";
-	$html .= "</div>";
+	$html  = '<div id="midcolumn">\n';
+	$html .= "EMF Compare downloads\n";
+	$html .= "</div>\n\n";
 	
 	# Generate the web page
 	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
