@@ -4,12 +4,11 @@
 	
 	$pageTitle 		= "EMF Compare - Download";
 	
-	$PWDcompare = getPWD("compare/downloads/drops");
-	$PWDecompare = getPWD("emf/compare/downloads/drops");
-	$PWDmecompare = getPWD("modeling/emf/compare/downloads/drops");
+	$PWD = getPWD();
 
 	$html  = '<div id="midcolumn">';
 	$html .= $pageTitle;
+	$html .= $PWD;
 	$html .= "</div>";
 	
 	# Generate the web page
