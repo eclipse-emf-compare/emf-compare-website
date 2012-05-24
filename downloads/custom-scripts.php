@@ -7,6 +7,7 @@
 			// Others are the usual <type><YYYYMMDDHHMM>
 			$buildDirs[$branch] = loadDirSimple("$PWD/$branch", "[IMNRS](\d{12}|\d{8}-\d{4})", "d");
 		}
+		print_r($buildDirs);
 	
 		// sort by branch (1.2.2 and 1.2.1 will both be in "1.2"), then version (1.2.2 or 1.2.1), then type
 		$builds_temp = array();
