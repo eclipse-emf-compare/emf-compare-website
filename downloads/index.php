@@ -12,6 +12,15 @@
 	$branches = loadDirSimple($PWD, ".*", "d");
 	rsort($branches);
 	
+	$buildtypes = array(
+		"R" => "Release",
+		"S" => "Stable",
+		"I" => "Integration",
+		"M" => "Maintenance",
+		"N" => "Nightly"
+	);
+	$buildTypes = getBuildTypes($branches, $buildtypes);
+	
 	// Retrieve the list of builds from the disk (folder list only)
 	$builds = getBuildsFrom($branches, $PWD);
 	
