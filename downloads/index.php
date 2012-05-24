@@ -5,21 +5,12 @@
 	require_once("./custom-scripts.php");
 	
 	$projectTitle = "EMF Compare";
+	$pageTitle = "EMF Compare - Download";
 	$PR = "modeling/emf/compare";
-	$pageTitle 		= "EMF Compare - Download";
 	
 	$PWD = getPWD("downloads/drops");
 	$branches = loadDirSimple($PWD, ".*", "d");
 	rsort($branches);
-	
-	$buildtypes = array(
-		"R" => "Release",
-		"S" => "Stable",
-		"I" => "Integration",
-		"M" => "Maintenance",
-		"N" => "Nightly"
-	);
-	$buildTypes = getBuildTypes($branches, $buildtypes);
 	
 	// Retrieve the list of builds from the disk (folder list only)
 	$builds = getBuildsFrom($branches, $PWD);
@@ -29,7 +20,10 @@
 	$builds = $builds[0];
 	
 	$html  = "<div id=\"midcolumn\">\n";
-	$html .= generateHTMLReleaseList($releases);
+	$html .= "<ul>\n";
+	$html .= generateHTMLReleaseList($releases, $PWD);
+	$html .= generateHTMLBuildList($builds, $PWD);
+	$html .= "</ul>\n";
 	$html .= "</div>\n\n";
 	
 	# Generate the web page
