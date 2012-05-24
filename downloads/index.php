@@ -21,8 +21,14 @@
 	);
 	$buildTypes = getBuildTypes($branches, $buildtypes);
 	
+	// Retrieve the list of builds from the disk (folder list only)
 	$builds = getBuildsFrom($branches, $PWD);
 	
+	$builds = reorderAndSplitArray($builds, $buildTypes);
+	$releases = $builds[1];
+	$builds = $builds[0];
+	
+	print_r($releases);
 	print_r($builds);
 	
 	$html  = '<div id="midcolumn">';
