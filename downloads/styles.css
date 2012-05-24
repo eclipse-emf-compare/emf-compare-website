@@ -1,22 +1,55 @@
-/*
-* Copy/pasted from eclipse.org CDO website.
-*/
-
 body {
 	text-align: center;
 }
 
-#novaContent {
-	background: #FFF url('background.jpg') top left repeat-x;
-}
-
-#fullcolumn {
-	padding-top: 50px;
+#leftcol {
+	margin-top: -20px;
 }
 
 #midcolumn {
-	padding-left: 30px;
-	width: 650px !important;
+	width: 703px;
+	margin-top: -36px;
+	margin-right: 0;
+	margin-left: -20px;
+	padding-top: 20px;
+	padding-right: 50px;
+	padding-left: 40px;
+}
+
+.sideitem {
+	background: url(/eclipse.org-common/themes/Nova/images/thinModalBg.png)
+		repeat-x scroll 0 0;
+}
+
+.sideitem h6 {
+	color: #575757;
+	font-size: 20px;
+	padding-top: -6px;
+}
+
+.areaIcon {
+	margin-left: 50px;
+}
+
+#leftnav li.separator {
+	margin-top: 20px;
+}
+
+#leftnav li.separatorNolink {
+	margin-top: 20px;
+	margin-left: 0;
+	padding-top: 5px;
+	padding-right: 0;
+	list-style-image: none;
+	border-top: 1px dotted #d4d4dd;
+	font-size: 12px;
+	font-weight: bold;
+	color: #575757;
+}
+
+#leftnav li.selected {
+	list-style-image:
+		url(/eclipse.org-common/themes/Nova/images/leftNavSelected.png);
 }
 
 #infoDiv {
