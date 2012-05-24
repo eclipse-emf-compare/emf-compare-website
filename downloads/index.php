@@ -28,7 +28,7 @@
 	$releases = $builds[1];
 	$builds = $builds[0];
 	
-	$html  = '<div id="midcolumn">\n';
+	$html  = "<div id=\"midcolumn\">\n";
 	$html .= generateHTMLReleaseList($releases);
 	$html .= "</div>\n\n";
 	

@@ -53,9 +53,7 @@
 				$releaseList .= $version . " Releases\n";
 				$releaseList .= "<ul>\n";
 				
-				foreach ($branchReleases as $rbranch => $types) {
-					$branch = preg_replace("/.$/", "", $rbranch);
-					
+				foreach ($branchReleases as $branch => $types) {
 					$releaseList .= "<li>";
 					$releaseList .= $branch . "\n";
 						$releaseList .= "<ul>";
