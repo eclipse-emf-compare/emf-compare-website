@@ -8,7 +8,7 @@
 			$buildDirs[$branch] = loadDirSimple("$PWD/$branch", "[IMNRS](\d{12}|\d{8}-\d{4})", "d");
 		}
 	
-		// sort by branch (1.2.2 and 1.2.1 will both be in "1.2"), then version (1.2.2 or 1.2.1), then type (RSMIN in this order)
+		// sort by branch (1.2.2 and 1.2.1 will both be in "1.2"), then version (1.2.2 or 1.2.1), then type
 		$builds_temp = array();
 		foreach ($buildDirs as $branch => $dirList) {
 			$version = substr($branch, 0, 3);
@@ -53,18 +53,24 @@
 				$releaseList .= $version . " Releases\n";
 				$releaseList .= "<ul>\n";
 				
-				foreach ($branchReleases as $rID => $rbranch) {
+				foreach ($branchReleases as $rbranch => $types) {
 					$branch = preg_replace("/.$/", "", $rbranch);
-					$ID = preg_replace("/^(\d{12})([IMNRS])$/", "$2$1", $rID);
 					
 					$releaseList .= "<li>";
 					$releaseList .= $branch . "\n";
+						$releaseList .= "<ul>";
 					
-					$releaseList .= "<\li>\n";
+					foreach ($types as $type => $rID) {
+						$ID = preg_replace("/^(\d{12})([IMNRS])$/", "$2$1", $rID);
+						
+						$releaseList .= "<li>" . $ID . "</li>";
+					}
+					$releaseList .= "</ul>";
+					$releaseList .= "</li>\n";
 				}
 				
-				$releaseList .= "<\ul>\n";
-				$releaseList .= "<\li>\n";
+				$releaseList .= "</ul>\n";
+				$releaseList .= "</li>\n";
 			}
 				
 			$releaseList .= "</ul>\n";
