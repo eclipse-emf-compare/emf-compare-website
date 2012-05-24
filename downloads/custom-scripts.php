@@ -29,7 +29,7 @@
 		foreach ($buildTypes as $branch => $types) {
 			$version = substr($branch, 0, 3);
 			foreach ($types as $type => $names) {
-				if ($type == "R" && isset($oldBuilds[$branch][$type])) {
+				if ($type == "R" && isset($oldBuilds[$version][$branch][$type])) {
 					$id = $oldBuilds[$version][$branch][$type][0];
 					$releases[$version][substr($id, 1) . $type] = $branch . $type;
 				} else if (array_key_exists($version, $oldBuilds) && array_key_exists($branch, $oldBuilds[$version]) && array_key_exists($type, $oldBuilds[$version][$branch]) && is_array($oldBuilds[$version][$branch][$type])) {
