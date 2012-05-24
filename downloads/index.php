@@ -5,10 +5,7 @@
 	$pageTitle 		= "EMF Compare - Download";
 
 	$html  = '<div id="midcolumn">';
-	$html .= "EMFCompare downloads";
-	$html .= $proj;
-	$html .= $projct;
-	$html .= $PWD;
+	$html .= $pageTitle;
 	$html .= "</div>";
 	
 	# Generate the web page
