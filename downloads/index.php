@@ -3,7 +3,7 @@
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/modeling/includes/downloads-scripts.php");
 	
 	$pageTitle 		= "EMF Compare - Download";
-	$PWD = getPWD("emf/compare/downloads/drops");
+	$PWD = getPWD("compare/downloads/drops");
 
 	$html  = '<div id="midcolumn">';
 	$html .= "EMFCompare downloads";
