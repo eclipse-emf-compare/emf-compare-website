@@ -2,12 +2,13 @@
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/modeling/includes/buildServer-common.php");
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/modeling/includes/downloads-scripts.php");
 	
+	$projectTitle = "EMF Compare";
+	$PR = "modeling/emf/compare";
 	$pageTitle 		= "EMF Compare - Download";
 	
-	$PWD = "/home/local/data/httpd/download.eclipse.org/modeling/emf/compare/downloads/drops";
+	$PWD = $App->getDownloadBasePath() . "/modeling/emf/compare/downloads/drops";
 
 	$html  = '<div id="midcolumn">';
-	$html .= $App->getDownloadBasePath();
 	$html .= $PWD;
 	$html .= "</div>";
 	
