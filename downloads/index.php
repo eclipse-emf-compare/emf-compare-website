@@ -4,6 +4,10 @@
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/modeling/includes/scripts.php");
 	require_once("./custom-scripts.php");
 	
+	$App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/modeling/includes/common.css"/>' . "\n\t");
+	$App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/modeling/includes/downloads.css"/>' . "\n\t");
+	$App->AddExtraHtmlHeader('<script src="/modeling/includes/downloads.js" type="text/javascript"></script>' . "\n\t");
+	
 	$projectTitle = "EMF Compare";
 	$pageTitle = "EMF Compare - Download";
 	$PR = "modeling/emf/compare";
