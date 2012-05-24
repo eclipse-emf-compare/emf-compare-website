@@ -2,7 +2,7 @@
 	$pageTitle 		= "EMF Compare - Download";
 
 	$html  = '<div id="midcolumn">';
-	$html .= EMFCompare downloads;
+	$html .= "EMFCompare downloads";
 	$html .= "</div>";
 	
 	# Generate the web page
