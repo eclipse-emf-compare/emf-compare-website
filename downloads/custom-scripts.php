@@ -50,7 +50,7 @@
 			
 			foreach ($releases as $version => $branchReleases) {
 				$html .= "<li>";
-				$html .= "$version Releases\n";
+				$html .= $version . " Releases\n";
 				$html .= "<ul>\n";
 				
 				foreach ($branchReleases as $rID => $rbranch) {
@@ -58,8 +58,7 @@
 					$ID = preg_replace("/^(\d{12})([IMNRS])$/", "$2$1", $rID);
 					
 					$html .= "<li>";
-					$html .= "$branch\n";
-					
+					$html .= $branch . "\n";
 					
 					$html .= "<\li>\n";
 				}

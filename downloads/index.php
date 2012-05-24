@@ -28,11 +28,8 @@
 	$releases = $builds[1];
 	$builds = $builds[0];
 	
-	print_r($releases);
-	print_r($builds);
-	
 	$html  = '<div id="midcolumn">\n';
-	$html .= "EMF Compare downloads\n";
+	$html .= generateHTMLReleaseList($releases);
 	$html .= "</div>\n\n";
 	
 	# Generate the web page
