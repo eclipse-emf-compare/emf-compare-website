@@ -99,8 +99,6 @@
 	
 	function generateHTMLReleaseList($releases, $PWD) {
 		$releaseList = "";
-		print_r($releases);
-		print_r($PWD);
 		if (sizeof($releases) > 0) {
 			$releaseList .= "<li class=\"repo-item\">\n";
 			$releaseList .= "<a href=\"javascript:toggle('repo_releases')\" class=\"repo-label1\">Releases</a>";
@@ -142,7 +140,7 @@
 				$releaseList .= "<ul>\n";
 				
 				foreach ($branches as $branch => $ID) {
-					$releaseList = generateHTMLForBuild($PWD, $version, $branch, $ID, "releases");
+					$releaseList .= generateHTMLForBuild($PWD, $version, $branch, $ID, "releases");
 				}
 				
 				$releaseList .= "</ul>\n";
@@ -198,22 +196,22 @@
 						$buildList .= "<ul>\n";
 						
 						foreach ($IDs as $ID) {
-							$releaseList = generateHTMLForBuild($PWD, $version, $branch, $ID, $typeUpdateSite);
+							$buildList .= generateHTMLForBuild($PWD, $version, $branch, $ID, $typeUpdateSite);
 						}
 						
-						$releaseList .= "</ul>\n";	
-						$releaseList .= "</div>\n";
-						$releaseList .= "</li>\n";
+						$buildList .= "</ul>\n";	
+						$buildList .= "</div>\n";
+						$buildList .= "</li>\n";
 					}
 					
-					$releaseList .= "</ul>\n";	
-					$releaseList .= "</div>\n";
-					$releaseList .= "</li>\n";
+					$buildList .= "</ul>\n";	
+					$buildList .= "</div>\n";
+					$buildList .= "</li>\n";
 				}
 				
-				$releaseList .= "</ul>\n";	
-				$releaseList .= "</div>\n";
-				$releaseList .= "</li>\n";
+				$buildList .= "</ul>\n";	
+				$buildList .= "</div>\n";
+				$buildList .= "</li>\n";
 			}
 		}
 		return $buildList;
