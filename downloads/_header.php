@@ -1,5 +1,7 @@
-<?php include "$projectRoot/_projectCommon/header.php";
+<?php
 ########################################################################
+
+ob_start();
 
 $navIconURL = "http://dev.eclipse.org/huge_icons/actions/go-down.png";
 $Nav->addNavSeparator($areaTitle, "");

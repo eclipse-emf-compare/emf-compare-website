@@ -1,4 +1,4 @@
-<?php $areaRelative = "."; require_once "$areaRelative/_defs.php";  include "$areaRoot/_header.php";
+<?php $areaRelative = "."; require_once "$areaRelative/_defs.php";  include "$areaRelative/_header.php";
 ########################################################################
 
 $App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/modeling/includes/common.css"/>' . "\n\t");
@@ -13,4 +13,4 @@ print '</div>';
 
 
 ########################################################################
-include "$areaRoot/_footer.php"; ?>
+include "$areaRelative/_footer.php"; ?>
