@@ -103,14 +103,13 @@
 			$releaseList .= "<li class=\"repo-item\">\n";
 			$releaseList .= "<a href=\"javascript:toggle('repo_releases')\" class=\"repo-label1\">Releases</a>";
 			$releaseList .= "<a name=\"releases\" href=\"#releases\">";
-			$releaseList .= "<img src=\"http://www.eclipse.org/modeling/images/link.png\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
+			$releaseList .= "<img src=\"/modeling/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
 			$releaseList .= "</a>\n";
 			$releaseList .= "<div class=\"repo1\" id=\"repo_releases\">\n";
 			
 			$releaseList .= "<table border=\"0\" width=\"100%\">\n";
 			$releaseList .= "<tr class=\"repo-info\">";
-			// PENDING package image
-			$releaseList .= "<td><img src=\"\" alt=\"composite update site\"/></td>";
+			$releaseList .= "<td><img src=\"/modeling/emf/compare/images/22/package-x-generic.png\" alt=\"composite update site\"/></td>";
 			// PENDING check link
 			$releaseList .= "<td><b><a href=\"http://download.eclipse.org/modeling/emf/compare/updates/releases\">Update Site</a></b> for use with <a href=\"http://help.eclipse.org/indigo/index.jsp?topic=/org.eclipse.platform.doc.user/tasks/tasks-127.htm\">p2</a>.</td>";
 			$releaseList .= "<td class=\"file-size level1\"></td>";
@@ -124,13 +123,12 @@
 			
 				$releaseList .= "<li  class=\"repo-item\">\n";
 				$releaseList .= "<a href=\"javascript:toggle('repo_releases_$htmlVersion')\" class=\"repo-label2\">$version Releases</a>";
-				$releaseList .= "<a name=\"releases_$htmlVersion\" href=\"#releases_$htmlVersion\"><img src=\"http://www.eclipse.org/modeling/images/link.png\" alt=\"Permalink\" width=\"12\" height=\"12\"/></a>\n";
+				$releaseList .= "<a name=\"releases_$htmlVersion\" href=\"#releases_$htmlVersion\"><img src=\"/modeling/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/></a>\n";
 				$releaseList .= "<div class=\"repo2\" id=\"repo_releases_$htmlVersion\">\n";
 				
 				$releaseList .= "<table border=\"0\" width=\"100%\">\n";
 				$releaseList .= "<tr class=\"repo-info\">";
-				// PENDING package image
-				$releaseList .= "<td><img src=\"\" alt=\"composite update site\"/></td>";
+				$releaseList .= "<td><img src=\"/modeling/emf/compare/images/16/package-x-generic.png\" alt=\"composite update site\"/></td>";
 				// PENDING check link
 				$releaseList .= "<td><b><a href=\"http://download.eclipse.org/modeling/emf/compare/updates/releases/$version\">Update Site</a></b> for use with <a href=\"http://help.eclipse.org/indigo/index.jsp?topic=/org.eclipse.platform.doc.user/tasks/tasks-127.htm\">p2</a>.</td>";
 				$releaseList .= "<td class=\"file-size level2\"></td>";
@@ -164,7 +162,7 @@
 				$buildList .= "<li class=\"repo-item\">\n";
 				$buildList .= "<a href=\"javascript:toggle('repo_$htmlVersion')\" class=\"repo-label1\">$version Builds</a>";
 				$buildList .= "<a name=\"builds_$htmlVersion\" href=\"#builds_$htmlVersion\">";
-				$buildList .= "<img src=\"http://www.eclipse.org/modeling/images/link.png\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
+				$buildList .= "<img src=\"/modeling/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
 				$buildList .= "</a>\n";
 				$buildList .= "<div class=\"repo1\" id=\"repo_$htmlVersion\">\n";
 				
@@ -176,7 +174,7 @@
 					$buildList .= "<li class=\"repo-item\">\n";
 					$buildList .= "<a href=\"javascript:toggle('repo_$htmlBranch')\" class=\"repo-label1\">$branch</a>";
 					$buildList .= "<a name=\"builds_$htmlBranch\" href=\"#builds_$htmlBranch\">";
-					$buildList .= "<img src=\"http://www.eclipse.org/modeling/images/link.png\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
+					$buildList .= "<img src=\"/modeling/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
 					$buildList .= "</a>\n";
 					$buildList .= "<div class=\"repo1\" id=\"repo_$htmlBranch\">\n";
 					
@@ -189,7 +187,7 @@
 						$buildList .= "<li class=\"repo-item\">\n";
 						$buildList .= "<a href=\"javascript:toggle('repo_$htmlBranch_$type')\" class=\"repo-label1\">$branch $typeLabel Builds</a>";
 						$buildList .= "<a name=\"builds_$htmlBranch_$type\" href=\"#builds_$htmlBranch_$type\">";
-						$buildList .= "<img src=\"http://www.eclipse.org/modeling/images/link.png\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
+						$buildList .= "<img src=\"/modeling/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
 						$buildList .= "</a>\n";
 						$buildList .= "<div class=\"repo1\" id=\"repo_$htmlBranch_$type\">\n";
 						
@@ -226,15 +224,14 @@
 	
 		$buildHTML = "<li class=\"repo-item\">\n";
 		$buildHTML .= "<b><a href=\"javascript:toggle('drop_$ID')\" class=\"drop-label\">$branch ($dateFormat)</a></b>";
-		$buildHTML .= "<a name=\"$ID\" href=\"#$ID\"><img src=\"http://www.eclipse.org/modeling/images/link.png\" alt=\"Permalink\" width=\"12\" height=\"12\"/></a>\n";
+		$buildHTML .= "<a name=\"$ID\" href=\"#$ID\"><img src=\"/modeling/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/></a>\n";
 		$buildHTML .= "<div class=\"drop\" id=\"drop_$ID\">\n";
 		
 		$buildHTML .= "<table border=\"0\" width=\"100%\">\n";
 		
 		// UPDATE SITE
 		$buildHTML .= "<tr class=\"repo-info\">";
-		// PENDING package image
-		$buildHTML .= "<td><img src=\"\" alt=\"composite update site\"/></td>";
+		$buildHTML .= "<td><img src=\"/modeling/emf/compare/images/22/package-x-generic.png\" alt=\"composite update site\"/></td>";
 		// PENDING check link
 		$buildHTML .= "<td><b><a href=\"http://download.eclipse.org/modeling/emf/compare/updates/$typeUpdateSite/$version/$ID\">Update Site</a></b> for use with <a href=\"http://help.eclipse.org/indigo/index.jsp?topic=/org.eclipse.platform.doc.user/tasks/tasks-127.htm\">p2</a>.</td>";
 		$buildHTML .= "<td class=\"file-size level3\"></td>";
@@ -245,8 +242,7 @@
 		// ARCHIVED UPDATE SITE
 		if ($archivedSite != "") {
 			$buildHTML .= "<tr class=\"drop-info\">";
-			// PENDING download image (or package image?)
-			$buildHTML .= "<td><img src=\"\" alt=\"archived update site\"/></td>";
+			$buildHTML .= "<td><img src=\"/modeling/emf/compare/images/16/package-x-generic.png\" alt=\"archived update site\"/></td>";
 			// PENDING check link
 			$buildHTML .= "<td><a href=\"http://www.eclipse.org/downloads/download.php?file=/modeling/emf/compare/downloads/drops/$branch/$ID/$archivedSite&amp;protocol=http\">Archived update site</a> for local use with <a href=\"http://help.eclipse.org/indigo/index.jsp?topic=/org.eclipse.platform.doc.user/tasks/tasks-127.htm\">p2</a>.</td>";
 			// PENDING retrieve zip size
@@ -257,8 +253,7 @@
 		// SDK
 		if ($SDKArchive != "") {
 			$buildHTML .= "<tr class=\"drop-info\">";
-			// PENDING download image
-			$buildHTML .= "<td><img src=\"\" alt=\"EMF Compare SDK\"/></td>";
+			$buildHTML .= "<td><img src=\"/modeling/emf/compare/images/16/go-down.png\" alt=\"EMF Compare SDK\"/></td>";
 			// PENDING check link
 			$buildHTML .= "<td><a href=\"http://www.eclipse.org/downloads/download.php?file=/modeling/emf/compare/downloads/drops/$branch/$ID/$SDKArchive&amp;protocol=http\">EMF Compare SDK</a></td>";
 			// PENDING retrieve zip size
