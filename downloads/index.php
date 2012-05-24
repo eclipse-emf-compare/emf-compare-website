@@ -2,7 +2,7 @@
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/modeling/includes/buildServer-common.php");
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/modeling/includes/downloads-scripts.php");
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/modeling/includes/scripts.php");
-	require_once("scripts-override.php");
+	require_once("./scripts-override.php");
 	
 	$projectTitle = "EMF Compare";
 	$PR = "modeling/emf/compare";
