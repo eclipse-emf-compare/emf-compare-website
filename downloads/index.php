@@ -21,7 +21,7 @@
 	);
 	$buildTypes = getBuildTypes($branches, $buildtypes);
 	
-	$builds = getBuildsFromDirs($branches, $PWD);
+	getBuildsFrom($branches, $PWD);
 	
 	print_r($builds);
 	
