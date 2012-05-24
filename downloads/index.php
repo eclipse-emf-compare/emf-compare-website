@@ -6,11 +6,24 @@
 	$PR = "modeling/emf/compare";
 	$pageTitle 		= "EMF Compare - Download";
 	
-	$PWD = $App->getDownloadBasePath() . "/modeling/emf/compare/downloads/drops";
+	$PWD = getPWD("downloads/drops");
 	$branches = loadDirSimple($PWD, ".*", "d");
+	rsort($branches);
+	
+	$buildtypes = array(
+		"R" => "Release",
+		"S" => "Stable",
+		"I" => "Integration",
+		"M" => "Maintenance",
+		"N" => "Nightly"
+	);
+	$buildTypes = getBuildTypes($branches, $buildtypes);
+	
+	print_r($branches);
+	print_r($buildTypes);
 
 	$html  = '<div id="midcolumn">';
-	$html .= getPWD("/downloads/drops");
+	$html .= getPWD("downloads/drops");
 	$html .= $branches;
 	$html .= "</div>";
 	
