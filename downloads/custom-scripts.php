@@ -70,5 +70,6 @@
 			$html .= "</ul>\n";
 			$html .= "</div>\n";
 		}
+		return $html;
 	}
 ?>
