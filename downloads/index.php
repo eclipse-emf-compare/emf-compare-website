@@ -2,6 +2,7 @@
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/modeling/includes/buildServer-common.php");
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/modeling/includes/downloads-scripts.php");
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/modeling/includes/scripts.php");
+	require_once("scripts-override.php");
 	
 	$projectTitle = "EMF Compare";
 	$PR = "modeling/emf/compare";
@@ -20,12 +21,12 @@
 	);
 	$buildTypes = getBuildTypes($branches, $buildtypes);
 	
-	print_r($branches);
-	print_r($buildTypes);
-
+	$builds = getBuildsFromDirs($branches, $PWD);
+	
+	print_r($builds);
+	
 	$html  = '<div id="midcolumn">';
-	$html .= getPWD("downloads/drops");
-	$html .= $branches;
+	$html .= "EMF Compare downloads";
 	$html .= "</div>";
 	
 	# Generate the web page
