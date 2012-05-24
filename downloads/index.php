@@ -23,8 +23,6 @@
 	
 	getBuildsFrom($branches, $PWD);
 	
-	print_r($builds);
-	
 	$html  = '<div id="midcolumn">';
 	$html .= "EMF Compare downloads";
 	$html .= "</div>";
