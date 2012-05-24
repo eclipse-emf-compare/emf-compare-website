@@ -5,7 +5,7 @@
 	
 		foreach ($branchDirs as $branch)
 		{
-			$buildDirs[$branch] = loadDirSimple("$PWD/$branch", "[IMNRS]\d{12}", "d");
+			$buildDirs[$branch] = loadDirSimple("$PWD/$branch", "[IMNRS](\d{12}|\d{8}-\d{4})", "d");
 		}
 		print_r($buildDirs);
 	
