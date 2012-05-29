@@ -185,11 +185,10 @@
 						$typeUpdateSite = getTypeUpdateSite($type);
 						
 						$buildList .= "<li class=\"repo-item\">\n";
-						$buildList .= "<a href=\"javascript:toggle('repo_$htmlBranch_$type')\" class=\"repo-label1\">$branch $typeLabel Builds</a>";
-						$buildList .= "<a name=\"builds_$htmlBranch_$type\" href=\"#builds_$htmlBranch_$type\">";
+						$buildList .= "<a href=\"javascript:toggle('repo_" . $htmlBranch . "_$type')\" class=\"repo-label1\">$branch $typeLabel Builds</a>";
+						$buildList .= "<a name=\"builds_" . $htmlBranch . "_$type\" href=\"#builds_" . $htmlBranch . "_$type\">";
 						$buildList .= "<img src=\"/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
 						$buildList .= "</a>\n";
-						// PHP seems to ignore the first underscore and variable in <underscore>variable<underscore>variable
 						$buildList .= "<div class=\"repo2\" id=\"repo_" . $htmlBranch . "_$type\">\n";
 						
 						$buildList .= "<ul>\n";
