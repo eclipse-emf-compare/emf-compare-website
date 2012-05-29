@@ -229,7 +229,7 @@
 		if ($display) {
 			$buildHTML .= ">\n";
 		} else {
-			$buildHTML .= "style=\"display: \none\">\n";
+			$buildHTML .= " style=\"display: none\">\n";
 		}
 		
 		$buildHTML .= "<table border=\"0\" width=\"100%\">\n";
