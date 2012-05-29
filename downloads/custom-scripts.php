@@ -185,6 +185,8 @@
 						$typeUpdateSite = getTypeUpdateSite($type);
 						
 						$buildList .= "<li class=\"repo-item\">\n";
+						print_r($htmlBranch);
+						print_r($type);
 						$buildList .= "<a href=\"javascript:toggle('repo_$htmlBranch_$type')\" class=\"repo-label1\">$branch $typeLabel Builds</a>";
 						$buildList .= "<a name=\"builds_$htmlBranch_$type\" href=\"#builds_$htmlBranch_$type\">";
 						$buildList .= "<img src=\"/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
