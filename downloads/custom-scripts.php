@@ -145,7 +145,7 @@
 				$releaseList .= "<ul>\n";
 				
 				foreach ($branches as $branch => $ID) {
-					$releaseList .= generateHTMLForBuild($projectTitle, $PR, $PWD, $version, $branch, $ID, "releases", $display);
+					$releaseList .= generateHTMLForBuild($projectTitle, $PR, $PWD, $websiteRoot, $version, $branch, $ID, "releases", $display);
 					
 					// Only display the very latest release
 					if ($display) {
@@ -227,7 +227,7 @@
 						$buildList .= "<ul>\n";
 						
 						foreach ($IDs as $ID) {
-							$buildList .= generateHTMLForBuild($projectTitle, $PR, $PWD, $version, $branch, $ID, $typeUpdateSite, $display);
+							$buildList .= generateHTMLForBuild($projectTitle, $PR, $PWD, $websiteRoot, $version, $branch, $ID, $typeUpdateSite, $display);
 							
 							// Only display the very latest build
 							if ($display) {
@@ -253,7 +253,7 @@
 		return $buildList;
 	}
 	
-	function generateHTMLForBuild($projectTitle, $PR, $PWD, $version, $branch, $ID, $typeUpdateSite, $display = false) {
+	function generateHTMLForBuild($projectTitle, $PR, $PWD, $websiteRoot, $version, $branch, $ID, $typeUpdateSite, $display = false) {
 		// YYYY/MM/DD HH:MM
 		$dateFormat = preg_replace("/[IMNRS](\d{4})(\d{2})(\d{2})-?(\d{2})(\d{2})/", "$1/$2/$3 $4:$5", $ID);
 		$zips_in_folder = loadDirSimple("$PWD/$branch/$ID/", "(\.zip|\.tar\.gz)", "f");
