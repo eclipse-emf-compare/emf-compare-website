@@ -215,7 +215,7 @@
 		return $buildList;
 	}
 	
-	function generateHTMLForBuild($PWD, $version, $branch, $ID, $typeUpdateSite) {
+	function generateHTMLForBuild($PWD, $version, $branch, $ID, $typeUpdateSite, $display = false) {
 		// YYYY/MM/DD HH:MM
 		$dateFormat = preg_replace("/[IMNRS](\d{4})(\d{2})(\d{2})-?(\d{2})(\d{2})/", "$1/$2/$3 $4:$5", $ID);
 		$zips_in_folder = loadDirSimple("$PWD/$branch/$ID/", "(\.zip|\.tar\.gz)", "f");
@@ -225,7 +225,12 @@
 		$buildHTML = "<li class=\"repo-item\">\n";
 		$buildHTML .= "<b><a href=\"javascript:toggle('drop_$ID')\" class=\"drop-label\">$branch ($dateFormat)</a></b>";
 		$buildHTML .= "<a name=\"$ID\" href=\"#$ID\"><img src=\"/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/></a>\n";
-		$buildHTML .= "<div class=\"drop\" id=\"drop_$ID\">\n";
+		$buildHTML .= "<div class=\"drop\" id=\"drop_$ID\"";
+		if ($display) {
+			$buildHTML .= ">\n";
+		} else {
+			$buildHTML .= "style=\"display: \none\">\n";
+		}
 		
 		$buildHTML .= "<table border=\"0\" width=\"100%\">\n";
 		
