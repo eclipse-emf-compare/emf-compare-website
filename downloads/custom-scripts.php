@@ -97,7 +97,7 @@
 		return "";
 	}
 	
-	function generateHTMLReleaseList($releases, $PR, $PWD, $websiteRoot) {
+	function generateHTMLReleaseList($releases, $projectTitle, $PR, $PWD, $websiteRoot) {
 		// We'll only show the very first release in the list (latest), the others will be reduced by default
 		$display = true;
 	
@@ -145,7 +145,7 @@
 				$releaseList .= "<ul>\n";
 				
 				foreach ($branches as $branch => $ID) {
-					$releaseList .= generateHTMLForBuild($PWD, $version, $branch, $ID, "releases", $display);
+					$releaseList .= generateHTMLForBuild($projectTitle, $PR, $PWD, $version, $branch, $ID, "releases", $display);
 					
 					// Only display the very latest release
 					if ($display) {
@@ -165,7 +165,7 @@
 		return $releaseList;
 	}
 	
-	function generateHTMLBuildList($builds, $PWD, $websiteRoot) {
+	function generateHTMLBuildList($builds, $projectTitle, $PR, $PWD, $websiteRoot) {
 		// Only display the very latest build
 		$display = true;
 		
@@ -175,12 +175,12 @@
 				$htmlVersion = preg_replace("/\./", "_", $version);
 			
 				$buildList .= "<li class=\"repo-item\">\n";
-				$buildList .= "<a href=\"javascript:toggle('repo_$htmlVersion')\" class=\"repo-label1\">$version Builds</a>";
-				$buildList .= "<a name=\"builds_$htmlVersion\" href=\"#builds_$htmlVersion\">";
-				$buildList .= "<img src=\"/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
+				$buildList .= "<a href=\"javascript:toggle('repo_" . $htmlVersion . "')\" class=\"repo-label1\">" . $version . " Builds</a>";
+				$buildList .= "<a name=\"builds_" . $htmlVersion . "\" href=\"#builds_" . $htmlVersion . "\">";
+				$buildList .= "<img src=\"" . $websiteRoot . "/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
 				$buildList .= "</a>\n";
 				
-				$buildList .= "<div class=\"repo1\" id=\"repo_$htmlVersion\"";
+				$buildList .= "<div class=\"repo1\" id=\"repo_" . $htmlVersion . "\"";
 				if ($display) {
 					$buildList .= ">\n";
 				} else {
@@ -193,12 +193,12 @@
 					$htmlBranch = preg_replace("/\./", "_", $branch);
 					
 					$buildList .= "<li class=\"repo-item\">\n";
-					$buildList .= "<a href=\"javascript:toggle('repo_$htmlBranch')\" class=\"repo-label1\">$branch</a>";
-					$buildList .= "<a name=\"builds_$htmlBranch\" href=\"#builds_$htmlBranch\">";
-					$buildList .= "<img src=\"/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
+					$buildList .= "<a href=\"javascript:toggle('repo_" . $htmlBranch . "')\" class=\"repo-label1\">" . $branch . "</a>";
+					$buildList .= "<a name=\"builds_" . $htmlBranch . "\" href=\"#builds_" . $htmlBranch . "\">";
+					$buildList .= "<img src=\"" . $websiteRoot . "/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
 					$buildList .= "</a>\n";
 					
-					$buildList .= "<div class=\"repo2\" id=\"repo_$htmlBranch\"";
+					$buildList .= "<div class=\"repo2\" id=\"repo_" . $htmlBranch . "\"";
 					if ($display) {
 						$buildList .= ">\n";
 					} else {
@@ -212,12 +212,12 @@
 						$typeUpdateSite = getTypeUpdateSite($type);
 						
 						$buildList .= "<li class=\"repo-item\">\n";
-						$buildList .= "<a href=\"javascript:toggle('repo_" . $htmlBranch . "_$type')\" class=\"repo-label1\">$branch $typeLabel Builds</a>";
-						$buildList .= "<a name=\"builds_" . $htmlBranch . "_$type\" href=\"#builds_" . $htmlBranch . "_$type\">";
-						$buildList .= "<img src=\"/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
+						$buildList .= "<a href=\"javascript:toggle('repo_" . $htmlBranch . "_" . $type . "')\" class=\"repo-label1\">" . $branch . " " . $typeLabel . " Builds</a>";
+						$buildList .= "<a name=\"builds_" . $htmlBranch . "_" . $type . "\" href=\"#builds_" . $htmlBranch . "_" . $type . "\">";
+						$buildList .= "<img src=\"" . $websiteRoot . "/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
 						$buildList .= "</a>\n";
 						
-						$buildList .= "<div class=\"repo2\" id=\"repo_" . $htmlBranch . "_$type\"";
+						$buildList .= "<div class=\"repo2\" id=\"repo_" . $htmlBranch . "_" . $type . "\"";
 						if ($display) {
 							$buildList .= ">\n";
 						} else {
@@ -227,7 +227,7 @@
 						$buildList .= "<ul>\n";
 						
 						foreach ($IDs as $ID) {
-							$buildList .= generateHTMLForBuild($PWD, $version, $branch, $ID, $typeUpdateSite, $display);
+							$buildList .= generateHTMLForBuild($projectTitle, $PR, $PWD, $version, $branch, $ID, $typeUpdateSite, $display);
 							
 							// Only display the very latest build
 							if ($display) {
@@ -253,7 +253,7 @@
 		return $buildList;
 	}
 	
-	function generateHTMLForBuild($PWD, $version, $branch, $ID, $typeUpdateSite, $display = false) {
+	function generateHTMLForBuild($projectTitle, $PR, $PWD, $version, $branch, $ID, $typeUpdateSite, $display = false) {
 		// YYYY/MM/DD HH:MM
 		$dateFormat = preg_replace("/[IMNRS](\d{4})(\d{2})(\d{2})-?(\d{2})(\d{2})/", "$1/$2/$3 $4:$5", $ID);
 		$zips_in_folder = loadDirSimple("$PWD/$branch/$ID/", "(\.zip|\.tar\.gz)", "f");
@@ -261,9 +261,10 @@
 		$SDKArchive = getSDKArchive($zips_in_folder);
 	
 		$buildHTML = "<li class=\"repo-item\">\n";
-		$buildHTML .= "<b><a href=\"javascript:toggle('drop_$ID')\" class=\"drop-label\">$branch ($dateFormat)</a></b>";
-		$buildHTML .= "<a name=\"$ID\" href=\"#$ID\"><img src=\"/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/></a>\n";
-		$buildHTML .= "<div class=\"drop\" id=\"drop_$ID\"";
+		// PENDING add alias if any in the displayed text
+		$buildHTML .= "<b><a href=\"javascript:toggle('drop_" . $ID . "')\" class=\"drop-label\">" . $branch . " (" . $dateFormat . ")</a></b>";
+		$buildHTML .= "<a name=\"" . $ID . "\" href=\"#" . $ID . "\"><img src=\"" . $websiteRoot . "/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/></a>\n";
+		$buildHTML .= "<div class=\"drop\" id=\"drop_" . $ID . "\"";
 		if ($display) {
 			$buildHTML .= ">\n";
 		} else {
@@ -274,8 +275,8 @@
 		
 		// UPDATE SITE
 		$buildHTML .= "<tr class=\"repo-info\">";
-		$buildHTML .= "<td><img src=\"/emf/compare/images/22/package-x-generic.png\" alt=\"composite update site\"/></td>";
-		$buildHTML .= "<td><b><a href=\"http://download.eclipse.org/modeling/emf/compare/updates/$typeUpdateSite/$version/$ID\">Update Site</a></b> for use with <a href=\"http://help.eclipse.org/indigo/index.jsp?topic=/org.eclipse.platform.doc.user/tasks/tasks-127.htm\">p2</a>.</td>";
+		$buildHTML .= "<td><img src=\"" . $websiteRoot . "/images/22/package-x-generic.png\" alt=\"composite update site\"/></td>";
+		$buildHTML .= "<td><b><a href=\"http://download.eclipse.org/" . $PR . "/updates/" . $typeUpdateSite . "/" . $version . "/" . $ID . "\">Update Site</a></b> for use with <a href=\"http://help.eclipse.org/indigo/index.jsp?topic=/org.eclipse.platform.doc.user/tasks/tasks-127.htm\">p2</a>.</td>";
 		$buildHTML .= "<td class=\"file-size level3\"></td>";
 		$buildHTML .= "</tr>\n";
 		
@@ -284,8 +285,8 @@
 		// ARCHIVED UPDATE SITE
 		if ($archivedSite != "") {
 			$buildHTML .= "<tr class=\"drop-info\">";
-			$buildHTML .= "<td><img src=\"/emf/compare/images/16/package-x-generic.png\" alt=\"archived update site\"/></td>";
-			$buildHTML .= "<td><a href=\"http://www.eclipse.org/downloads/download.php?file=/modeling/emf/compare/downloads/drops/$branch/$ID/$archivedSite&amp;protocol=http\">Archived update site</a> for local use with <a href=\"http://help.eclipse.org/indigo/index.jsp?topic=/org.eclipse.platform.doc.user/tasks/tasks-127.htm\">p2</a>.</td>";
+			$buildHTML .= "<td><img src=\"" . $websiteRoot . "/images/16/package-x-generic.png\" alt=\"archived update site\"/></td>";
+			$buildHTML .= "<td><a href=\"http://www.eclipse.org/downloads/download.php?file=/" . $PR . "/downloads/drops/" . $branch . "/" . $ID . "/" . $archivedSite . "&amp;protocol=http\">Archived update site</a> for local use with <a href=\"http://help.eclipse.org/indigo/index.jsp?topic=/org.eclipse.platform.doc.user/tasks/tasks-127.htm\">p2</a>.</td>";
 			// PENDING retrieve zip size
 			$buildHTML .= "<td class=\"file-size level3\"><i></i></td>";
 			$buildHTML .= "</tr>\n";
@@ -294,8 +295,8 @@
 		// SDK
 		if ($SDKArchive != "") {
 			$buildHTML .= "<tr class=\"drop-info\">";
-			$buildHTML .= "<td><img src=\"/emf/compare/images/16/go-down.png\" alt=\"EMF Compare SDK\"/></td>";
-			$buildHTML .= "<td><a href=\"http://www.eclipse.org/downloads/download.php?file=/modeling/emf/compare/downloads/drops/$branch/$ID/$SDKArchive&amp;protocol=http\">EMF Compare SDK</a></td>";
+			$buildHTML .= "<td><img src=\"" . $websiteRoot . "/images/16/go-down.png\" alt=\"" . $projectTitle . " SDK\"/></td>";
+			$buildHTML .= "<td><a href=\"http://www.eclipse.org/downloads/download.php?file=/" . $PR . "/downloads/drops/" . $branch . "/" . $ID . "/" . $SDKArchive . "&amp;protocol=http\">" . $projectTitle . " SDK</a></td>";
 			// PENDING retrieve zip size
 			$buildHTML .= "<td class=\"file-size level3\"><i></i></td>";
 			$buildHTML .= "</tr>\n";
