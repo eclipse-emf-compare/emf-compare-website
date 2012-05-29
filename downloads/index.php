@@ -12,7 +12,10 @@
 	
 	$projectTitle = "EMF Compare";
 	$pageTitle = "EMF Compare - Download";
+	// Path to the downloads area under http://downloads.eclipse.org (will be used by custom-scripts and various "eclipse" scripts)
 	$PR = "modeling/emf/compare";
+	// absolute path to the site's home page (will be used by custom-scripts for images)
+	$websiteRoot = "/emf/compare";
 	
 	$PWD = getPWD("downloads/drops");
 	$branches = loadDirSimple($PWD, ".*", "d");
@@ -36,8 +39,8 @@
 	
 	$html  = "<div id=\"midcolumn\">\n";
 	$html .= "<ul>\n";
-	$html .= generateHTMLReleaseList($releases, $PWD);
-	$html .= generateHTMLBuildList($builds, $PWD);
+	$html .= generateHTMLReleaseList($releases, $PR, $PWD, $websiteRoot);
+	$html .= generateHTMLBuildList($builds, $PWD, $websiteRoot);
 	$html .= "</ul>\n";
 	$html .= "</div>\n\n";
 	

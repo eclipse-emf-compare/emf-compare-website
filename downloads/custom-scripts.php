@@ -136,8 +136,8 @@
 				
 				$releaseList .= "<table border=\"0\" width=\"100%\">\n";
 				$releaseList .= "<tr class=\"repo-info\">";
-				$releaseList .= "<td><img src=\"/emf/compare/images/16/package-x-generic.png\" alt=\"composite update site\"/></td>";
-				$releaseList .= "<td><b><a href=\"http://download.eclipse.org/modeling/emf/compare/updates/releases/$version\">Update Site</a></b> for use with <a href=\"http://help.eclipse.org/indigo/index.jsp?topic=/org.eclipse.platform.doc.user/tasks/tasks-127.htm\">p2</a>.</td>";
+				$releaseList .= "<td><img src=\"" . $websiteRoot . "/images/16/package-x-generic.png\" alt=\"composite update site\"/></td>";
+				$releaseList .= "<td><b><a href=\"http://download.eclipse.org/" . $PR . "/updates/releases/" . $version . "\">Update Site</a></b> for use with <a href=\"http://help.eclipse.org/indigo/index.jsp?topic=/org.eclipse.platform.doc.user/tasks/tasks-127.htm\">p2</a>.</td>";
 				$releaseList .= "<td class=\"file-size level2\"></td>";
 				$releaseList .= "</tr>\n";
 				$releaseList .= "</table>\n";
