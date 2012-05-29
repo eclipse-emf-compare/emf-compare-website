@@ -2,6 +2,11 @@
 	background: url('background.jpg') top left repeat-x;
 }
 
+#midcolumn li .repo-item {
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
 .repo-item {
 	margin-top: 2px;
 	margin-bottom: 2px;
@@ -39,7 +44,7 @@
 .drop {
 	margin-top: 0;
 	margin-bottom: 0;
-	padding: 5px 5px 5px 0;
+	padding: 5px 5px 0px 0;
 }
 
 .drop-info {
@@ -62,4 +67,3 @@
 .level2 {
 	padding-right: 26px;
 }
-
