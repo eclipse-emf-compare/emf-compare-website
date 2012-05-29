@@ -5,7 +5,7 @@
 		foreach ($branchDirs as $branch) {
 			// Some of the builds are of the form <type><YYYYMMDD>-<HHMM>
 			// Others are the usual <type><YYYYMMDDHHMM>
-			$buildDirs[$branch] = loadDirSimple("$PWD/$branch", "[IMNRS](\d{12}|\d{8}-\d{4})", "d");
+			$buildDirs[$branch] = loadDirSimple("$PWD/$branch", "[IMNRS](\d{8}-?\d{4})", "d");
 		}
 	
 		// sort by branch (1.2.2 and 1.2.1 will both be in "1.2"), then version (1.2.2 or 1.2.1), then type
@@ -97,8 +97,8 @@
 		return "";
 	}
 	
-	function generateHTMLReleaseList($releases, $PWD) {
-		// We'll only display the very first release in the list (latest)
+	function generateHTMLReleaseList($releases, $PR, $PWD, $websiteRoot) {
+		// We'll only show the very first release in the list (latest), the others will be reduced by default
 		$display = true;
 	
 		$releaseList = "";
@@ -106,14 +106,14 @@
 			$releaseList .= "<li class=\"repo-item\">\n";
 			$releaseList .= "<a href=\"javascript:toggle('repo_releases')\" class=\"repo-label1\">Releases</a>";
 			$releaseList .= "<a name=\"releases\" href=\"#releases\">";
-			$releaseList .= "<img src=\"/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
+			$releaseList .= "<img src=\"" . $websiteRoot . "/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
 			$releaseList .= "</a>\n";
 			$releaseList .= "<div class=\"repo1\" id=\"repo_releases\">\n";
 			
 			$releaseList .= "<table border=\"0\" width=\"100%\">\n";
 			$releaseList .= "<tr class=\"repo-info\">";
-			$releaseList .= "<td><img src=\"/emf/compare/images/22/package-x-generic.png\" alt=\"composite update site\"/></td>";
-			$releaseList .= "<td><b><a href=\"http://download.eclipse.org/modeling/emf/compare/updates/releases\">Update Site</a></b> for use with <a href=\"http://help.eclipse.org/indigo/index.jsp?topic=/org.eclipse.platform.doc.user/tasks/tasks-127.htm\">p2</a>.</td>";
+			$releaseList .= "<td><img src=\"" . $websiteRoot . "/images/22/package-x-generic.png\" alt=\"composite update site\"/></td>";
+			$releaseList .= "<td><b><a href=\"http://download.eclipse.org/" . $PR . "/updates/releases\">Update Site</a></b> for use with <a href=\"http://help.eclipse.org/indigo/index.jsp?topic=/org.eclipse.platform.doc.user/tasks/tasks-127.htm\">p2</a>.</td>";
 			$releaseList .= "<td class=\"file-size level1\"></td>";
 			$releaseList .= "</tr>\n";
 			$releaseList .= "</table>\n";
@@ -124,10 +124,10 @@
 				$htmlVersion = preg_replace("/\./", "_", $version);
 			
 				$releaseList .= "<li  class=\"repo-item\">\n";
-				$releaseList .= "<a href=\"javascript:toggle('repo_releases_$htmlVersion')\" class=\"repo-label2\">$version Releases</a>";
-				$releaseList .= "<a name=\"releases_$htmlVersion\" href=\"#releases_$htmlVersion\"><img src=\"/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/></a>\n";
+				$releaseList .= "<a href=\"javascript:toggle('repo_releases_" . $htmlVersion . "')\" class=\"repo-label2\">" . $version . " Releases</a>";
+				$releaseList .= "<a name=\"releases_" . $htmlVersion . "\" href=\"#releases_" . $htmlVersion . "\"><img src=\"" . $websiteRoot . "/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/></a>\n";
 				
-				$releaseList .= "<div class=\"repo2\" id=\"repo_releases_$htmlVersion\"";
+				$releaseList .= "<div class=\"repo2\" id=\"repo_releases_" . $htmlVersion . "\"";
 				if ($display) {
 					$releaseList .= ">\n";
 				} else {
@@ -165,7 +165,7 @@
 		return $releaseList;
 	}
 	
-	function generateHTMLBuildList($builds, $PWD) {
+	function generateHTMLBuildList($builds, $PWD, $websiteRoot) {
 		// Only display the very latest build
 		$display = true;
 		
