@@ -176,7 +176,7 @@
 					$buildList .= "<a name=\"builds_$htmlBranch\" href=\"#builds_$htmlBranch\">";
 					$buildList .= "<img src=\"/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
 					$buildList .= "</a>\n";
-					$buildList .= "<div class=\"repo1\" id=\"repo_$htmlBranch\">\n";
+					$buildList .= "<div class=\"repo2\" id=\"repo_$htmlBranch\">\n";
 					
 					$buildList .= "<ul>\n";
 					
@@ -189,7 +189,7 @@
 						$buildList .= "<a name=\"builds_$htmlBranch_$type\" href=\"#builds_$htmlBranch_$type\">";
 						$buildList .= "<img src=\"/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
 						$buildList .= "</a>\n";
-						$buildList .= "<div class=\"repo1\" id=\"repo_$htmlBranch_$type\">\n";
+						$buildList .= "<div class=\"repo2\" id=\"repo_$htmlBranch_$type\">\n";
 						
 						$buildList .= "<ul>\n";
 						
