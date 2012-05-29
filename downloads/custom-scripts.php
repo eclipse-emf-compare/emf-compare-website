@@ -98,6 +98,9 @@
 	}
 	
 	function generateHTMLReleaseList($releases, $PWD) {
+		// We'll only display the very first release in the list (latest)
+		$display = true;
+	
 		$releaseList = "";
 		if (sizeof($releases) > 0) {
 			$releaseList .= "<li class=\"repo-item\">\n";
@@ -124,7 +127,13 @@
 				$releaseList .= "<li  class=\"repo-item\">\n";
 				$releaseList .= "<a href=\"javascript:toggle('repo_releases_$htmlVersion')\" class=\"repo-label2\">$version Releases</a>";
 				$releaseList .= "<a name=\"releases_$htmlVersion\" href=\"#releases_$htmlVersion\"><img src=\"/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/></a>\n";
-				$releaseList .= "<div class=\"repo2\" id=\"repo_releases_$htmlVersion\">\n";
+				
+				$releaseList .= "<div class=\"repo2\" id=\"repo_releases_$htmlVersion\"";
+				if ($display) {
+					$releaseList .= ">\n";
+				} else {
+					$releaseList .= " style=\"display: none\">\n";
+				}
 				
 				$releaseList .= "<table border=\"0\" width=\"100%\">\n";
 				$releaseList .= "<tr class=\"repo-info\">";
@@ -138,7 +147,12 @@
 				$releaseList .= "<ul>\n";
 				
 				foreach ($branches as $branch => $ID) {
-					$releaseList .= generateHTMLForBuild($PWD, $version, $branch, $ID, "releases");
+					$releaseList .= generateHTMLForBuild($PWD, $version, $branch, $ID, "releases", $display);
+					
+					// Only display the very latest release
+					if ($display) {
+						$display = false;
+					}
 				}
 				
 				$releaseList .= "</ul>\n";
@@ -154,6 +168,9 @@
 	}
 	
 	function generateHTMLBuildList($builds, $PWD) {
+		// Only display the very latest build
+		$display = true;
+		
 		$buildList = "";
 		if (sizeof($builds) > 0) {
 			foreach ($builds as $version => $branches) {
@@ -164,7 +181,13 @@
 				$buildList .= "<a name=\"builds_$htmlVersion\" href=\"#builds_$htmlVersion\">";
 				$buildList .= "<img src=\"/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
 				$buildList .= "</a>\n";
-				$buildList .= "<div class=\"repo1\" id=\"repo_$htmlVersion\">\n";
+				
+				$buildList .= "<div class=\"repo1\" id=\"repo_$htmlVersion\"";
+				if ($display) {
+					$buildList .= ">\n";
+				} else {
+					$buildList .= " style=\"display: none\">\n";
+				}
 				
 				$buildList .= "<ul>\n";
 				
@@ -176,7 +199,13 @@
 					$buildList .= "<a name=\"builds_$htmlBranch\" href=\"#builds_$htmlBranch\">";
 					$buildList .= "<img src=\"/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
 					$buildList .= "</a>\n";
-					$buildList .= "<div class=\"repo2\" id=\"repo_$htmlBranch\">\n";
+					
+					$buildList .= "<div class=\"repo2\" id=\"repo_$htmlBranch\"";
+					if ($display) {
+						$buildList .= ">\n";
+					} else {
+						$buildList .= " style=\"display: none\">\n";
+					}
 					
 					$buildList .= "<ul>\n";
 					
@@ -189,12 +218,23 @@
 						$buildList .= "<a name=\"builds_" . $htmlBranch . "_$type\" href=\"#builds_" . $htmlBranch . "_$type\">";
 						$buildList .= "<img src=\"/emf/compare/images/link_obj.gif\" alt=\"Permalink\" width=\"12\" height=\"12\"/>";
 						$buildList .= "</a>\n";
-						$buildList .= "<div class=\"repo2\" id=\"repo_" . $htmlBranch . "_$type\">\n";
+						
+						$buildList .= "<div class=\"repo2\" id=\"repo_" . $htmlBranch . "_$type\"";
+						if ($display) {
+							$buildList .= ">\n";
+						} else {
+							$buildList .= " style=\"display: none\">\n";
+						}
 						
 						$buildList .= "<ul>\n";
 						
 						foreach ($IDs as $ID) {
-							$buildList .= generateHTMLForBuild($PWD, $version, $branch, $ID, $typeUpdateSite);
+							$buildList .= generateHTMLForBuild($PWD, $version, $branch, $ID, $typeUpdateSite, $display);
+							
+							// Only display the very latest build
+							if ($display) {
+								$display = false;
+							}
 						}
 						
 						$buildList .= "</ul>\n";	
