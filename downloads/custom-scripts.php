@@ -62,10 +62,10 @@
 	function getBuildLabel($zips) {
 		// the label is the version number plus its appended alias (if any)
 		foreach ($zips as $zip) {
-			preg_match("/\d\.\d\.\d((M|RC)\d)?/", $zip, $matches)
+			preg_match("/\d\.\d\.\d((M|RC)\d)?/", $zip, $matches);
 			print_r($matches);
 			if (sizeof($matches) > 0) {
-				return preg_replace("/(\d\.\d\.\d)((M|RC)\d)?/", "$1 $2", $matches[0]);;
+				return preg_replace("/(\d\.\d\.\d)((M|RC)\d)?/", "$1 $2", $matches[0]);
 			}
 		}
 		return "";
