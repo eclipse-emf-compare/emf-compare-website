@@ -62,9 +62,11 @@
 	function getBuildLabel($zips) {
 		// the label is the version number plus its appended alias (if any)
 		foreach ($zips as $zip) {
-			preg_match("/\d\.\d\.\d((M|RC)\d)?/", $zip, $matches);
-			if (sizeof($matches) > 0) {
-				return preg_replace("/(\d\.\d\.\d)((M|RC)\d)?/", "$1 $2", $matches[0]);
+			preg_match("/(\d\.\d\.\d)((M|RC)\d)?/", $zip, $matches);
+			if (sizeof($matches) == 1) {
+				return $matches[1];
+			} else if (sizeof($matches) == 2) {
+				return $matches[1] . " " . $matches[2];
 			}
 		}
 		return "";
@@ -271,7 +273,7 @@
 		$archivedSite = getUpdateSiteArchive($zips_in_folder);
 		$SDKArchive = getSDKArchive($zips_in_folder);
 		$buildLabel = getBuildLabel($zips_in_folder);
-		if (sizeof($buildLabel) == 0) {
+		if (sizeof($buildLabel) == "") {
 			$buildLabel = $branch;
 		}
 	
