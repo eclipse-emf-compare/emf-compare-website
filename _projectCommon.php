@@ -12,9 +12,9 @@
 	# these are optional
 	$Nav->setLinkList(array());
 	$Nav->addNavSeparator("EMF Compare", 	"/emf/compare");
-	$Nav->addCustomNav("Download", "http://www.eclipse.org/modeling/emf/downloads/?project=compare", "_self", 3);
+	$Nav->addCustomNav("Download", "http://www.eclipse.org/emf/compare/downloads", "_self", 3);
 	$Nav->addCustomNav("Documentation", "http://wiki.eclipse.org/EMF_Compare", "_self", 3);
-	$Nav->addCustomNav("Support", "/modeling/emf/compare/support", "_self", 3);
+	$Nav->addCustomNav("Support", "/emf/compare/support", "_self", 3);
 	$Nav->addCustomNav("Getting Involved", "http://wiki.eclipse.org/EMF_Compare/Contributor_Guide", "_self", 3);
 	
 	$pageKeywords	= "comparison, merge, model, uml, acceleo, dsl, modeling, domain specific language, textual, emf, package, diagram, modeler";
