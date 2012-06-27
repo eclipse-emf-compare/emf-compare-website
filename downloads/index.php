@@ -21,7 +21,6 @@
 	# version => array of qualifiers
 	# ex : "3.3.0" => array("R201205291042")
 	$hiddenBuilds = array(
-		"1.3.1" => array("R20120605-0748")
 	);
 	#### End variables ####
 	
