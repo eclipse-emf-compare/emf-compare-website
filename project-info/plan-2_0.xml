@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<?xml-stylesheet type="text/xsl" href="http://www.eclipse.org/projects/project-plan.xsl"?>
+<plan plan-format="1.0" xmlns="http://www.eclipse.org/project/plan" xmlns:html="http://www.w3.org/1999/xhtml"
+      name="modeling.emf.compare">
+      
+   <release projectid="modeling.emf.compare" version="2.0.0"/>
+   
+   <introduction>
+     <html:div>
+This document lays out the feature and API set for the
+2.0.0 release of the EMF Compare project.
+This project plan inherits from the Modeling Project Plan,
+which should be referenced when consulting this individual project plan.
+     </html:div>
+   </introduction>
+   
+   <release_deliverables>
+     <html:div>
+The release deliverables have the same form as is found in most Eclipse projects. Namely:
+       <html:ul>
+         <html:li>
+EMF Compare source code release, 
+available as versions tagged with "R2_0" in the project's GIT repository.
+         </html:li>
+         <html:li>
+EMF Compare SDK,
+which includes runtime, sources, examples, and documentation,
+and is available as a download or on the update site.
+         </html:li>
+         <html:li>
+EMF Compare binary distribution,
+available as a download or on the update site.
+         </html:li>
+       </html:ul>
+     </html:div>
+   </release_deliverables>
+   
+   <release_milestones>
+      <preamble>
+         <html:div>
+The 2.0 release for EMF Compare is planned outside of the platform release train.
+It was initially planned to align with the Juno release train, but was postponed
+in order not to confuse users as to what was the "Juno" version.
+         </html:div>
+      </preamble>
+      <milestone date="03/21/2012" milestone="M6"><html:div></html:div></milestone>
+      <milestone date="05/04/2012" milestone="M7"><html:div></html:div></milestone>
+      <milestone date="08/03/2012" milestone="RC1"><html:div></html:div></milestone>
+      <milestone date="08/10/2012" milestone="RC2"><html:div></html:div></milestone>
+      <milestone date="08/15/2012" milestone="Final"><html:div></html:div></milestone>
+      <postamble>
+        <html:div>
+EMF Compare will produce maintenance releases to align with the Juno Service Releases
+which includes the Eclipse Platform's 4.2.1 and 4.2.2 releases.<html:br/>
+They will be released a while after the Juno SR release trains in order not to
+confuse adopters.<html:br/>
+EMF Compare may produce additional interim maintenance releases.<html:br/>
+Maintenance releases will only be published if they contain new fixes.
+        </html:div>
+      </postamble>
+    </release_milestones>
+    
+    <target_environments>
+      <html:div>
+In order to remain current, each Eclipse release targets reasonably current versions of the underlying operating environments. 
+The EMF Compare project depends upon on the Platform,which is mostly "pure" Java™.The 4.2 release of the Eclipse Platform Project 
+is written and compiled against version 1.5 of the Java Platform APIs,  and targeted to run on version 1.5 of the Java Runtime Environment, Standard Edition. 
+EMF Compare rely on EMF Core which is written and compiled against version 1.5 of the Java Platform APIs.,
+EMF Compare relies on Java 5.<html:br/>
+Eclipse Platform SDK 4.2 will be tested and validated on a number of reference platforms.<html:br/> 
+EMF Compare  will be tested and validated against a subset of those listed for the platform.<html:br/>
+<html:br/>
+Given that there is no operating system dependent code in EMF Compare, it's expected that EMF Compare will work anywhere the Eclipse Platform does.
+     </html:div>
+     <internationalization>
+          <html:div>
+The Eclipse Platform is designed as the basis for internationalized products. 
+The user interface elements provided by the Eclipse SDK components, 
+including dialogs and error messages, are externalized.<html:br/> 
+The English strings are provided as the default resource bundles.<html:br/> 
+Similarly, the EMF Compare project will externalize all its user interface elements,
+provide English strings for them in its default bundles, 
+and localize a subset of the locales offered by the Platform.<html:br/> 
+The download page will provide the details as they become available.
+          </html:div>
+     </internationalization>
+   </target_environments>
+   
+   <compatibility_with_previous_releases>
+       <html:div>
+EMF Compare 2.0 is a full overhaul of the project, including its design and architecture.<html:br/>
+As such, the project's API is not compatible with its previous 1.* versions. A migration guide
+will be provided in order to ease the adoption effort to this new version.<html:br/>
+
+EMF Compare is developped with and targets the following projects :
+    <html:ul>
+      <html:li>
+        Eclipse Platform SDK version 4.2
+      </html:li>
+      <html:li>
+        EMF Core 2.8
+      </html:li>
+    </html:ul>
+The ultimate EMF Compare release will be compatible with the released version of its dependencies
+and will publish binary and source compatibilities with migration guides on subsequent releases.
+       </html:div>
+   </compatibility_with_previous_releases>
+   
+   <themes_and_priorities>
+     <preamble>
+         <html:div>
+A list of project goals and agreed upon implementation time frames is found in this document.<html:br/>
+For the milestones listed in this document, a set of overall themes is used to indicate what major
+set of functionalities is expected to be the focus of each.<html:br/>
+These themes are presented below, while the goals of the associated Bugzilla entries are available
+for more detailed information.
+         </html:div>
+     </preamble>
+       <theme name="Architecture Overhaul">
+         <description>
+           <html:div>
+             <html:p>
+             EMF Compare 1.* presents limitations that cannot be worked around in order to fix some of the
+             problems identified with the project : merging, scoping, memory performance...<html:br/>
+             Furthermore, this version of EMF Compare proposed a somewhat complex API to its clients and
+             we cannot easily re-design this to ease the project's use.
+             </html:p>
+             <html:p>
+             One of the main goals of EMF Compare 2 is to do a complete overhaul of the project's architecture
+             in order to lift these limitations and clarify the API we provide to our adopters.<html:br/>
+             Among other changes, the core model of EMF Compare will be simplified for clarity, and the main
+             interfaces to launch comparisons and merges of two or three models will be made less convoluted.
+             </html:p>
+           </html:div>
+         </description>          
+       </theme>
+
+        <theme name="Support for Large models">
+          <description>
+            <html:div>
+              <html:p>
+              Though this was also one of the priorities of the 1.3 release that shipped along with the Juno
+              release train, this is one of the points for which we had to make compromises in order to
+              cope with the aforementioned limitations of the 1.* stream.<html:br/>
+              EMF Compare 1.3.0 did propose a lot of improvements on the scalability front, but we could not
+              ensure scalability for millions of elements as can be seen in most "real-life" models used
+              by our adopters in production.
+              </html:p>
+              <html:p>
+              EMF Compare 2.0 will provide the mandatory architecture and API changes required for the
+              project to handle such a scale of input models. Namely, it will propose a "scope" feature that
+              will be fully customizable so that the subsequent version of EMF Compare, 2.1, can provide
+              the fragmented scope that will be able to handle extremely large input models. In short, EMF
+              Compare will be able to function with time and memory footprints dependent on the number of
+              actual differences instead of being dependent on the input models' size.
+              </html:p>
+            </html:div>
+          </description>          
+        </theme>
+        
+        <theme name="Integration with the Eclipse UI">
+          <description>
+            <html:div>
+              <html:p>
+                EMF Compare 1 presented a user interface mimicking the standard Eclipse compare UI, but which
+                was not really integrated with it : folder comparison was not using EMF Compare to show
+                structural differences, the viewers were our own, the displayed elements weren't compatible with
+                what Eclipse Compare was expecting...
+              </html:p>
+              <html:p>
+                EMF Compare 2 is now deeply integrated with Eclipse Compare, reusing its API in each and every
+                possible means. This means that the icons will be the exact same as the standard "text"
+                comparisons, the behavior will be closer to Eclipse compare (notably on folder comparisons and
+                viewer switching)...
+              </html:p>
+            </html:div>
+          </description>
+        </theme>
+        
+        <theme name="Performance Enhancements">
+          <description>
+            <html:div>
+              <html:p>
+              Some performance bottlenecks in EMF Compare 1.3 have been identified yet cannot be solved without
+              fully re-thinking the comparison process. EMF Compare 2.0 will provide these enhancements and will
+              be faster than the 1.* stream even without the aforementioned changes that are planned for version
+              2.1.
+              </html:p>
+            </html:div>
+          </description>
+        </theme>
+   </themes_and_priorities>
+   <appendix name="Legal Notices">
+        <html:div>
+          <html:ul>
+            <html:li>
+Oracle and Java are registered trademarks of Oracle and/or its affiliates.
+            </html:li>
+            <html:li>
+All other products or company names are mentioned for identification purposes only,
+and may be trademarks or service marks of their respective owners.
+            </html:li>
+          </html:ul>
+        </html:div>
+   </appendix>
+</plan>
