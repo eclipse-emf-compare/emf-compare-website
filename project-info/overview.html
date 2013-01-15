@@ -1,0 +1,54 @@
+	<p>	
+	<a href="http://wiki.eclipse.org/index.php/EMF_Compare">EMF Compare</a> brings model comparison to the EMF framework, this tool provides generic support for any kind of metamodel in order to compare and merge models.
+The objectives of this component are to provide a stable and efficient generic implementation of model comparison and to provide an extensible framework for specific needs.
+	</p>
+	<p>
+	EMF Compare provides :
+	<ul>
+	<li><b>A Standalone Core</b> allowing you to compare any kind of EMF model using EMF Compare as a Java Jar, not even needing an Eclipse runtime.</li>
+	<li><b>Team providers integration</b> within Eclipse : support for SVN, CVS and GIT.</li>
+	<li><b>An Extensible Framework</b> allowing you to plugin any matching or diff behavior specialized for your own model.</li>	
+	</ul>
+	</p>
+	<p>
+	The comparison process is divided in 2 phases: <em>matching</em> and <em>differencing</em>. 
+	The <em>matching</em> phase browses the model version figuring out which element comes from which other one, then 
+	the <em>differencing</em> process browses the matching result and create the corresponding delta. This delta may itself be serialized as a model.
+	</p>
+	<div align="center">
+	  	<img src="/modeling/emf/compare/images/global.png"/>
+		<p align="center"><em>Global architecture</em></p>
+	</div>
+	<p>
+	EMF Compare has been released in 1.0 version and is now part of EMF. Next release is planned for June 2011, synchronized with the Indigo release.
+	
+	You may stay tuned to what's going by watching <a href="http://cedric.brun.free.fr/wordpress/">this blog</a>'s <a href="http://model-driven-blogging.blogspot.com/feeds/posts/default?alt=rss">RSS feed</a>.
+	</p>
+<p align="center">
+<a href="/modeling/emf/compare/images/screenshot.png"><img border="0" src="/modeling/emf/compare/images/mini-screenshot.png"/></a><br/>
+<em>Comparing UML models</em> - <a href="images/screenshot.png">Zoom</a></p>
+<ul>
+<li style="border-style: none;"><h2>Documentation</h2>
+ <ul> 
+    <li><em>11/2008</em> EclipseCon 2009<a href="http://www.eclipsecon.org/2009/sessions?id=461"></a>Team Work with Models : Compare and Merge with EMF Compare in Galileo  </li>
+    <li><em>11/2008</em> Eclipse Summit Europe 2008 : Team Work with Models </li>
+    <li><em>03/2008</em> EclipseCon 2008 <a href="http://www.eclipsecon.org/2008/sub/attachments/Comparing_and_Merging_Models_with_Eclipse__an_Update_on_EMF_Compare.pdf">EMF Compare - A quick glance</a> </li>   
+    <li><em>11/2007</em> Eclipse Summit Europe  2007 <a href="http://cedric.brun.free.fr/EMFCompare_OneYearLater.pdf">EMF Compare - One Year Later</a> </li>
+    <li><em>03/2007</em> EclipseCon 2007 <a href="http://www.eclipsecon.org/2007/index.php?page=sub/&id=3593">model comparison panel</a> 
+    	- Slides: <a href="/modeling/emft/compare/doc/eclipsecon2007/cedric.pdf">C&eacute;dric Brun</a>, <a href="/modeling/emft/compare/doc/eclipsecon2007/antoine.pdf">Antoine Toulm&eacute;</a></li>
+    <li><em>10/2006</em> <a href="/modeling/emft/compare/doc/EMFCompare-description.pdf">Initial Project Description </a></li>
+ </ul>
+ <p>
+ More information is available on the <a href="http://wiki.eclipse.org/index.php/EMF_Compare">wiki page for EMF compare</a>.
+ </p>
+</li>
+<li style="border-style: none;">
+ <h2>Contributors</h2>
+	<p> This component comes from a common contribution of <a href="http://wwww.obeo.fr">Obeo</a> and <a href="http://www.intalio.com">Intalio</a>. The commiters are:
+		<a href="mailto:cedric.brun@obeo.fr">C&eacute;dric Brun (lead)</a>,
+		<a href="mailto:laurent.goubet@obeo.fr">Laurent Goubet</a>,
+		<a href="mailto:pk@imm.dtu.dk">Patrick Könemann</a>,		
+		<a href="mailto:jonathan.musset@obeo.fr">Jonathan Musset</a>, 
+	</p>
+</li>
+</ul>
