@@ -128,8 +128,7 @@ for more detailed information.
             <html:p>This theme is about providing a better user experience of EMF Compare.</html:p>
           </html:div>
         </description>
-        <committed bugzilla="http://bugs.eclipse.org/bugs/show_bug.cgi?id=398083">Allow the editing textual attribute</committed>
-        <committed bugzilla="http://bugs.eclipse.org/bugs/show_bug.cgi?id=398099">Enhance readability of the structural differences</committed>
+        <committed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?list_id=4101130&amp;classification=Modeling&amp;query_format=advanced&amp;bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;version=2.1&amp;component=Compare&amp;product=EMF">Allow the editing textual attribute</committed>
         <!--proposed bugzilla="...(recommended) bugzilla search url...">...(optional alternate) html...</proposed>
         <deferred bugzilla="...(recommended) bugzilla search url...">...(optional alternate) html...</deferred-->
       </theme>
