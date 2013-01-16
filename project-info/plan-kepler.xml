@@ -104,55 +104,66 @@ and will publish binary and source compatibilities with migration guides on subs
    <themes_and_priorities>
      <preamble>
          <html:div>
-A list of project goals and agreed upon implementation time frames is found in this document.<html:br/>
-For the milestones listed in this document, a set of overall themes is used to indicate what major
-set of functionalities is expected to be the focus of each.<html:br/>
-These themes are presented below, while the goals of the associated Bugzilla entries are available
-for more detailed information.
-         </html:div>
+          <html:p>
+            A list of project goals and agreed upon implementation time frames is found in this document.<html:br/>
+            For the milestones listed in this document, a set of overall themes is used to indicate what major set of functionalities is expected to be the focus of each.<html:br/>
+            These themes are presented below, while the goals of the associated Bugzilla entries are available for more detailed information.
+          </html:p>
+          <html:p>
+            Not all plan items represent the same amount of work; some may be quite large, others, quite small. Although some plan items are for work that is  more pressing than others, the plan items appear in no particular order. See the corresponding bugzilla items for up-to-date status information on ongoing work and planned delivery milestones.
+          </html:p>
+          <html:p>
+            The current status of each plan item is noted:
+          </html:p>
+          <html:ul>
+            <html:li><html:strong>Committed</html:strong> plan item - A committed plan item is one that we have decided to address for the release. In bugzilla, this is reflected by having a concrete target milestone assigned (but not equals to "Kepler").</html:li>
+            <html:li><html:strong>Proposed</html:strong> plan item - A proposed plan item is one that we are considering addressing for the release. Although we are actively investigating it, we are not yet in a position to commit to it, or to say that we won't be able to address it. After due consideration, a proposal will either be committed or deferred. In bugzilla, such items are reflected by having a version "2.1" and a target milestone "Kepler" assigned.</html:li>
+            <html:li><html:strong>Deferred</html:strong> plan item - A reasonable proposal that will not make it in to this release for some reason is marked as deferred with a brief note as to why it was deferred. Deferred plan items may resurface as committed plan items at a later point. In bugzilla, such items are reflected by having a target milestone "---" assigned.</html:li>
+          </html:ul>
+        </html:div>
      </preamble>
       <theme name="Engines Enhancements">
-        <description>
+         <!--description>
           <html:div>
-            <html:p>This theme concerns the core of EMF Compare. It does not have effect on the UI and the team integration.</html:p>
+            <html:p>describe the them</html:p>
           </html:div>
-        </description>          
-        <!--committed bugzilla="...(recommended) bugzilla search url...">...(optional alternate) html...</committed>
-        <proposed bugzilla="...(recommended) bugzilla search url...">...(optional alternate) html...</proposed>
-        <deferred bugzilla="...(recommended) bugzilla search url...">...(optional alternate) html...</deferred-->
+        </description-->       
+        <committed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=Core&amp;component=Compare&amp;product=EMF&amp;target_milestone=Past&amp;target_milestone=M1&amp;target_milestone=M2&amp;target_milestone=M3&amp;target_milestone=M4&amp;target_milestone=M5&amp;target_milestone=M6&amp;target_milestone=M7&amp;target_milestone=RC&amp;target_milestone=RC1&amp;target_milestone=RC2&amp;target_milestone=RC3&amp;target_milestone=RC4&amp;target_milestone=RC5&amp;target_milestone=SR1&amp;target_milestone=SR2&amp;target_milestone=Kepler&amp;target_milestone=Future"/>
+        <proposed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=Core&amp;component=Compare&amp;product=EMF&amp;target_milestone=Kepler"/>
+        <deferred bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=Core&amp;component=Compare&amp;product=EMF&amp;target_milestone=---"/>
       </theme>
     
       <theme name="User interface enhancements">
-        <description>
+        <!--description>
           <html:div>
-            <html:p>This theme is about providing a better user experience of EMF Compare.</html:p>
+            <html:p>describe the them</html:p>
           </html:div>
-        </description>
-        <committed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?list_id=4101130&amp;classification=Modeling&amp;query_format=advanced&amp;bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;version=2.1&amp;component=Compare&amp;product=EMF">Allow the editing textual attribute</committed>
-        <!--proposed bugzilla="...(recommended) bugzilla search url...">...(optional alternate) html...</proposed>
-        <deferred bugzilla="...(recommended) bugzilla search url...">...(optional alternate) html...</deferred-->
+        </description-->
+        <committed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=UI&amp;component=Compare&amp;product=EMF&amp;target_milestone=Past&amp;target_milestone=M1&amp;target_milestone=M2&amp;target_milestone=M3&amp;target_milestone=M4&amp;target_milestone=M5&amp;target_milestone=M6&amp;target_milestone=M7&amp;target_milestone=RC&amp;target_milestone=RC1&amp;target_milestone=RC2&amp;target_milestone=RC3&amp;target_milestone=RC4&amp;target_milestone=RC5&amp;target_milestone=SR1&amp;target_milestone=SR2&amp;target_milestone=Kepler&amp;target_milestone=Future"/>
+        <proposed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=UI&amp;component=Compare&amp;product=EMF&amp;target_milestone=Kepler"/>
+        <deferred bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=UI&amp;component=Compare&amp;product=EMF&amp;target_milestone=---"/>
       </theme>
         
         <theme name="Papyrus integration">
-          <description>
+          <!--description>
             <html:div>
-              <html:p>EMF Compare and Paprys UML designer should integrates better.</html:p>
+              <html:p>describe the them</html:p>
             </html:div>
-          </description>
-          <!--committed bugzilla="...(recommended) bugzilla search url...">...(optional alternate) html...</committed>
-          <proposed bugzilla="...(recommended) bugzilla search url...">...(optional alternate) html...</proposed>
-          <deferred bugzilla="...(recommended) bugzilla search url...">...(optional alternate) html...</deferred-->
+          </description-->
+          <committed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=Papyrus-integration&amp;component=Compare&amp;product=EMF&amp;target_milestone=Past&amp;target_milestone=M1&amp;target_milestone=M2&amp;target_milestone=M3&amp;target_milestone=M4&amp;target_milestone=M5&amp;target_milestone=M6&amp;target_milestone=M7&amp;target_milestone=RC&amp;target_milestone=RC1&amp;target_milestone=RC2&amp;target_milestone=RC3&amp;target_milestone=RC4&amp;target_milestone=RC5&amp;target_milestone=SR1&amp;target_milestone=SR2&amp;target_milestone=Kepler&amp;target_milestone=Future"/>
+          <proposed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=Papyrus-integration&amp;component=Compare&amp;product=EMF&amp;target_milestone=Kepler"/>
+          <deferred bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=Papyrus-integration&amp;component=Compare&amp;product=EMF&amp;target_milestone=---"/>
         </theme>
         
         <theme name="EGit and logical model integration">
-          <description>
+          <!--description>
             <html:div>
-              <html:p>EMF Compare should be a faithful provider to the logical model API and we should help the EGit dev team to also properly consume this API</html:p>
+              <html:p>describe the them</html:p>
             </html:div>
-            <!--committed bugzilla="...(recommended) bugzilla search url...">...(optional alternate) html...</committed>
-            <proposed bugzilla="...(recommended) bugzilla search url...">...(optional alternate) html...</proposed>
-            <deferred bugzilla="...(recommended) bugzilla search url...">...(optional alternate) html...</deferred-->
-          </description>
+          </description-->
+          <committed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=team-egit&amp;component=Compare&amp;product=EMF&amp;target_milestone=Past&amp;target_milestone=M1&amp;target_milestone=M2&amp;target_milestone=M3&amp;target_milestone=M4&amp;target_milestone=M5&amp;target_milestone=M6&amp;target_milestone=M7&amp;target_milestone=RC&amp;target_milestone=RC1&amp;target_milestone=RC2&amp;target_milestone=RC3&amp;target_milestone=RC4&amp;target_milestone=RC5&amp;target_milestone=SR1&amp;target_milestone=SR2&amp;target_milestone=Kepler&amp;target_milestone=Future"/>
+          <proposed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=team-egit&amp;component=Compare&amp;product=EMF&amp;target_milestone=Kepler"/>
+          <deferred bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=team-egit&amp;component=Compare&amp;product=EMF&amp;target_milestone=---"/>
         </theme>
    </themes_and_priorities>
    <appendix name="Legal Notices">
