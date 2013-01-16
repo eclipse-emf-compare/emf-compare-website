@@ -123,47 +123,58 @@ and will publish binary and source compatibilities with migration guides on subs
         </html:div>
      </preamble>
       <theme name="Engines Enhancements">
-         <!--description>
+         <description>
           <html:div>
-            <html:p>describe the them</html:p>
+            <html:p>Bugzilla keyword: <html:strong>core</html:strong></html:p>
           </html:div>
-        </description-->       
-        <committed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=Core&amp;component=Compare&amp;product=EMF&amp;target_milestone=Past&amp;target_milestone=M1&amp;target_milestone=M2&amp;target_milestone=M3&amp;target_milestone=M4&amp;target_milestone=M5&amp;target_milestone=M6&amp;target_milestone=M7&amp;target_milestone=RC&amp;target_milestone=RC1&amp;target_milestone=RC2&amp;target_milestone=RC3&amp;target_milestone=RC4&amp;target_milestone=RC5&amp;target_milestone=SR1&amp;target_milestone=SR2&amp;target_milestone=Future"/>
-        <proposed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=Core&amp;component=Compare&amp;product=EMF&amp;target_milestone=Kepler"/>
-        <deferred bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=Core&amp;component=Compare&amp;product=EMF&amp;target_milestone=---"/>
+        </description>
+        <committed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=core&amp;component=Compare&amp;product=EMF&amp;target_milestone=Past&amp;target_milestone=M1&amp;target_milestone=M2&amp;target_milestone=M3&amp;target_milestone=M4&amp;target_milestone=M5&amp;target_milestone=M6&amp;target_milestone=M7&amp;target_milestone=RC&amp;target_milestone=RC1&amp;target_milestone=RC2&amp;target_milestone=RC3&amp;target_milestone=RC4&amp;target_milestone=RC5&amp;target_milestone=SR1&amp;target_milestone=SR2&amp;target_milestone=Future"/>
+        <proposed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=core&amp;component=Compare&amp;product=EMF&amp;target_milestone=Kepler"/>
+        <deferred bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=core&amp;component=Compare&amp;product=EMF&amp;target_milestone=---"/>
       </theme>
     
       <theme name="User interface enhancements">
-        <!--description>
+        <description>
           <html:div>
-            <html:p>describe the them</html:p>
+            <html:p>Bugzilla keyword: <html:strong>ui</html:strong></html:p>
           </html:div>
-        </description-->
-        <committed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=UI&amp;component=Compare&amp;product=EMF&amp;target_milestone=Past&amp;target_milestone=M1&amp;target_milestone=M2&amp;target_milestone=M3&amp;target_milestone=M4&amp;target_milestone=M5&amp;target_milestone=M6&amp;target_milestone=M7&amp;target_milestone=RC&amp;target_milestone=RC1&amp;target_milestone=RC2&amp;target_milestone=RC3&amp;target_milestone=RC4&amp;target_milestone=RC5&amp;target_milestone=SR1&amp;target_milestone=SR2&amp;target_milestone=Future"/>
-        <proposed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=UI&amp;component=Compare&amp;product=EMF&amp;target_milestone=Kepler"/>
-        <deferred bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=UI&amp;component=Compare&amp;product=EMF&amp;target_milestone=---"/>
+        </description>
+        <committed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=ui&amp;component=Compare&amp;product=EMF&amp;target_milestone=Past&amp;target_milestone=M1&amp;target_milestone=M2&amp;target_milestone=M3&amp;target_milestone=M4&amp;target_milestone=M5&amp;target_milestone=M6&amp;target_milestone=M7&amp;target_milestone=RC&amp;target_milestone=RC1&amp;target_milestone=RC2&amp;target_milestone=RC3&amp;target_milestone=RC4&amp;target_milestone=RC5&amp;target_milestone=SR1&amp;target_milestone=SR2&amp;target_milestone=Future"/>
+        <proposed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=ui&amp;component=Compare&amp;product=EMF&amp;target_milestone=Kepler"/>
+        <deferred bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=ui&amp;component=Compare&amp;product=EMF&amp;target_milestone=---"/>
       </theme>
         
         <theme name="Papyrus integration">
-          <!--description>
+          <description>
             <html:div>
-              <html:p>describe the them</html:p>
+              <html:p>Bugzilla keyword: <html:strong>papyrus</html:strong></html:p>
             </html:div>
-          </description-->
-          <committed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=Papyrus-integration&amp;component=Compare&amp;product=EMF&amp;target_milestone=Past&amp;target_milestone=M1&amp;target_milestone=M2&amp;target_milestone=M3&amp;target_milestone=M4&amp;target_milestone=M5&amp;target_milestone=M6&amp;target_milestone=M7&amp;target_milestone=RC&amp;target_milestone=RC1&amp;target_milestone=RC2&amp;target_milestone=RC3&amp;target_milestone=RC4&amp;target_milestone=RC5&amp;target_milestone=SR1&amp;target_milestone=SR2&amp;target_milestone=Future"/>
-          <proposed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=Papyrus-integration&amp;component=Compare&amp;product=EMF&amp;target_milestone=Kepler"/>
-          <deferred bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=Papyrus-integration&amp;component=Compare&amp;product=EMF&amp;target_milestone=---"/>
+          </description>
+          <committed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=papyrus&amp;component=Compare&amp;product=EMF&amp;target_milestone=Past&amp;target_milestone=M1&amp;target_milestone=M2&amp;target_milestone=M3&amp;target_milestone=M4&amp;target_milestone=M5&amp;target_milestone=M6&amp;target_milestone=M7&amp;target_milestone=RC&amp;target_milestone=RC1&amp;target_milestone=RC2&amp;target_milestone=RC3&amp;target_milestone=RC4&amp;target_milestone=RC5&amp;target_milestone=SR1&amp;target_milestone=SR2&amp;target_milestone=Future"/>
+          <proposed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=papyrus&amp;component=Compare&amp;product=EMF&amp;target_milestone=Kepler"/>
+          <deferred bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=papyrus&amp;component=Compare&amp;product=EMF&amp;target_milestone=---"/>
         </theme>
         
         <theme name="EGit and logical model integration">
-          <!--description>
+          <description>
             <html:div>
-              <html:p>describe the them</html:p>
+              <html:p>Bugzilla keyword: <html:strong>team-egit</html:strong></html:p>
             </html:div>
-          </description-->
+          </description>
           <committed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=team-egit&amp;component=Compare&amp;product=EMF&amp;target_milestone=Past&amp;target_milestone=M1&amp;target_milestone=M2&amp;target_milestone=M3&amp;target_milestone=M4&amp;target_milestone=M5&amp;target_milestone=M6&amp;target_milestone=M7&amp;target_milestone=RC&amp;target_milestone=RC1&amp;target_milestone=RC2&amp;target_milestone=RC3&amp;target_milestone=RC4&amp;target_milestone=RC5&amp;target_milestone=SR1&amp;target_milestone=SR2&amp;target_milestone=Future"/>
           <proposed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=team-egit&amp;component=Compare&amp;product=EMF&amp;target_milestone=Kepler"/>
           <deferred bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=anywordssubstr&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=team-egit&amp;component=Compare&amp;product=EMF&amp;target_milestone=---"/>
+        </theme>
+
+        <theme name="Other">
+          <description>
+            <html:div>
+              <html:p>No Bugzilla keyword</html:p>
+            </html:div>
+          </description>
+          <committed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=nowords&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=ui%20core%20team-egit%20papyrus&amp;component=Compare&amp;product=EMF&amp;target_milestone=Past&amp;target_milestone=M1&amp;target_milestone=M2&amp;target_milestone=M3&amp;target_milestone=M4&amp;target_milestone=M5&amp;target_milestone=M6&amp;target_milestone=M7&amp;target_milestone=RC&amp;target_milestone=RC1&amp;target_milestone=RC2&amp;target_milestone=RC3&amp;target_milestone=RC4&amp;target_milestone=RC5&amp;target_milestone=SR1&amp;target_milestone=SR2&amp;target_milestone=Future"/>
+          <proposed bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=nowords&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=ui%20core%20team-egit%20papyrus&amp;component=Compare&amp;product=EMF&amp;target_milestone=Kepler"/>
+          <deferred bugzilla="https://bugs.eclipse.org/bugs/buglist.cgi?f1=keywords&amp;o1=nowords&amp;classification=Modeling&amp;query_format=advanced&amp;version=2.1&amp;v1=ui%20core%20team-egit%20papyrus&amp;component=Compare&amp;product=EMF&amp;target_milestone=---"/>
         </theme>
    </themes_and_priorities>
    <appendix name="Legal Notices">
