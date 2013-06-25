@@ -285,9 +285,9 @@
 		if ($buildLabel == "" || $buildLabel == " ") {
 			$buildLabel = $branch;
 		}
-		print_r $zips_in_folder
-		print_r $archivedSite
-		print_r $buildLabel
+		print_r $zips_in_folder;
+		print_r $archivedSite;
+		print_r $buildLabel;
 	
 		$buildHTML = "<li class=\"repo-item\">\n";
 		// PENDING add alias if any in the displayed text
