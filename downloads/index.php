@@ -40,7 +40,7 @@
 	
 	// Retrieve the list of builds from the disk (folder list only)
 	$builds = getBuildsFrom($branches, $PWD);
-	print_r($builds);
+	
 	$builds = reorderAndSplitBuilds($builds, $buildTypes, $hiddenBuilds);
 	$releases = $builds[1];
 	$builds = $builds[0];
