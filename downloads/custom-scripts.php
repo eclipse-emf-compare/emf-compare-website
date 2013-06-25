@@ -75,7 +75,7 @@
 		foreach ($zips as $zip) {
 			preg_match("/(\d+\.\d+\.\d+)((M|RC)\d+)?([a-z])?/", $zip, $matches);
 			if (sizeof($matches) > 0) {
-				return preg_replace("/(\d+\.\d+\.\d+)((M|RC)\d+)?/", "$1 $2", $matches[0]);
+				return preg_replace("/(\d+\.\d+\.\d+)((M|RC)\d+)([a-z])?/", "$1 $2", $matches[0]);
 			}
 		}
 		return "";
