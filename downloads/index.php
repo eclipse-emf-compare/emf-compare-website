@@ -43,6 +43,7 @@
 	
 	$builds = reorderAndSplitBuilds($builds, $buildTypes, $hiddenBuilds);
 	$releases = $builds[1];
+	print_r($releases);
 	$builds = $builds[0];
 	
 	$html  = "<div id=\"midcolumn\">\n";
