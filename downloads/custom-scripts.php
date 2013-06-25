@@ -29,6 +29,10 @@
 		foreach ($buildTypes as $branch => $types) {
 			$version = substr($branch, 0, 3);
 			foreach ($types as $type => $names) {
+				if ($type == "R") {
+					print_r($branch);
+					print_r($oldBuilds[$version]);
+				}
 				if ($type == "R" && isset($oldBuilds[$version][$branch][$type])) {
 					$id = $oldBuilds[$version][$branch][$type][0];
 					if (!isset($hiddenBuilds[$branch]) || !in_array($id, $hiddenBuilds[$branch])) {
