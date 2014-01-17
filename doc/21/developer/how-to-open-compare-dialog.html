@@ -1,13 +1,54 @@
-<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version='1.0' encoding='utf-8' ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title>How To Open Compare Dialog With Comparison</title>
-		<link type="text/css" rel="stylesheet" href="/emf/compare/doc/21/resources/bootstrap.css"/>
-		<link type="text/css" rel="stylesheet" href="/emf/compare/doc/21/resources/custom.css"/>
+		<title>How to open compare dialog</title>
+		<style type="text/css">
+			.panel {border: 1px solid #ccc;background-color: #FFFFCE;margin: 10px;padding: 0px 6px 0px 6px;}
+			.info {border: 1px solid #3c78b5;background-color: #D8E4F1;margin: 20px;padding: 0px 6px 0px 6px;}
+			.warning {border: 1px solid #c00;background-color: #fcc;margin: 20px;padding: 0px 6px 0px 6px;}
+			.tip {border: 1px solid #090;background-color: #dfd;margin: 20px;padding: 0px 6px 0px 6px;}
+			.note {border: 1px solid #F0C000;background-color: #FFFFCE;margin: 20px;padding: 0px 6px 0px 6px;}
+</style>
+		<link type="text/css" rel="stylesheet" href="/emf/compare/documentation/resources/bootstrap.css"/>
+		<link type="text/css" rel="stylesheet" href="/emf/compare/documentation/resources/custom.css"/>
 	</head>
 	<body>
-		<h1 id="How_To_Open_Compare_Dialog_With_Comparison">How To Open Compare Dialog With Comparison</h1>
+		<h1 id="EMF_Compare_.E2.80.94__How_To_Open_Compare_Dialog">EMF Compare —  How To Open Compare Dialog</h1>
+		<p>Version 2.2.0M4-8-g2c685db</p>
+		<div class="toc">
+			<h3 class="toc-title">Table of Contents</h3>
+			<ol style="list-style: none">
+				<li>
+					<a href="#Preparing_the_input">Preparing the input</a>
+				</li>
+				<li>
+					<a href="#Preparing_the_configuration">Preparing the configuration</a>
+					<ol style="list-style: none">
+						<li>
+							<a href="#ComparisonEditorInput">ComparisonEditorInput</a>
+						</li>
+						<li>
+							<a href="#ComparisonScopeEditorInput">ComparisonScopeEditorInput</a>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<a href="#Opening_the_compare_UI">Opening the compare UI</a>
+				</li>
+				<li>
+					<a href="#End-to-end_examples">End-to-end examples</a>
+					<ol style="list-style: none">
+						<li>
+							<a href="#With_pre-computed_comparison">With pre-computed comparison</a>
+						</li>
+						<li>
+							<a href="#With_a_comparison_scope">With a comparison scope</a>
+						</li>
+					</ol>
+				</li>
+			</ol>
+		</div>
 		<p>This is only valid since release 2.1M4. </p>
 		<p>In this page you will learn how to open a dialog displaying the result of a comparison. </p>
 		<h2 id="Preparing_the_input">Preparing the input</h2>
@@ -107,5 +148,10 @@ IComparisonScope scope = EMFCompare.createDefaultScope(left, right, ancestor);
 }
 
 </pre>
+		<p>Part of 
+			<a href="index.html">EMF Compare Documentation</a>
+		</p>
+		<p>Version 2.2.0M4-8-g2c685db</p>
+		<p>Last updated Fri Jan 17 11:55:30 CET 2014</p>
 	</body>
 </html>
