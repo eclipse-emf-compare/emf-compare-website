@@ -4,18 +4,18 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<title>FAQ</title>
 		<style type="text/css">
+			.info {border: 1px solid #3c78b5;background-color: #D8E4F1;margin: 20px;padding: 0px 6px 0px 6px;}
 			.tip {border: 1px solid #090;background-color: #dfd;margin: 20px;padding: 0px 6px 0px 6px;}
 			.warning {border: 1px solid #c00;background-color: #fcc;margin: 20px;padding: 0px 6px 0px 6px;}
-			.info {border: 1px solid #3c78b5;background-color: #D8E4F1;margin: 20px;padding: 0px 6px 0px 6px;}
-			.note {border: 1px solid #F0C000;background-color: #FFFFCE;margin: 20px;padding: 0px 6px 0px 6px;}
 			.panel {border: 1px solid #ccc;background-color: #FFFFCE;margin: 10px;padding: 0px 6px 0px 6px;}
+			.note {border: 1px solid #F0C000;background-color: #FFFFCE;margin: 20px;padding: 0px 6px 0px 6px;}
 </style>
-		<link type="text/css" rel="stylesheet" href="resources/bootstrap.css"/>
-		<link type="text/css" rel="stylesheet" href="resources/custom.css"/>
+		<link type="text/css" rel="stylesheet" href="resources\bootstrap.css"/>
+		<link type="text/css" rel="stylesheet" href="resources\custom.css"/>
 	</head>
 	<body>
-		<h1 id="EMF_Compare_.E2.80.94__FAQs">EMF Compare —  FAQs</h1>
-		<p>Version hudson-PLATFORM=luna-29</p>
+		<h1 id="EMF_Compare_.C3.A2.E2.82.AC.E2.80.9D__FAQs">EMF Compare â€”  FAQs</h1>
+		<p>Version 2.2.0M4-14-gd1a6525</p>
 		<div class="toc">
 			<h3 class="toc-title">Table of Contents</h3>
 			<ol style="list-style: none">
@@ -71,11 +71,11 @@
 			<b>Q</b> : My model is compared as a text-file, how can EMF compare know the files it should handle ?
 		</p>
 		<p>
-			<b>A</b> : EMF Compare will be triggered for any files that is recognized as an EMF model. There is no specific content-type for EMF Compare; any content-type that has the ecore XMI type as its base will be recognized as a file which comparison should be done with EMF Compare.
+			<b>A</b> : EMF Compare will be triggered for any files that is recognized as an EMF model. There is a specific content-type for EMF Compare and any content-type equals to XMI type as its base will be recognized as a file which comparison should be done with EMF Compare.
 		</p>
-		<p>You may add your own extension using the <tt>Preferences view / General / Content-types</tt> and adding your file extension in the "XMI" content-type. </p>
+		<p>You may add your own extension using the <tt>Preferences view / General / Content-types</tt> and adding your file extension in the "EMF Compare" content-type. </p>
 		<p>
-			<img border="0" src="images/EMF_Compare_XMI_Content_Type.png"/>
+			<img border="0" src="images/EMF_Compare_Preferences_Content_Type.png"/>
 		</p>
 		<h4 id="How_to_force_text_comparison.3F">How to force text comparison?</h4>
 		<p>
@@ -83,7 +83,7 @@
 		</p>
 		<p>
 			<b>A</b> : There is no way to 
-			<b>force</b> textual comparison of EMF files. You can, however, switch back to a plain text comparison through the drop-down menu that is diplayed between the two halves of the compare editor :
+			<b>force</b> textual comparison of EMF files. You can, however, deactivate the Empty Resource Mappings filter and then select the appropriate resource mapping. The comparison of this resource mapping will be textual.
 		</p>
 		<p>
 			<img border="0" src="images/EMF_Compare_Text_Comparison.png"/>
@@ -240,7 +240,7 @@ Comparison comparison = EMFCompare.builder().setMatchEngine(new DefaultMatchEngi
 		<p>Part of 
 			<a href="index.html">EMF Compare Documentation</a>
 		</p>
-		<p>Version hudson-PLATFORM=luna-29</p>
-		<p>Last updated Mon Jan 20 05:10:34 EST 2014</p>
+		<p>Version 2.2.0M4-14-gd1a6525</p>
+		<p>Last updated Fri Jan 24 14:22:52 CET 2014</p>
 	</body>
 </html>
