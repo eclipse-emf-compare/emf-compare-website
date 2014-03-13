@@ -5,17 +5,17 @@
 		<title>Developer guide</title>
 		<style type="text/css">
 			.info {border: 1px solid #3c78b5;background-color: #D8E4F1;margin: 20px;padding: 0px 6px 0px 6px;}
+			.panel {border: 1px solid #ccc;background-color: #FFFFCE;margin: 10px;padding: 0px 6px 0px 6px;}
 			.note {border: 1px solid #F0C000;background-color: #FFFFCE;margin: 20px;padding: 0px 6px 0px 6px;}
 			.warning {border: 1px solid #c00;background-color: #fcc;margin: 20px;padding: 0px 6px 0px 6px;}
 			.tip {border: 1px solid #090;background-color: #dfd;margin: 20px;padding: 0px 6px 0px 6px;}
-			.panel {border: 1px solid #ccc;background-color: #FFFFCE;margin: 10px;padding: 0px 6px 0px 6px;}
 </style>
-		<link type="text/css" rel="stylesheet" href="../resources/bootstrap.css"/>
-		<link type="text/css" rel="stylesheet" href="../resources/custom.css"/>
+		<link type="text/css" rel="stylesheet" href="..\resources\bootstrap.css"/>
+		<link type="text/css" rel="stylesheet" href="..\resources\custom.css"/>
 	</head>
 	<body>
 		<h1 id="EMF_Compare_.E2.80.94__Developer_Guide">EMF Compare —  Developer Guide</h1>
-		<p>Version 2.2.0M5-42-g706777c</p>
+		<p>Version 3.0.0M6</p>
 		<div class="toc">
 			<h3 class="toc-title">Table of Contents</h3>
 			<ol style="list-style: none">
@@ -24,6 +24,26 @@
 					<ol style="list-style: none">
 						<li>
 							<a href="#Comparison_Process">Comparison Process</a>
+							<ol style="list-style: none">
+								<li>
+									<a href="#Model_Resolving">Model Resolving</a>
+								</li>
+								<li>
+									<a href="#Matching">Matching</a>
+								</li>
+								<li>
+									<a href="#Differencing">Differencing</a>
+								</li>
+								<li>
+									<a href="#Equivalences">Equivalences</a>
+								</li>
+								<li>
+									<a href="#Requirements">Requirements</a>
+								</li>
+								<li>
+									<a href="#Conflicts">Conflicts</a>
+								</li>
+							</ol>
 						</li>
 						<li>
 							<a href="#Project_Architecture">Project Architecture</a>
@@ -68,7 +88,7 @@
 					<a href="#Default_Behavior_and_Extensibility">Default Behavior and Extensibility</a>
 					<ol style="list-style: none">
 						<li>
-							<a href="#Model_Resolving">Model Resolving</a>
+							<a href="#Model_Resolving_2">Model Resolving</a>
 						</li>
 						<li>
 							<a href="#Match_2">Match</a>
@@ -108,7 +128,7 @@
 							</ol>
 						</li>
 						<li>
-							<a href="#Equivalences">Equivalences</a>
+							<a href="#Equivalences_2">Equivalences</a>
 							<ol style="list-style: none">
 								<li>
 									<a href="#Refine_the_default_equivalences">Refine the default equivalences</a>
@@ -116,13 +136,13 @@
 							</ol>
 						</li>
 						<li>
-							<a href="#Requirements">Requirements</a>
+							<a href="#Requirements_2">Requirements</a>
 						</li>
 						<li>
 							<a href="#Refinement">Refinement</a>
 						</li>
 						<li>
-							<a href="#Conflicts">Conflicts</a>
+							<a href="#Conflicts_2">Conflicts</a>
 						</li>
 						<li>
 							<a href="#Merging">Merging</a>
@@ -140,6 +160,12 @@
 								</li>
 								<li>
 									<a href="#Add_your_own_group">Add your own group</a>
+								</li>
+								<li>
+									<a href="#Customize_display_of_differences_inside_an_existing_group">Customize display of differences inside an existing group</a>
+								</li>
+								<li>
+									<a href="#Add_your_own_accessor_factory">Add your own accessor factory</a>
 								</li>
 							</ol>
 						</li>
@@ -195,17 +221,26 @@
 		<h2 id="Architecture">Architecture</h2>
 		<h3 id="Comparison_Process">Comparison Process</h3>
 		<p>
-			<div class="thumb middle">
-				<div class="thumbinner" style="width:802px;">
-					<a href="./../images/EMF_Compare_Process_Full.png" class="image">
-						<img class="thumbimage" width="800" align="middle" border="0" src="./../images/EMF_Compare_Process_Full.png"/>
-					</a>
-				</div>
-			</div>
+			<img align="middle" border="0" src="./../images/EMF_Compare_Process_Full.png"/>
 		</p>
-		<p>This is the overview of the comparison process as a whole. Each of the six phases of the comparison process of EMF Compare are briefly defined on the 
-			<a href="./../overview/Overview.html" title="./../overview/Overview.html">Overview</a>, and a much more in-depth explanation will be given below, in our explanations of the 
-			<a href="./Default%20Behavior%20and%20Extensibility.html" title="./Default%20Behavior%20and%20Extensibility.html">default behavior</a> of EMF Compare.
+		<p>The above figure represents the comparison process of EMF Compare. It can be roughly divided in 6 main phases.</p>
+		<h4 id="Model_Resolving">Model Resolving</h4>
+		<p>From a given "starting point" (the file a user decided to compare), finding all other fragments required for the comparison of the whole logical model.</p>
+		<h4 id="Matching">Matching</h4>
+		<p>Iterating over the two (or three) loaded logical models in order to map elements together two-by-two (or three-by-three). For example, determine that class Class1 from the first model corresponds to class Class1' from the second model.</p>
+		<h4 id="Differencing">Differencing</h4>
+		<p>The matching phase told us which elements were matching together. The differencing phase will browse through these mappings and determine whether the two (or three) elements are equal or if they present differences (for example, the name of the class changed from Class1 to Class1').</p>
+		<h4 id="Equivalences">Equivalences</h4>
+		<p>The differencing phases detected a number of differences between the compared models. However, two distinct differences might actually represent the same change. This phase will browse through all differences and link them together when they can be seen as equivalent (for example, differences on opposite references).</p>
+		<h4 id="Requirements">Requirements</h4>
+		<p>For the purpose of merging differences, there might be dependencies between them. For example, the addition of a class C1 in package P1 depends on the addition of package P1 itself. During this phase, we'll browse through all detected differences and link them together when we determine that one cannot be merged without the other.</p>
+		<h4 id="Conflicts">Conflicts</h4>
+		<p>When we're comparing our file with one from a Version Control System (CVS, SVN, Git, Clearcase...), there might actually be conflicts between the changes we've made locally, and the changes that were made to the file on the remote repository. This phase will browse through all detected differences and detect these conflicts.</p>
+		<p>The Model resolving phase itself can be further decomposed in its own two distinct phases. More on the logical model and its resolution can be found on the 
+			<a href="./logical-model.html" title="./logical-model.html">dedicated page</a>.
+		</p>
+		<p>
+			<img align="middle" border="0" src="./../images/EMF_Compare_Model_Resolving.png"/>
 		</p>
 		<h3 id="Project_Architecture">Project Architecture</h3>
 		<p>
@@ -397,20 +432,20 @@
 		<p>When cross-referencing objects from another resource, EMF may use proxies instead of the actual object. As long as you do not access the element in question, EMF does not need to load the resource in which it is contained. The proxy is kind of a placeholder that tells EMF what resource should be loaded, and which of this resource's objects referenced, when we actually need to access its value.</p>
 		<p>Proxy resolution is generally transparent, but a lot of tools based on EMF do not consider these proxies as first-class citizens: they simply resolve it without considering that it might not be needed. On the other hand, EMF Compare will never resolve proxies except for those strictly necessary. Whatever the phase of comparison, we strive to never hold the whole model in memory.</p>
 		<p>The 
-			<a href="./Default%20Behavior%20and%20Extensibility.html#Model_Resolving" title="./Default%20Behavior%20and%20Extensibility.html#Model Resolving">initial resolution phase</a> is the most intensive in terms of proxy resolution and I/O operations. Though we will never hold the whole logical model in memory at any given time, we do resolve all cross-references of the compared resources, on all sides of the comparison. Since the logical model may be located in a lot of different files on disk, it might also be very heavy in memory if loaded at once. However, even if EMF Compare does resolve all fragments composing that logical model, it also unloads them as soon as the cross-references are registered. In other words, what we create is a dependency graph between the resources, not a loaded model. Afterwards, we only reload in memory those resources that have actually changed, and can thus contain differences. There will be proxies between these "changed" resources and the unchanged ones we have decided not to reload, but EMF Compare will never resolve these proxies again (and, in fact, will prevent their resolving from other tools).
+			<a href="#Model_Resolving">initial resolution phase</a> is the most intensive in terms of proxy resolution and I/O operations. Though we will never hold the whole logical model in memory at any given time, we do resolve all cross-references of the compared resources, on all sides of the comparison. Since the logical model may be located in a lot of different files on disk, it might also be very heavy in memory if loaded at once. However, even if EMF Compare does resolve all fragments composing that logical model, it also unloads them as soon as the cross-references are registered. In other words, what we create is a dependency graph between the resources, not a loaded model. Afterwards, we only reload in memory those resources that have actually changed, and can thus contain differences. There will be proxies between these "changed" resources and the unchanged ones we have decided not to reload, but EMF Compare will never resolve these proxies again (and, in fact, will prevent their resolving from other tools).
 		</p>
 		<p>At the time of writing, the user interface will never resolve any proxies either. This might change in the future for a better user experience since proxies usually end up displayed in strange manners.</p>
 		<h3 id="Equality_Helper">Equality Helper</h3>
 		<p>The equality helper is a very central concept of EMF Compare. Of course, EMF Compare's aim is to be able to compare objects together, objects which comparison is not trivial and cannot be done through a mere "equal or not" concept. However, we still need to be able to compare these objects at all time and, whenever possible, without a full-fledged comparison.</p>
 		<p>The equality helper will be used in all phases of the comparison, from matching to merging (please see the 
-			<a href="./../overview/Overview.html" title="./../overview/Overview.html">overview</a> for a bird's eye view of the different comparison phases, or their detailled descriptions down below). The matching phase is precisely the time when EMF Compare is trying to match two-by-two the elements from one side to the elements from the other side. As such, we do not have -yet- the knowledge of whichi element matches with which other. However, for all subsequent phases, the equality helper will rely on information from the comparison itself (the 
+			<a href="#Comparison_Process">comparison process</a> for a bird's eye view of the different comparison phases, or their detailled descriptions down below). The matching phase is precisely the time when EMF Compare is trying to match two-by-two the elements from one side to the elements from the other side. As such, we do not have -yet- the knowledge of whichi element matches with which other. However, for all subsequent phases, the equality helper will rely on information from the comparison itself (the 
 			<i>Match</i> elements) to make a fail-fast test for element 'equality'.
 		</p>
 		<p>When we do not have this information, the equality helper will resort to less optimal algorithms. For any object that is not an EMF EObject, we will use strict equality through 
 			<i>==</i> and 
 			<i>Object#equals()</i> calls. One of the cause for EMF Compare failing to match attribute values together is in fact the lack of implementation of the 
 			<i>equals</i> method on custom datatypes (see the 
-			<a href="FAQ.html#Custom_data_types_are_always_marked_as_modified_by_EMF_Compare" title="FAQ.html#Custom data types are always marked as modified by EMF Compare">FAQ</a> for more on that particular issue).
+			<a href="./../FAQ.html#Custom_data_types_are_always_marked_as_modified_by_EMF_Compare" title="./../FAQ.html#Custom data types are always marked as modified by EMF Compare">FAQ</a> for more on that particular issue).
 		</p>
 		<p>Note that the equality helper will be used extensively, and that any performance hit or improvement here will make a huge difference for the whole comparison process. Likewise, any mistake you make when implementing a custom equality helper will introduce a lot of bugs.</p>
 		<h3 id="Comparison_Scope">Comparison Scope</h3>
@@ -431,7 +466,7 @@
 			<a href="#Equality_Helper">above</a>).
 		</p>
 		<p>By default, the only thing that EMF Compare considers "out of scope" are Ecore's "EGenericType" elements. These are usually meaningless as far as comparison is concerned (as they are located in derived references and will be merged along with their "true" difference anyway). Please take note that, when used from the user interface, EMF Compare will narrow down the scope even further through the resolution of the 
-			<a href="developer/logical-model.html" title="developer/logical-model.html">logical model</a> and determining which resources are actually candidates for differences.
+			<a href="./../developer/logical-model.html" title="./../developer/logical-model.html">logical model</a> and determining which resources are actually candidates for differences.
 		</p>
 		<p>The comparison scope provides EMF Compare with information on the content of ResourceSets, Resources or EObjects, according to the entry point of the comparison. Take note that 
 			<b>the scope is only used during the matching phase</b>. The differencing phase only uses the result of the matching phase to proceed.
@@ -442,7 +477,7 @@
 		<p>All main components of EMF Compare have been designed for extensibility. Some are only extensible when comparing models through your own actions, some can be customized globally for a given kind of model or metamodel... We'll outline the customization options of all 6 comparison phases in this section. (Any dead link? Report them on the 
 			<a href="http://www.eclipse.org/forums/index.php/f/164/">forum</a>!)
 		</p>
-		<h3 id="Model_Resolving">Model Resolving</h3>
+		<h3 id="Model_Resolving_2">Model Resolving</h3>
 		<p>PENDING description of the phase, extensibility (use of the modelProviders extension point, custom ext point of compare)</p>
 		<h3 id="Match_2">Match</h3>
 		<p>Before we can compute differences between two versions of a same Object, we must determine which are actually the "same" Object. For example, let's consider that my first model contains a Package P1 which itself contains a class C1; and that my second model contains a package P1 which contains a class C1. It may seem obvious for a human reader that "P1" and "C1" are the same object in both models. However, since their features might have changed in-between the two versions (for example, the "C1" might now be abstract, or it could have been converted to an Interface), this "equality" is not that obvious for a computer.</p>
@@ -684,7 +719,7 @@ EMFCompare.builder().setDiffEngine(diffEngine).build().compare(scope);
 		<p>The post-processor for the diff engine is implemented exactly in the same way as for the match engine post-processors (the interface and extension point are the same). Please refer to 
 			<a href="#Refine_the_default_Match_result">Refining the Match result</a>.
 		</p>
-		<h3 id="Equivalences">Equivalences</h3>
+		<h3 id="Equivalences_2">Equivalences</h3>
 		<p>Now that the Differencing phase has ended, we've computed all of the individual differences within the compared models. However, all of these differences are still isolated, we now need to determine if there are any connections between them.</p>
 		<p>An 
 			<i>equivalence</i> is one kind of potential connections between differences. For example, Ecore has a concept of 
@@ -718,9 +753,9 @@ EMFCompare.builder().setDiffEngine(diffEngine).build().compare(scope);
 			<li>Detect your own equivalencesIf you have specific rules on your metamodel or implementation that make some differences redundant or otherwise fully equivalent to one another, you can add your own equivalences from here.</li>
 		</ul>
 		<p>The post-processor for the equivalence detection engine is implemented exactly in the same way as for the match engine post-processors (the interface and extension point are the same). Please refer to 
-			<a href="Refine_the_default_Match_result" title="Refine the default Match result">Refining the Match result</a>.
+			<a href="#Refine_the_default_Match_result">Refining the Match result</a>.
 		</p>
-		<h3 id="Requirements">Requirements</h3>
+		<h3 id="Requirements_2">Requirements</h3>
 		<p>A requirement will be used to deal with structural constraints (to prevent dangling references or objects without parent) and to insure the model integrity.
 			A difference requires other ones if the merge of this one needs the other ones not to "break" the model.
 			The merge of a difference involves the merge of the required differences. All these differences will be merged by EMF Compare.
@@ -778,7 +813,7 @@ EMFCompare.builder().setDiffEngine(diffEngine).build().compare(scope);
 			<br/>For example, the add of an association, in UML, is refined by the add of the UML Association itself but also the add of the UML properties with the update of references...
 		</p>
 		<p>Refinement can be added during a post-process.</p>
-		<h3 id="Conflicts">Conflicts</h3>
+		<h3 id="Conflicts_2">Conflicts</h3>
 		<p>PENDING description of the phase, extensibility options (post-process)</p>
 		<h3 id="Merging">Merging</h3>
 		<h4 id="Which_references_are_followed_during_merging">Which references are followed during merging</h4>
@@ -811,18 +846,18 @@ EMFCompare.builder().setDiffEngine(diffEngine).build().compare(scope);
 		<p>This extension has three fields:</p>
 		<ul>
 			<li>class: a class that implements 
-				<i>org.eclipse.emf.compare.rcp.ui.internal.structuremergeviewer.filters.IDifferenceFilter</i>
+				<i>org.eclipse.emf.compare.rcp.ui.structuremergeviewer.filters.IDifferenceFilter</i>
 			</li>
 			<li>label: the label that will be displayed in the UI.</li>
 			<li>activeByDefault: true if you want your filter be active by default, false otherwise.</li>
 		</ul>
 		<p>The 
-			<i>org.eclipse.emf.compare.rcp.ui.internal.structuremergeviewer.filters.IDifferenceFilter</i>'s contract is:
+			<i>org.eclipse.emf.compare.rcp.ui.structuremergeviewer.filters.IDifferenceFilter</i>'s contract is:
 		</p>
 		<pre class="source-java">/**
  * Instances of this class will be used by EMF Compare in order to provide difference filter facilities to the
  * structural differences view.
- * @since 3.0
+ * @since 4.0
  */
 public interface IDifferenceFilter {
 
@@ -889,29 +924,32 @@ public interface IDifferenceFilter {
 
 </pre>
 		<p>A default abstract implementation named 
-			<i>org.eclipse.emf.compare.rcp.ui.internal.structuremergeviewer.filters.impl.AbstractDifferenceFilter</i> is available in the 
+			<i>org.eclipse.emf.compare.rcp.ui.structuremergeviewer.filters.impl.AbstractDifferenceFilter</i> is available in the 
 			<i>org.eclipse.emf.compare.rcp.ui</i> plugin. With this abstract implementation, all you have to do is to subclass it and implements the 
 			<i>getPredicateWhenSelected()</i> method.
 		</p>
 		<h4 id="Add_your_own_group">Add your own group</h4>
+		<p>You can provide your own groups by adding an extension of type 
+			<i>org.eclipse.emf.compare.rcp.ui.groups</i> to your plugin.
+		</p>
 		<p>
 			<img align="middle" border="0" src="./../images/EMF_Compare_Developer_New_Extension_Group.png"/>
 		</p>
 		<p>This extension has three fields:</p>
 		<ul>
 			<li>class: a class that implements 
-				<i>org.eclipse.emf.compare.rcp.ui.internal.structuremergeviewer.groups.IDifferenceGroupProvider</i>
+				<i>org.eclipse.emf.compare.rcp.ui.structuremergeviewer.groups.IDifferenceGroupProvider</i>
 			</li>
 			<li>label: the label that will be displayed in the UI.</li>
 			<li>activeByDefault: true if you want your filter be active by default, false otherwise.</li>
 		</ul>
 		<p>The 
-			<i>org.eclipse.emf.compare.rcp.ui.internal.structuremergeviewer.groups.IDifferenceGroupProvider</i>'s contract is:
+			<i>org.eclipse.emf.compare.rcp.ui.structuremergeviewer.groups.IDifferenceGroupProvider</i>'s contract is:
 		</p>
 		<pre class="source-java">/**
  * Instances of this class will be used by EMF Compare in order to provide difference grouping facilities to
  * the structural differences view.
- * @since 3.0
+ * @since 4.0
  */
 public interface IDifferenceGroupProvider extends Adapter {
 
@@ -987,18 +1025,159 @@ public interface IDifferenceGroupProvider extends Adapter {
 }
 
 </pre>
-		<p>A default abstract implementation named 
-			<i>org.eclipse.emf.compare.rcp.ui.internal.structuremergeviewer.groups.impl.AbstractDifferenceGroupProvider</i> is available in the 
+		<p>An 
+			<i>IDifferenceGroupProvider</i> provides a set of 
+			<i>IDifferenceGroup</i>.
+			A group provider's default abstract implementation named 
+			<i>org.eclipse.emf.compare.rcp.ui.structuremergeviewer.groups.impl.AbstractDifferenceGroupProvider</i> is available in the 
 			<i>org.eclipse.emf.compare.rcp.ui</i> plugin. With this abstract implementation, all you have to do is to subclass it and implements the 
 			<i>getGroups()</i> method.
 		</p>
 		<p>For example, the 
 			<i>By Kind</i> group provider has 4 groups: Additions, Deletions, Changes and Moves.
 		</p>
-		<p>A defaul implementation named 
+		<p>A group's default implementation named 
 			<i>org.eclipse.emf.compare.rcp.ui.internal.structuremergeviewer.groups.BasicDifferenceGroupImpl</i> is available in the 
 			<i>org.eclipse.emf.compare.rcp.ui</i> plugin. With this default implementation, all you have to do is to subclass it and overrides the 
 			<i>getChildren()</i> method.
+			Note that default implementation is 
+			<i>internal</i> and subject to modifications.
+		</p>
+		<h4 id="Customize_display_of_differences_inside_an_existing_group">Customize display of differences inside an existing group</h4>
+		<p>You can customize display of differences inside an existing group by adding an extension of type 
+			<i>org.eclipse.emf.compare.rcp.ui.differenceGroupExtender</i> to your plugin.
+		</p>
+		<p>
+			<img align="middle" border="0" src="./../images/EMF_Compare_Developer_New_Extension_Extender.png"/>
+		</p>
+		<p>This extension has one field:</p>
+		<ul>
+			<li>class: a class that implements 
+				<i>org.eclipse.emf.compare.rcp.ui.structuremergeviewer.groups.extender.IDifferenceGroupExtender</i>
+			</li>
+		</ul>
+		<p>The 
+			<i>org.eclipse.emf.compare.rcp.ui.structuremergeviewer.groups.extender.IDifferenceGroupExtender</i>'s contract is:
+		</p>
+		<pre class="source-java">/**
+ * Instances of this class will be used by EMF Compare in order to extend the children of TreeNodes containing
+ * in the structure merge viewer.
+ * 
+ * @since 4.0
+ */
+public interface IDifferenceGroupExtender {
+
+	/**
+	 * Checks if the given TreeNode have to be handled by the extender.
+	 * 
+	 * @param treeNode
+	 *            the given TreeNode.
+	 * @return true if the TreeNode have to be handled, false otherwise.
+	 */
+	boolean handle(TreeNode treeNode);
+
+	/**
+	 * Add children to the given TreeNode.
+	 * 
+	 * @param treeNode
+	 *            the given TreeNode.
+	 */
+	void addChildren(TreeNode treeNode);
+}
+
+</pre>
+		<p>There is no default implementation of extender. Examples of extender implementations are available in the 
+			<i>org.eclipse.emf.compare.diagram.ide.ui</i> plugin.
+		</p>
+		<h4 id="Add_your_own_accessor_factory">Add your own accessor factory</h4>
+		<p>You can add your own accessor factory by adding an extension of type 
+			<i>org.eclipse.emf.compare.rcp.ui.accessorFactory</i> to your plugin.
+		</p>
+		<p>
+			<img align="middle" border="0" src="./../images/EMF_Compare_Developer_New_Extension_AccessorFactory.png"/>
+		</p>
+		<p>This extension has one field:</p>
+		<ul>
+			<li>class: a class that implements 
+				<i>org.eclipse.emf.compare.rcp.ui.contentmergeviewer.accessor.factory.IAccessorFactory</i>
+			</li>
+			<li>ranking : the ranking of this accessor factory.</li>
+		</ul>
+		<p>The 
+			<i>org.eclipse.emf.compare.rcp.ui.contentmergeviewer.accessor.factory.IAccessorFactory</i>'s contract is:
+		</p>
+		<pre class="source-java">/**
+ * A factory of {@link ITypedElement}s.
+ * 
+ * @since 4.0
+ */
+public interface IAccessorFactory {
+
+	/**
+	 * Checks if the target object is applicable to the factory.
+	 * 
+	 * @param target
+	 *            the object for which we want to know if it is applicable to the factory.
+	 * @return true if the object is applicable to the factory, false otherwise.
+	 */
+	boolean isFactoryFor(Object target);
+
+	/**
+	 * The ranking of the factory.
+	 * 
+	 * @return the ranking of the factory.
+	 */
+	int getRanking();
+
+	/**
+	 * Set the ranking of the factory.
+	 * 
+	 * @param value
+	 *            the ranking value.
+	 */
+	void setRanking(int value);
+
+	/**
+	 * Creates an {@link ITypedElement} from an {@link AdapterFactory} and a given object. This accessor is
+	 * specific for the left side of the comparison.
+	 * 
+	 * @param adapterFactory
+	 *            the given adapter factory.
+	 * @param target
+	 *            the given object.
+	 * @return an ITypedElement.
+	 */
+	ITypedElement createLeft(AdapterFactory adapterFactory, Object target);
+
+	/**
+	 * Creates an {@link ITypedElement} from an {@link AdapterFactory} and a given object. This accessor is
+	 * specific for the right side of the comparison.
+	 * 
+	 * @param adapterFactory
+	 *            the given adapter factory.
+	 * @param target
+	 *            the given object.
+	 * @return an ITypedElement.
+	 */
+	ITypedElement createRight(AdapterFactory adapterFactory, Object target);
+
+	/**
+	 * Creates an {@link ITypedElement} from an {@link AdapterFactory} and a given object. This accessor is
+	 * specific for the ancestor side of the comparison.
+	 * 
+	 * @param adapterFactory
+	 *            the given adapter factory.
+	 * @param target
+	 *            the given object.
+	 * @return an ITypedElement.
+	 */
+	ITypedElement createAncestor(AdapterFactory adapterFactory, Object target);
+}
+
+</pre>
+		<p>An ITypedElement is an interface for getting the name, image, and type for an object. An ITypedElement is used to present an input object in the compare UI (getName and getImage) and for finding a viewer for a given input type (getType).</p>
+		<p>There is no default implementation of accessor factory. Examples of accessor factories implementations are available in the 
+			<i>org.eclipse.emf.compare.rcp.ui</i> plugin. There is several existing accessor factories in EMF Compare: for Matches, ReferenceChanges, AttibuteChanges, ResourceAttachmentChanges...
 		</p>
 		<p>PENDING customize display of custom differences, add custom menu entries, add export options, provide custom content viewer</p>
 		<h2 id="Using_The_Compare_APIs">Using The Compare APIs</h2>
@@ -1021,10 +1200,10 @@ public interface IDifferenceGroupProvider extends Adapter {
 </pre>
 		<h4 id="Creating_the_comparison_scope">Creating the comparison scope</h4>
 		<p>EMF Compare uses a scoping mechanism to determine which elements should be compared, and which others should be ignored. Any element that is outside of the comparison scope will be ignored by the comparison engine and left alone (if it is a proxy, it won't even be loaded). As such, extra care should be taken to determine the proper scope of the comparison or customize the IEqualityHelper to handle the specific elements you remove from the scope. Refer to the 
-			<a href="./Core%20Concepts.html#Comparison_Scope" title="./Core%20Concepts.html#Comparison Scope">appropriate section</a> above for more on the scoping mechanism.
+			<a href="#Comparison_Scope">appropriate section</a> above for more on the scoping mechanism.
 		</p>
 		<p>By default, the only thing that EMF Compare considers "out of scope" are Ecore's "EGenericType" elements. These are usually meaningless as far as comparison is concerned (as they are located in derived references and will be merged along with their "true" difference anyway). Other than that, Please note that EMF Compare will leave unresolved proxies alone: more on this can be found in the 
-			<a href="./Core%20Concepts.html#Proxy_Resolution" title="./Core%20Concepts.html#Proxy Resolution">related section</a>.
+			<a href="#Proxy_Resolution">related section</a>.
 		</p>
 		<p>The default scope can be easily created through:</p>
 		<pre class="source-java">IComparisonScope scope === EMFCompare.createDefaultScope(resourceSet1, resourceSet2);
@@ -1032,7 +1211,7 @@ public interface IDifferenceGroupProvider extends Adapter {
 </pre>
 		<h4 id="Configuring_the_comparison">Configuring the comparison</h4>
 		<p>EMF Compare can be customized in a number of ways, the most important of which were described 
-			<a href="./Default%20Behavior%20and%20Extensibility.html" title="./Default%20Behavior%20and%20Extensibility.html">above</a>. Most of them re-use the same entry point, the 
+			<a href="#Default_Behavior_and_Extensibility">above</a>. Most of them re-use the same entry point, the 
 			<i>org.eclipse.emf.compare.EMFCompare</i> class. We won't customize much here, please see the afore-mentionned section for extensibility means.
 		</p>
 		<p>All we will tell EMF Compare is not to use identifiers, and rely on its proximity algorithms instead (after all, we're comparing plain XMI files):</p>
@@ -1217,12 +1396,12 @@ import static org.eclipse.emf.compare.utils.EMFComparePredicates.hasConflict;
 		<p>entry points: org.eclipse.emf.compare.merge.IMerger and org.eclipse.emf.compare.merge.IBatchMerger</p>
 		<h3 id="Open_a_compare_editor">Open a compare editor</h3>
 		<p>PENDING description of the need (dialog and editor), link to 
-			<a href="developer/how-to-open-compare-dialog.html" title="developer/how-to-open-compare-dialog.html">appropriate page</a>
+			<a href="./how-to-open-compare-dialog.html" title="./how-to-open-compare-dialog.html">appropriate page</a>
 		</p>
 		<p>Part of 
-			<a href="index.html">EMF Compare Documentation</a>
+			<a href="..\index.html">EMF Compare Documentation</a>
 		</p>
-		<p>Version 2.2.0M5-42-g706777c</p>
-		<p>Last updated Wed Feb 26 14:35:20 CET 2014</p>
+		<p>Version 3.0.0M6</p>
+		<p>Last updated Thu Mar 13 09:40:26 CET 2014</p>
 	</body>
 </html>

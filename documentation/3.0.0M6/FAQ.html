@@ -5,17 +5,17 @@
 		<title>FAQ</title>
 		<style type="text/css">
 			.info {border: 1px solid #3c78b5;background-color: #D8E4F1;margin: 20px;padding: 0px 6px 0px 6px;}
+			.panel {border: 1px solid #ccc;background-color: #FFFFCE;margin: 10px;padding: 0px 6px 0px 6px;}
 			.note {border: 1px solid #F0C000;background-color: #FFFFCE;margin: 20px;padding: 0px 6px 0px 6px;}
 			.warning {border: 1px solid #c00;background-color: #fcc;margin: 20px;padding: 0px 6px 0px 6px;}
 			.tip {border: 1px solid #090;background-color: #dfd;margin: 20px;padding: 0px 6px 0px 6px;}
-			.panel {border: 1px solid #ccc;background-color: #FFFFCE;margin: 10px;padding: 0px 6px 0px 6px;}
 </style>
-		<link type="text/css" rel="stylesheet" href="resources/bootstrap.css"/>
-		<link type="text/css" rel="stylesheet" href="resources/custom.css"/>
+		<link type="text/css" rel="stylesheet" href="resources\bootstrap.css"/>
+		<link type="text/css" rel="stylesheet" href="resources\custom.css"/>
 	</head>
 	<body>
 		<h1 id="EMF_Compare_.E2.80.94__FAQs">EMF Compare —  FAQs</h1>
-		<p>Version 2.2.0M5-42-g706777c</p>
+		<p>Version 3.0.0M6</p>
 		<div class="toc">
 			<h3 class="toc-title">Table of Contents</h3>
 			<ol style="list-style: none">
@@ -211,7 +211,7 @@ Comparison comparison = EMFCompare.builder().setMatchEngine(new DefaultMatchEngi
 		</p>
 		<p>
 			<b>A</b> : Since EMF Compare 2.1.0M4, there is. As the answer to this question is a little complex, it deserves 
-			<a href="./../developer/How%20To%20Open%20Compare%20Dialog%20With%20Comparison.html" title="./../developer/How%20To%20Open%20Compare%20Dialog%20With%20Comparison.html">its own page</a>.
+			<a href="./developer/how-to-open-compare-dialog.html" title="./developer/how-to-open-compare-dialog.html">its own page</a>.
 		</p>
 		<h3 id="Can_I_use_custom_identifiers_for_my_objects_.3F">Can I use custom identifiers for my objects ?</h3>
 		<p>
@@ -221,7 +221,7 @@ Comparison comparison = EMFCompare.builder().setMatchEngine(new DefaultMatchEngi
 			<b>A</b> : EMF Compare internally uses a function in order to compute the identifier of an EObject. You can override this function with your own, or compose your own with it so that EMF Compare will use your function for your elements, and fall back to the default behavior for any other element it needs to match.
 		</p>
 		<p>How to do this is outlined on the 
-			<a href="./../developer/Default%20Behavior%20and%20Extensibility.html#Defining_custom_identifiers" title="./../developer/Default%20Behavior%20and%20Extensibility.html#Defining custom identifiers">Developer Guide</a>.
+			<a href="./developer/developer-guide.html#Defining_custom_identifiers" title="./developer/developer-guide.html#Defining custom identifiers">Developer Guide</a>.
 		</p>
 		<h3 id="Can_I_ignore_differences_on_a_specific_reference.2C_or_ignore_ordering_differences_.3F">Can I ignore differences on a specific reference, or ignore ordering differences ?</h3>
 		<p>
@@ -234,12 +234,12 @@ Comparison comparison = EMFCompare.builder().setMatchEngine(new DefaultMatchEngi
 		<p>
 			<b>A</b> : You can override the 
 			<i>FeatureFilter</i> to tell EMF Compare that some references should be ignored, there is an example doing just that in the 
-			<a href="./../developer/Default%20Behavior%20and%20Extensibility.html##Changing_the_FeatureFilter" title="./../developer/Default%20Behavior%20and%20Extensibility.html##Changing the FeatureFilter">Developer Guide</a>.
+			<a href="./developer/developer-guide.html#Changing_the_FeatureFilter" title="./developer/developer-guide.html#Changing the FeatureFilter">Developer Guide</a>.
 		</p>
 		<p>Part of 
 			<a href="index.html">EMF Compare Documentation</a>
 		</p>
-		<p>Version 2.2.0M5-42-g706777c</p>
-		<p>Last updated Wed Feb 26 14:35:20 CET 2014</p>
+		<p>Version 3.0.0M6</p>
+		<p>Last updated Thu Mar 13 09:40:26 CET 2014</p>
 	</body>
 </html>
