@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
+	   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-language" content="en">
+	<meta name="description" content="EMF Compare provides comparison and merge facility for any kind of EMF Model">
+	 
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/googleAnalytics.js"></script>
+	<script type="text/javascript" src="js/magnific-popup.video.js"></script> 
+	<script type="text/javascript" src="js/magnific-popup.min.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+	<link rel="icon" type="image/png" href="favicon.ico" />
+	<title>EMF Compare - Compare and Merge Your EMF Models</title>
+	<link type="text/css" rel="stylesheet" href="css/style.css" />		
+	<link type="text/css" rel="stylesheet" href="css/media.css" />
+</head>
+	
+<body>
+
+<div id="header_wrapper">
+	<div id="logo">
+		<a href="index.html"><img alt="logo" src="images/logos/logo.png" /></a>
+	</div>
+	
+	<div id="menu_wrapper">
+		<ul id="nav">
+			<li class="current_menu_item"><a href="overview.html">Overview</a></li>
+			<li><a href="download.html">Download</a></li>
+			<li><a href="http://www.eclipse.org/emf/compare/documentation/latest/user/user-guide.html">Get Started</a></li>
+			<li class="last_item"><a href="community.html">Community</a></li>
+			
+		</ul>
+	</div>	<!-- Fin menu_wrapper -->
+</div>	<!-- Fin header_wrapper -->
+
+<div id="body_wrapper">	
+	<h1 class="page_title" id="overview_section">Overview</h1>
+	<div class="section left">
+		<div class="image">
+			<div class="popup-gallery">
+				<a href="images/screenshots/compareAnt.png" title="EMF Compare - Overview"><img class="shadow" src="images/screenshots/compareAnt.png" width="400" /></a>
+			</div>
+		</div>
+		<h1 class="intro" id="easy_section">What is EMF Compare?</h1>
+		<p>EMF Compare provides comparison and merge facility for any kind of EMF Model.</p>
+		<p>In a nutshell this project provides: </p>
+		<ul>
+			<li>a framework you can easily reuse and extend to compare instances of your models</li>
+			<li>a tool integrated in the Eclipse IDE to see the differences and merge them.</li>
+		</ul>
+		<p>It includes a generic comparison engine and the ability to export differences in a model patch. It is integrated with the Eclipse Team API meaning 
+		that it enables collaborative work on models using CVS, SVN and GIT.</p>
+	</div>
+
+	<div class="section right">
+		<div class="image">
+			<div class="popup-gallery">
+				<a href="images/screenshots/comparePapyrus.png" title="EMF Compare - Extensible and customizable"><img class="shadow" src="images/screenshots/comparePapyrus.png" width="400" /></a>
+			</div>
+		</div>
+		<h1 class="intro" id="extensible_section">Extensible and customizable</h1>
+		<p>EMF Compare provides powerful extensibility mechanisms in order to compare and merge any kind of EMF model. </p>
+		<p>Depending on your own comparison strategy, EMF Compare allows you to fully customize the matching method (to find equivalences) and the differencing process (to identify gaps between two versions of the same object).</p>
+		 <p>The comparison UI can also be customized to show differences exactly as you need (labels, filters, groups, etc).</p>
+	</div>
+	
+	<div class="section left">
+		<div class="image">
+			<div class="popup-gallery">
+				<a href="images/screenshots/comparScaling.jpg" title="EMF Compare - Scaling to millions">
+					<img class="shadow" src="images/screenshots/comparScaling.jpg" width="400" />
+				</a>
+			</div>
+		</div>
+		<h1 class="intro" id="scalable_section">Scaling to millions</h1>
+		<p>EMF Compare has been designed with scalability in mind in order to support comparisons of large fragmented models.</p>
+		<p>It only loads the fragments susceptible to have changed and then compares only these parts. Only the necessary fragments (minimized scope) of the compared models are loaded, bringing fast differences computing along with an optimal memory footprint.</p>
+		<p>This way, EMFCompare is able to compare models with millions of elements in a number of steps proportional to the number of differences.</p>
+	</div>
+	
+	<div class="section right">
+		<div class="image">
+			<div class="popup-gallery">
+				<a href="images/logo_git_overview.png" title="EMF Compare - Integration with Eclipse Team APIs"><img class="shadow" src="images/logo_git_overview.png" width="400" /></a>
+			</div>
+		</div>
+		<h1 class="intro" id="git_section">Integration with Eclipse Team APIs</h1>
+		<p>EMF Compare relies on Eclipse Team, the framework upon which the repository providers (EGit, CVS, Subversive...) are built.
+It means that you can directly compare models managed in such repositories.</p>
+		<p>Moreover, if these models are fragmented, EMF Compare provides a global view on the changes, at the model level and not file by file. </p>
+		 <p>It helps you to avoid the tedious task of comparing and merging textual differences in individual files. It also ensures that the merge will keep the integrity of the model.</p>
+	</div>
+	
+</div> <!-- Fin body_wrapper -->	
+
+<div class="clear"></div>
+
+<div id="footer_wrapper">
+	<div id="footer_content">
+		<div class="column">
+			<div class="columntitle">
+				<h3>Eclipse Links</h3>
+			</div>
+			<ul>
+				<li><a href="http://www.eclipse.org/legal/privacy.php"> Privacy Policy</a></li>
+				<li><a href="http://eclipse.org/"> Eclipse</a></li>
+				<li><a href="http://www.eclipse.org/legal/termsofuse.php"> Terms of Use</a></li>
+				<li><a href="http://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+				<li><a href="http://www.eclipse.org/legal/">Legal</a></li>
+				<li><a href="http://www.eclipse.org/org/foundation/contact.php"> Contact Us</a></li>
+			</ul>
+		</div>
+		
+		<div class="column">
+			<div class="columntitle">
+				<h3>Community</h3>
+			</div>
+			<ul>
+				<li><a href="http://www.eclipse.org/emf/compare/documentation/latest/user/user-guide.html" target="_blank" >Get Started</a></li>
+				<li><a href="http://www.eclipse.org/emf/compare/documentation/latest/" target="_blank">Documentation</a></li>
+				<li><a href="http://wiki.eclipse.org/EMF_Compare" target="_blank">Wiki</a></li>
+				<li><a href="http://www.eclipse.org/forums/index.php/f/164/" target="_blank">Forum</a></li>
+				<li><a href="https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&classification=Modeling&product=EMFCompare&query_format=advanced" target="_blank">Bug Tracker</a></li>
+				<li><a href="http://www.eclipse.org/emf/compare/support/" target="_blank">Professional Support</a></li>
+				<li><a href="https://dev.eclipse.org/mailman/listinfo/emf-dev" target="_blank">Developer Mailing List</a></li>
+				<li><a href="http://git.eclipse.org/c/emfcompare/org.eclipse.emf.compare.git/" target="_blank">Source Code</a></li>
+			</ul>
+		</div>
+		
+		<div class="column">
+			<a href="http://www.eclipse.org/"><img src="images/logos/eclipse.png" alt="Eclipse logo"></a>
+			<span id="copyright">Copyright © <span id="year">YEAR</span> The Eclipse Foundation. All Rights Reserved.</span>
+		</div>
+	</div>
+</div>	
+
+</body>
+</html>
