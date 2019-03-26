@@ -1,152 +1,205 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
-	   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html>
 <html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta http-equiv="Content-language" content="en">
-	<meta name="description" content="EMF Compare provides comparison and merge facility for any kind of EMF Model">
-	 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-	<script type="text/javascript" src="js/magnific-popup.video.js"></script> 
-	<script type="text/javascript" src="js/magnific-popup.min.js"></script>
-	<script type="text/javascript" src="js/functions.js"></script>
-	<link rel="icon" type="image/png" href="favicon.ico" />
-	<title>EMF Compare - Compare and Merge Your EMF Models</title>
-	<link type="text/css" rel="stylesheet" href="css/style.css" />		
-	<link type="text/css" rel="stylesheet" href="css/media.css" />
-	
-	<!-- Eclipse Foundation Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5WLCZXC');</script>
-    <!-- End Google Tag Manager --> 
-   
-    <!-- Eclipse Foundation cookie consent: -->
-    <link rel="stylesheet" type="text/css" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css" />
-    <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
-	<!-- End Eclipse Foundation cookie consent: -->
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <title>EMF Compare | Overview</title>
+  
+    <meta name="description" content="">
+    <link rel="shortcut icon" type="image/png" href="images/favicon_emfcompare.ico" />
+
+  
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="/acceleo/common_assets/css/styles.css">
+    <link rel="stylesheet" href="/acceleo/common_assets/css/animate.css">
+
+    <link rel="canonical" href="/acceleo/emfcompare/overview.html">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!-- Eclipse Foundation Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5WLCZXC');</script>
+        <!-- End Google Tag Manager -->  
+        
+        <!-- Eclipse Foundation cookie consent: -->
+        <link rel="stylesheet" type="text/css" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css" />
+        <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>  
+        
+        <script src="js/ga.js"></script>
+
+    <!-- Old version of font awesome for some icons -->
+    <script src="https://use.fontawesome.com/b51f77a16a.js"></script>    
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    
+    <script>
+        jQuery(function($){ $(".hasTooltip").tooltip({"html": true,"container": "body"}); });
+    </script>
+    <!-- Triggers tooltips -->
+    <script>
+        jQuery(document).ready(function() {
+            jQuery('.hasTooltip').tooltip();
+        });
+    </script>
 </head>
-	
-<body>
+  
+  <body>
 
-<div id="header_wrapper">
-	<div id="logo">
-		<a href="index.html"><img alt="logo" src="images/logos/logo.png" /></a>
-	</div>
-	
-	<div id="menu_wrapper">
-		<ul id="nav">
-			<li class="current_menu_item"><a href="overview.html">Overview</a></li>
-			<li><a href="download.html">Download</a></li>
-			<li><a href="http://www.eclipse.org/emf/compare/documentation/latest/user/user-guide.html">Get Started</a></li>
-			<li class="last_item"><a href="community.html">Community</a></li>
-			
-		</ul>
-	</div>	<!-- Fin menu_wrapper -->
-</div>	<!-- Fin header_wrapper -->
+    <!-- Navigation -->
+<header id="top-bar" class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/emfcompare">
+            <img src="/acceleo/common_assets/images/logos/logo_emfcompare.png" alt="Logo EMF Compare">
+        </a>
+        
+        <!-- /logo -->
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars"></i>
+        </button>
+        <nav class="collapse navbar-collapse" id="navbarResponsive">
+            <div class="main-menu ml-auto">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/emfcompare/overview.html">Overview</a>
+                    </li>
+                    <li>
+                        <a href="/emfcompare/features.html">Features</a>
+                    </li>
+                    <li>
+                        <a href="/emfcompare/resources.html">Resources</a>
+                    </li>
+                    <li>
+                        <a href="/emfcompare/support.html">Support</a>
+                    </li>
+                    <li id="dwnld">
+                        <a href="/emfcompare/download.html">Download</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
 
-<div id="body_wrapper">	
-	<h1 class="page_title" id="overview_section">Overview</h1>
-	<div class="section left">
-		<div class="image">
-			<div class="popup-gallery">
-				<a href="images/screenshots/compareAnt.png" title="EMF Compare - Overview"><img class="shadow" src="images/screenshots/compareAnt.png" width="400" /></a>
-			</div>
-		</div>
-		<h1 class="intro" id="easy_section">What is EMF Compare?</h1>
-		<p>EMF Compare provides comparison and merge facility for any kind of EMF Model.</p>
-		<p>In a nutshell this project provides: </p>
-		<ul>
-			<li>a framework you can easily reuse and extend to compare instances of your models</li>
-			<li>a tool integrated in the Eclipse IDE to see the differences and merge them.</li>
-		</ul>
-		<p>It includes a generic comparison engine and the ability to export differences in a model patch. It is integrated with the Eclipse Team API meaning 
-		that it enables collaborative work on models using CVS, SVN and GIT.</p>
-	</div>
+    
+    <section>
+    <div class="container">
+       
+        <div class="row">
+    <div class="col-md-5 order-1 wow fadeInLeft" data-wow-delay=".1s">
+        <h3>What is EMF Compare?</h3>
+        
+            <p>EMF Compare provides comparison and merge facility for any kind of EMF Model.
 
-	<div class="section right">
-		<div class="image">
-			<div class="popup-gallery">
-				<a href="images/screenshots/comparePapyrus.png" title="EMF Compare - Extensible and customizable"><img class="shadow" src="images/screenshots/comparePapyrus.png" width="400" /></a>
-			</div>
-		</div>
-		<h1 class="intro" id="extensible_section">Extensible and customizable</h1>
-		<p>EMF Compare provides powerful extensibility mechanisms in order to compare and merge any kind of EMF model. </p>
-		<p>Depending on your own comparison strategy, EMF Compare allows you to fully customize the matching method (to find equivalences) and the differencing process (to identify gaps between two versions of the same object).</p>
-		 <p>The comparison UI can also be customized to show differences exactly as you need (labels, filters, groups, etc).</p>
-	</div>
-	
-	<div class="section left">
-		<div class="image">
-			<div class="popup-gallery">
-				<a href="images/screenshots/comparScaling.jpg" title="EMF Compare - Scaling to millions">
-					<img class="shadow" src="images/screenshots/comparScaling.jpg" width="400" />
-				</a>
-			</div>
-		</div>
-		<h1 class="intro" id="scalable_section">Scaling to millions</h1>
-		<p>EMF Compare has been designed with scalability in mind in order to support comparisons of large fragmented models.</p>
-		<p>It only loads the fragments susceptible to have changed and then compares only these parts. Only the necessary fragments (minimized scope) of the compared models are loaded, bringing fast differences computing along with an optimal memory footprint.</p>
-		<p>This way, EMFCompare is able to compare models with millions of elements in a number of steps proportional to the number of differences.</p>
-	</div>
-	
-	<div class="section right">
-		<div class="image">
-			<div class="popup-gallery">
-				<a href="images/logo_git_overview.png" title="EMF Compare - Integration with Eclipse Team APIs"><img class="shadow" src="images/logo_git_overview.png" width="400" /></a>
-			</div>
-		</div>
-		<h1 class="intro" id="git_section">Integration with Eclipse Team APIs</h1>
-		<p>EMF Compare relies on Eclipse Team, the framework upon which the repository providers (EGit, CVS, Subversive...) are built.
-It means that you can directly compare models managed in such repositories.</p>
-		<p>Moreover, if these models are fragmented, EMF Compare provides a global view on the changes, at the model level and not file by file. </p>
-		 <p>It helps you to avoid the tedious task of comparing and merging textual differences in individual files. It also ensures that the merge will keep the integrity of the model.</p>
-	</div>
-	
-</div> <!-- Fin body_wrapper -->	
+            </p>
+            <p>In a nutshell this project provides:</p>
+            <ul>
+                <li>a framework you can easily reuse and extend to compare instances of your models</li>
+                <li>a tool integrated in the Eclipse IDE to see the differences and merge them.</li>
+            </ul>
+            <p>It includes a generic comparison engine and the ability to export differences in a model patch. It is integrated with the Eclipse Team API meaning that it enables collaborative work on models using CVS, SVN and GIT.</p>
+            
+        <p><a href="https://projects.eclipse.org/projects/modeling.emfcompare" target="_blank">Project page  <i class="fas fa-arrow-alt-circle-right" aria-hidden="true"></i></a></p>
+    </div>
+    <div class="col-md-7 order-2 wow fadeInUp" data-wow-delay=".2s">
+        <img src="images/illustrations/emfcompare-definition.png" alt="EMF Compare - What is EMF Compare?">
+    </div>
+</div>
+    </div>
+</section>
 
-<div class="clear"></div>
+<section class="bg_lightest_grey">
+    <div class="container">
+        <div class="row">
+    <div class="col-md-5 order-2 wow fadeInLeft" data-wow-delay=".1s">
+        <h3>Discover</h3>
+        
+            <p>EMF Compare will work out of the box on most models within Eclipse, so you can just start using it by comparing your models through the usual eclipse actions.</p>
+            <p><a href="documentation/latest/user/user-guide.html">Check out the User Guide <i class="fas fa-arrow-alt-circle-right" aria-hidden="true"></i></a></p>
+            <p>Specific needs for your business model can be addressed through the extension mechanisms provided by EMF Compare as a framework. These same mechanisms can be used in order to extend EMF Compare support to new visualizations of the models, such as graphical modelers</p>
+            
+        <p><a href="documentation/latest/developer/developer-guide.html" target="_self">Check out the Developer Guide  <i class="fas fa-arrow-alt-circle-right" aria-hidden="true"></i></a></p>
+    </div>
+    <div class="col-md-7 order-1 wow fadeInUp" data-wow-delay=".2s">
+        <img src="images/screenshots/emfcompare-compare-merge.png" alt="EMF Compare - Discover">
+    </div>
+</div>           
+    </div>
+</section>
 
-<div id="footer_wrapper">
-	<div id="footer_content">
-		<div class="column">
-			<div class="columntitle">
-				<h3>Eclipse Links</h3>
-			</div>
-			<ul>
-				<li><a href="http://www.eclipse.org/legal/privacy.php"> Privacy Policy</a></li>
-				<li><a href="http://eclipse.org/"> Eclipse</a></li>
-				<li><a href="http://www.eclipse.org/legal/termsofuse.php"> Terms of Use</a></li>
-				<li><a href="http://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
-				<li><a href="http://www.eclipse.org/legal/">Legal</a></li>
-				<li><a href="http://www.eclipse.org/org/foundation/contact.php"> Contact Us</a></li>
-			</ul>
-		</div>
-		
-		<div class="column">
-			<div class="columntitle">
-				<h3>Community</h3>
-			</div>
-			<ul>
-				<li><a href="http://www.eclipse.org/emf/compare/documentation/latest/user/user-guide.html" target="_blank" >Get Started</a></li>
-				<li><a href="http://www.eclipse.org/emf/compare/documentation/latest/" target="_blank">Documentation</a></li>
-				<li><a href="http://wiki.eclipse.org/EMF_Compare" target="_blank">Wiki</a></li>
-				<li><a href="http://www.eclipse.org/forums/index.php/f/164/" target="_blank">Forum</a></li>
-				<li><a href="https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&classification=Modeling&product=EMFCompare&query_format=advanced" target="_blank">Bug Tracker</a></li>
-				<li><a href="http://www.eclipse.org/emf/compare/support/" target="_blank">Professional Support</a></li>
-				<li><a href="https://dev.eclipse.org/mailman/listinfo/emf-dev" target="_blank">Developer Mailing List</a></li>
-				<li><a href="http://git.eclipse.org/c/emfcompare/org.eclipse.emf.compare.git/" target="_blank">Source Code</a></li>
-			</ul>
-		</div>
-		
-		<div class="column">
-			<a href="http://www.eclipse.org/"><img src="images/logos/eclipse.png" alt="Eclipse logo"></a>
-			<span id="copyright">Copyright © <span id="year">YEAR</span> The Eclipse Foundation. All Rights Reserved.</span>
-		</div>
-	</div>
-</div>	
+<section class="text-center">
+    <div class="container">
+        <h2 class="title wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".2s">Related Projects</h2> 
+<h3 class="wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s"></h3>
+<p class="wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".4s"></p>
 
-</body>
+
+        <div class="row">
+            <div class="col-md-12 col-xs-12 vcenter wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms"><a href="http://www.eclipse.org/modeling/emf/" title="Logo Eclipse EMF" target="_blank"><img src="/acceleo/common_assets/images/logos/logo_emf.jpg"></a></div>
+        </div>
+        
+    </div>       
+</section>
+
+<footer>
+  <div class="container">
+      <div class="row">    
+        
+<div class="col-md-3">
+    <p><a href="http://www.eclipse.org/"  target="_blank"><img src="/acceleo/common_assets/images/logos/logo-eclipse-foundation.png" alt="Eclipse Foundation logo"></a></p>
+    <p id="copyright">Copyright © 2019 Eclipse Foundation, Inc.<br>All Rights Reserved.</p>
+</div>
+
+<div class="col-md-3">
+    <h6>Eclipse Foundation</h6>
+    <ul>
+        <li><a href="http://www.eclipse.org/legal/privacy.php" target="_blank">Privacy Policy</a></li>
+        <li><a href="http://eclipse.org/" target="_blank">Eclipse</a></li>
+        <li><a href="http://www.eclipse.org/legal/termsofuse.php" target="_blank">Terms of Use</a></li>
+        <li><a href="http://www.eclipse.org/legal/copyright.php" target="_blank">Copyright Agent</a></li>
+        <li><a href="http://www.eclipse.org/legal/" target="_blank">Legal</a></li>
+        <li><a href="http://www.eclipse.org/org/foundation/contact.php" target="_blank"> Contact Us</a></li>
+    </ul>
+</div>
+
+        
+<div class="col-md-3">
+    <h6>Project Links</h6>
+    <ul>
+        <li><a href="https://projects.eclipse.org/projects/modeling.emfcompare" target="_blank">About this project</a></li>
+        <li><a href="http://wiki.eclipse.org/EMF_Compare" target="_blank">Wiki</a></li>
+        <li><a href="https://www.eclipse.org/forums/index.php/f/164/" target="_blank">Forum</a></li>
+        <li><a href="https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&classification=Modeling&product=EMFCompare&query_format=advanced" target="_blank">Bugs</a></li>
+        <li><a href="https://git.eclipse.org/c/emfcompare/org.eclipse.emf.compare.git" target="_blank">Source Code</a></li>
+    </ul>
+</div>
+    </div>
+  </div>
+</footer>
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous" defer></script>
+
+<script src="/acceleo//common_assets/js/wow.min.js" defer></script>
+<script src="/acceleo//common_assets/js/magnific-popup.min.js" defer></script>
+<script src="/acceleo//common_assets/js/magnific-popup.video.js" defer></script>
+<!-- Call wow function -->
+<script>
+        jQuery(document).ready(function(){
+            "use strict";
+            new WOW().init();
+        });
+</script>
+  
+  </body>
 </html>
