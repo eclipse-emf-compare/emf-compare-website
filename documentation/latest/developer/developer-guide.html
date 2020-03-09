@@ -4,233 +4,17 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<title>Developer guide</title>
 		<style type="text/css">
-			.tip {border: 1px solid #090;background-color: #dfd;margin: 20px;padding: 0px 6px 0px 6px;}
-			.note {border: 1px solid #F0C000;background-color: #FFFFCE;margin: 20px;padding: 0px 6px 0px 6px;}
 			.info {border: 1px solid #3c78b5;background-color: #D8E4F1;margin: 20px;padding: 0px 6px 0px 6px;}
-			.warning {border: 1px solid #c00;background-color: #fcc;margin: 20px;padding: 0px 6px 0px 6px;}
+			.note {border: 1px solid #F0C000;background-color: #FFFFCE;margin: 20px;padding: 0px 6px 0px 6px;}
 			.panel {border: 1px solid #ccc;background-color: #FFFFCE;margin: 10px;padding: 0px 6px 0px 6px;}
+			.tip {border: 1px solid #090;background-color: #dfd;margin: 20px;padding: 0px 6px 0px 6px;}
+			.warning {border: 1px solid #c00;background-color: #fcc;margin: 20px;padding: 0px 6px 0px 6px;}
 </style>
-		<link type="text/css" rel="stylesheet" href="../resources/bootstrap.css"/>
-		<link type="text/css" rel="stylesheet" href="../resources/custom.css"/>
+		<link type="text/css" rel="stylesheet" href="/help/topic/org.eclipse.emf.compare.doc/help/resources/bootstrap.css"/>
+		<link type="text/css" rel="stylesheet" href="/help/topic/org.eclipse.emf.compare.doc/help/resources/custom.css"/>
 	</head>
 	<body>
-		<h1 id="EMF_Compare_.E2.80.94__Developer_Guide">EMF Compare —  Developer Guide</h1>
-		<p>Version 3.1.0.201506080946</p>
-		<div class="toc">
-			<h3 class="toc-title">Table of Contents</h3>
-			<ol style="list-style: none">
-				<li>
-					<a href="#Architecture">Architecture</a>
-					<ol style="list-style: none">
-						<li>
-							<a href="#Comparison_Process">Comparison Process</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#Model_Resolving">Model Resolving</a>
-								</li>
-								<li>
-									<a href="#Matching">Matching</a>
-								</li>
-								<li>
-									<a href="#Differencing">Differencing</a>
-								</li>
-								<li>
-									<a href="#Equivalences">Equivalences</a>
-								</li>
-								<li>
-									<a href="#Requirements">Requirements</a>
-								</li>
-								<li>
-									<a href="#Conflicts">Conflicts</a>
-								</li>
-							</ol>
-						</li>
-						<li>
-							<a href="#Project_Architecture">Project Architecture</a>
-						</li>
-						<li>
-							<a href="#The_Comparison_Model">The Comparison Model</a>
-						</li>
-						<li>
-							<a href="#Match">Match</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#Diff">Diff</a>
-								</li>
-								<li>
-									<a href="#Conflict">Conflict</a>
-								</li>
-								<li>
-									<a href="#Equivalence">Equivalence</a>
-								</li>
-							</ol>
-						</li>
-					</ol>
-				</li>
-				<li>
-					<a href="#Core_Concepts">Core Concepts</a>
-					<ol style="list-style: none">
-						<li>
-							<a href="#Proxy_Resolution">Proxy Resolution</a>
-						</li>
-						<li>
-							<a href="#Equality_Helper">Equality Helper</a>
-						</li>
-						<li>
-							<a href="#Comparison_Scope">Comparison Scope</a>
-						</li>
-						<li>
-							<a href="#Longest_Common_Subsequence">Longest Common Subsequence</a>
-						</li>
-					</ol>
-				</li>
-				<li>
-					<a href="#Default_Behavior_and_Extensibility">Default Behavior and Extensibility</a>
-					<ol style="list-style: none">
-						<li>
-							<a href="#Model_Resolving_2">Model Resolving</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#Customization">Customization</a>
-									<ol style="list-style: none">
-										<li>
-											<a href="#Model_Resolver_Extension_Point">Model Resolver Extension Point</a>
-										</li>
-										<li>
-											<a href="#Model_Dependency_Provider_Extension_Point">Model Dependency Provider Extension Point</a>
-										</li>
-									</ol>
-								</li>
-							</ol>
-						</li>
-						<li>
-							<a href="#Match_2">Match</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#Overriding_the_Match_engine">Overriding the Match engine</a>
-								</li>
-								<li>
-									<a href="#Changing_how_resources_are_matched">Changing how resources are matched</a>
-								</li>
-								<li>
-									<a href="#Defining_custom_identifiers">Defining custom identifiers</a>
-								</li>
-								<li>
-									<a href="#Ignoring_identifiers">Ignoring identifiers</a>
-								</li>
-								<li>
-									<a href="#Refine_the_default_Match_result">Refine the default Match result</a>
-								</li>
-							</ol>
-						</li>
-						<li>
-							<a href="#Diff_2">Diff</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#Overriding_the_Diff_engine">Overriding the Diff engine</a>
-								</li>
-								<li>
-									<a href="#Changing_the_FeatureFilter">Changing the FeatureFilter</a>
-								</li>
-								<li>
-									<a href="#Changing_the_Diff_Processor">Changing the Diff Processor</a>
-								</li>
-								<li>
-									<a href="#Refine_the_default_Diff_result">Refine the default Diff result</a>
-								</li>
-							</ol>
-						</li>
-						<li>
-							<a href="#Equivalences_2">Equivalences</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#Refine_the_default_equivalences">Refine the default equivalences</a>
-								</li>
-							</ol>
-						</li>
-						<li>
-							<a href="#Requirements_2">Requirements</a>
-						</li>
-						<li>
-							<a href="#Refinement">Refinement</a>
-						</li>
-						<li>
-							<a href="#Conflicts_2">Conflicts</a>
-						</li>
-						<li>
-							<a href="#Merging">Merging</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#Which_references_are_followed_during_merging">Which references are followed during merging</a>
-								</li>
-							</ol>
-						</li>
-						<li>
-							<a href="#User_Interface">User Interface</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#Add_your_own_filter">Add your own filter</a>
-								</li>
-								<li>
-									<a href="#Add_your_own_group">Add your own group</a>
-								</li>
-								<li>
-									<a href="#Customize_display_of_differences_inside_an_existing_group">Customize display of differences inside an existing group</a>
-								</li>
-								<li>
-									<a href="#Add_your_own_accessor_factory">Add your own accessor factory</a>
-								</li>
-							</ol>
-						</li>
-					</ol>
-				</li>
-				<li>
-					<a href="#Using_The_Compare_APIs">Using The Compare APIs</a>
-					<ol style="list-style: none">
-						<li>
-							<a href="#Compare_two_models">Compare two models</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#Loading_your_models">Loading your models</a>
-								</li>
-								<li>
-									<a href="#Creating_the_comparison_scope">Creating the comparison scope</a>
-								</li>
-								<li>
-									<a href="#Configuring_the_comparison">Configuring the comparison</a>
-								</li>
-								<li>
-									<a href="#Putting_it_all_together">Putting it all together</a>
-								</li>
-								<li>
-									<a href="#Comparing_from_an_Eclipse_plugin">Comparing from an Eclipse plugin</a>
-								</li>
-							</ol>
-						</li>
-						<li>
-							<a href="#Query_the_differences">Query the differences</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#All_differences">All differences</a>
-								</li>
-								<li>
-									<a href="#Differences_related_to_element_X">Differences related to element X</a>
-								</li>
-								<li>
-									<a href="#Filtering_differences">Filtering differences</a>
-								</li>
-							</ol>
-						</li>
-						<li>
-							<a href="#Merge_differences">Merge differences</a>
-						</li>
-						<li>
-							<a href="#Open_a_compare_editor">Open a compare editor</a>
-						</li>
-					</ol>
-				</li>
-			</ol>
-		</div>
+		<h1 id="Developer_Guide">Developer Guide</h1>
 		<h2 id="Architecture">Architecture</h2>
 		<h3 id="Comparison_Process">Comparison Process</h3>
 		<p>
@@ -248,7 +32,7 @@
 		<h4 id="Requirements">Requirements</h4>
 		<p>For the purpose of merging differences, there might be dependencies between them. For example, the addition of a class C1 in package P1 depends on the addition of package P1 itself. During this phase, we'll browse through all detected differences and link them together when we determine that one cannot be merged without the other.</p>
 		<h4 id="Conflicts">Conflicts</h4>
-		<p>When we're comparing our file with one from a Version Control System (CVS, SVN, Git, Clearcase...), there might actually be conflicts between the changes we've made locally, and the changes that were made to the file on the remote repository. This phase will browse through all detected differences and detect these conflicts.</p>
+		<p>When we're comparing our file with one from EGit, there might actually be conflicts between the changes we've made locally, and the changes that were made to the file on the remote repository. This phase will browse through all detected differences and detect these conflicts. It could also happen on three-way comparisons.</p>
 		<p>The Model resolving phase itself can be further decomposed in its own two distinct phases. More on the logical model and its resolution can be found on the 
 			<a href="./logical-model.html" title="./logical-model.html">dedicated page</a>.
 		</p>
@@ -260,7 +44,7 @@
 			<img align="middle" border="0" src="./../images/EMF_Compare_2_Architecture.png"/>
 		</p>
 		<p>EMF Compare is built on top of the Eclipse platform. We depend on the Eclipse Modeling Framework (EMF), the Eclipse Compare framework and, finally, Eclipse Team, the framework upon which the repository providers (EGit, CVS, Subversive...) are built.</p>
-		<p>The EMF Compare extensions target specific extensions of the modeling framework: UML, the Graphical Modeling Framework (and its own extensions, papyrus, ecoretools, ...).</p>
+		<p>The EMF Compare extensions target specific extensions of the modeling framework: UML, the Graphical Modeling Framework (and its own extensions, ecoretools, ...).</p>
 		<p>Whilst we are built atop bricks that are tightly coupled with the eclipse platform, it should be noted that the core of EMF Compare can be run in a standalone application with no runtime dependencies towards Eclipse; as can EMF itself.</p>
 		<h3 id="The_Comparison_Model">The Comparison Model</h3>
 		<p>EMF Compare uses a single model, whose root is a 
@@ -552,7 +336,7 @@
 		<pre class="source-java">// for standalone usage
 IMatchEngine.Factory.Registry registry = MatchEngineFactoryRegistryImpl.createStandaloneInstance();
 // for OSGi (IDE, RCP) usage
-// IMatchEngine.Factory.Registry registry = EMFCompareRCPPlugin.getMatchEngineFactoryRegistry();
+// IMatchEngine.Factory.Registry registry = EMFCompareRCPPlugin.getDefault().getMatchEngineFactoryRegistry();
 final IMatchEngine customMatchEngine = new MyMatchEngine(...);
 IMatchEngine.Factory engineFactory = new MatchEngineFactoryImpl() {
   public IMatchEngine getMatchEngine() {
@@ -589,7 +373,7 @@ IComparisonFactory comparisonFactory = new DefaultComparisonFactory(new DefaultE
  
 IMatchEngine.Factory.Registry registry = MatchEngineFactoryRegistryImpl.createStandaloneInstance();
 // for OSGi (IDE, RCP) usage
-// IMatchEngine.Factory.Registry registry = EMFCompareRCPPlugin.getMatchEngineFactoryRegistry();
+// IMatchEngine.Factory.Registry registry = EMFCompareRCPPlugin.getDefault().getMatchEngineFactoryRegistry();
 final MatchEngineFactoryImpl matchEngineFactory = new MatchEngineFactoryImpl(customIDMatcher, comparisonFactory);
 matchEngineFactory.setRanking(20); // default engine ranking is 10, must be higher to override.
 registry.add(matchEngineFactory);
@@ -603,7 +387,7 @@ Comparison result = EMFCompare.builder().setMatchEngineFactoryRegistry(registry)
 		</p>
 		<pre class="source-java">IMatchEngine.Factory.Registry registry === MatchEngineFactoryRegistryImpl.createStandaloneInstance();
 // for OSGi (IDE, RCP) usage
-// IMatchEngine.Factory.Registry registry === EMFCompareRCPPlugin.getMatchEngineFactoryRegistry();
+// IMatchEngine.Factory.Registry registry === EMFCompareRCPPlugin.getDefault().getMatchEngineFactoryRegistry();
 final MatchEngineFactoryImpl matchEngineFactory = new MatchEngineFactoryImpl(UseIdentifiers.NEVER);
 matchEngineFactory.setRanking(20); // default engine ranking is 10, must be higher to override.
 registry.add(matchEngineFactory);
@@ -1478,9 +1262,5 @@ import static org.eclipse.emf.compare.utils.EMFComparePredicates.hasConflict;
 		<p>PENDING description of the need (dialog and editor), link to 
 			<a href="./how-to-open-compare-dialog.html" title="./how-to-open-compare-dialog.html">appropriate page</a>
 		</p>
-		<p>Part of 
-			<a href="../index.html">EMF Compare Documentation</a>
-		</p>
-		<p>Version 3.1.0.201506080946</p>
 	</body>
 </html>

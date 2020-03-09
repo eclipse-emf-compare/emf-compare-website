@@ -4,128 +4,17 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<title>Git commands involving models</title>
 		<style type="text/css">
-			.tip {border: 1px solid #090;background-color: #dfd;margin: 20px;padding: 0px 6px 0px 6px;}
-			.note {border: 1px solid #F0C000;background-color: #FFFFCE;margin: 20px;padding: 0px 6px 0px 6px;}
 			.info {border: 1px solid #3c78b5;background-color: #D8E4F1;margin: 20px;padding: 0px 6px 0px 6px;}
-			.warning {border: 1px solid #c00;background-color: #fcc;margin: 20px;padding: 0px 6px 0px 6px;}
+			.note {border: 1px solid #F0C000;background-color: #FFFFCE;margin: 20px;padding: 0px 6px 0px 6px;}
 			.panel {border: 1px solid #ccc;background-color: #FFFFCE;margin: 10px;padding: 0px 6px 0px 6px;}
+			.tip {border: 1px solid #090;background-color: #dfd;margin: 20px;padding: 0px 6px 0px 6px;}
+			.warning {border: 1px solid #c00;background-color: #fcc;margin: 20px;padding: 0px 6px 0px 6px;}
 </style>
-		<link type="text/css" rel="stylesheet" href="../resources/bootstrap.css"/>
-		<link type="text/css" rel="stylesheet" href="../resources/custom.css"/>
+		<link type="text/css" rel="stylesheet" href="/help/topic/org.eclipse.emf.compare.doc/help/resources/bootstrap.css"/>
+		<link type="text/css" rel="stylesheet" href="/help/topic/org.eclipse.emf.compare.doc/help/resources/custom.css"/>
 	</head>
 	<body>
-		<h1 id="EMF_Compare_.E2.80.94__Git_commands_involving_models">EMF Compare —  Git commands involving models</h1>
-		<p>Version 3.1.0.201506080946</p>
-		<div class="toc">
-			<h3 class="toc-title">Table of Contents</h3>
-			<ol style="list-style: none">
-				<li>
-					<a href="#Add_new_Git_commands_in_your_system">Add new Git commands in your system</a>
-				</li>
-				<li>
-					<a href="#Create_a_setup_file">Create a setup file</a>
-					<ol style="list-style: none">
-						<li>
-							<a href="#Installation">Installation</a>
-						</li>
-						<li>
-							<a href="#Basic_usage">Basic usage</a>
-						</li>
-					</ol>
-				</li>
-				<li>
-					<a href="#Git_diff_command_with_models_:_git_logicaldiff">Git diff command with models : git logicaldiff</a>
-					<ol style="list-style: none">
-						<li>
-							<a href="#Others_options_available">Others options available</a>
-						</li>
-					</ol>
-				</li>
-				<li>
-					<a href="#Git_merge_command_with_models_:_git_logicalmerge">Git merge command with models : git logicalmerge</a>
-					<ol style="list-style: none">
-						<li>
-							<a href="#Others_options_available_2">Others options available</a>
-						</li>
-					</ol>
-				</li>
-				<li>
-					<a href="#Git_mergetool_command_with_models_:_git_logicalmergetool">Git mergetool command with models : git logicalmergetool</a>
-				</li>
-				<li>
-					<a href="#Git_cherry-pick_with_models_:_git_logicalcherry-pick">Git cherry-pick with models : git logicalcherry-pick</a>
-					<ol style="list-style: none">
-						<li>
-							<a href="#Conflicts">Conflicts</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#Resolve_a_conflict">Resolve a conflict</a>
-								</li>
-								<li>
-									<a href="#Continue">Continue</a>
-								</li>
-							</ol>
-						</li>
-						<li>
-							<a href="#Abort">Abort</a>
-						</li>
-						<li>
-							<a href="#Quit">Quit</a>
-						</li>
-						<li>
-							<a href="#Others_options_available_3">Others options available</a>
-						</li>
-					</ol>
-				</li>
-				<li>
-					<a href="#Git_rebase_with_models_:_git_logicalrebase">Git rebase with models : git logicalrebase</a>
-					<ol style="list-style: none">
-						<li>
-							<a href="#Conflicts_2">Conflicts</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#Resolve_a_conflict_2">Resolve a conflict</a>
-								</li>
-								<li>
-									<a href="#Continue_2">Continue</a>
-								</li>
-							</ol>
-						</li>
-						<li>
-							<a href="#Abort_2">Abort</a>
-						</li>
-						<li>
-							<a href="#Skip">Skip</a>
-						</li>
-						<li>
-							<a href="#Others_options_available_4">Others options available</a>
-						</li>
-					</ol>
-				</li>
-				<li>
-					<a href="#Git_pull_with_models_:_git_logicalpull">Git pull with models : git logicalpull</a>
-					<ol style="list-style: none">
-						<li>
-							<a href="#Others_options_available_5">Others options available</a>
-						</li>
-					</ol>
-				</li>
-				<li>
-					<a href="#Known_bugs_.26_limitations">Known bugs &amp; limitations</a>
-					<ol style="list-style: none">
-						<li>
-							<a href="#First_use">First use</a>
-						</li>
-						<li>
-							<a href="#Merge_tool">Merge tool</a>
-						</li>
-						<li>
-							<a href="#Cherry-pick_empty_commit">Cherry-pick empty commit</a>
-						</li>
-					</ol>
-				</li>
-			</ol>
-		</div>
+		<h1 id="Git_commands_involving_models">Git commands involving models</h1>
 		<p>When a user wants to compare or merge EMF models from the git command line interface, the operation is doing in a textual way. 
 			If he wants to compare or merge EMF models the needs in a logical way, he needs to do that in an Eclipse environment similar to the one he used to create these models.
 			As such, the environment requires some plugins to be installed but it may also requires some preferences to be set, some perspective to be activated etc..
@@ -762,9 +651,5 @@ To check out the original branch and stop rebasing, run "git logicalrebase --abo
 			<i>git reset --hard {$CommitId}</i>. This will reset HEAD to its previous position (
 			<i>Use with caution</i>).
 		</p>
-		<p>Part of 
-			<a href="../index.html">EMF Compare Documentation</a>
-		</p>
-		<p>Version 3.1.0.201506080946</p>
 	</body>
 </html>

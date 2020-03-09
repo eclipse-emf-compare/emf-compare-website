@@ -4,205 +4,17 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<title>User guide</title>
 		<style type="text/css">
-			.tip {border: 1px solid #090;background-color: #dfd;margin: 20px;padding: 0px 6px 0px 6px;}
-			.note {border: 1px solid #F0C000;background-color: #FFFFCE;margin: 20px;padding: 0px 6px 0px 6px;}
 			.info {border: 1px solid #3c78b5;background-color: #D8E4F1;margin: 20px;padding: 0px 6px 0px 6px;}
-			.warning {border: 1px solid #c00;background-color: #fcc;margin: 20px;padding: 0px 6px 0px 6px;}
+			.note {border: 1px solid #F0C000;background-color: #FFFFCE;margin: 20px;padding: 0px 6px 0px 6px;}
 			.panel {border: 1px solid #ccc;background-color: #FFFFCE;margin: 10px;padding: 0px 6px 0px 6px;}
+			.tip {border: 1px solid #090;background-color: #dfd;margin: 20px;padding: 0px 6px 0px 6px;}
+			.warning {border: 1px solid #c00;background-color: #fcc;margin: 20px;padding: 0px 6px 0px 6px;}
 </style>
-		<link type="text/css" rel="stylesheet" href="../resources/bootstrap.css"/>
-		<link type="text/css" rel="stylesheet" href="../resources/custom.css"/>
+		<link type="text/css" rel="stylesheet" href="/help/topic/org.eclipse.emf.compare.doc/help/resources/bootstrap.css"/>
+		<link type="text/css" rel="stylesheet" href="/help/topic/org.eclipse.emf.compare.doc/help/resources/custom.css"/>
 	</head>
 	<body>
-		<h1 id="EMF_Compare_.E2.80.94__User_Guide">EMF Compare —  User Guide</h1>
-		<p>Version 3.1.0.201506080946</p>
-		<div class="toc">
-			<h3 class="toc-title">Table of Contents</h3>
-			<ol style="list-style: none">
-				<li>
-					<a href="#Getting_Started">Getting Started</a>
-					<ol style="list-style: none">
-						<li>
-							<a href="#Installing_EMF_Compare">Installing EMF Compare</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#Marketplace_Client">Marketplace Client</a>
-								</li>
-								<li>
-									<a href="#Update_Site">Update Site</a>
-								</li>
-								<li>
-									<a href="#Compatibility">Compatibility</a>
-								</li>
-							</ol>
-						</li>
-						<li>
-							<a href="#User_Interface_Breakdown">User Interface Breakdown</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#Toolbar">Toolbar</a>
-								</li>
-								<li>
-									<a href="#Contextual_menu_on_differences">Contextual menu on differences</a>
-								</li>
-								<li>
-									<a href="#Signification_of_icons_associated_with_differences">Signification of icons associated with differences</a>
-								</li>
-								<li>
-									<a href="#After_merge">After merge</a>
-								</li>
-								<li>
-									<a href="#Merge_actions_recap">Merge actions recap</a>
-								</li>
-								<li>
-									<a href="#Items_for_not_loaded_fragments">Items for not loaded fragments</a>
-								</li>
-							</ol>
-						</li>
-					</ol>
-				</li>
-				<li>
-					<a href="#Launch_Comparison">Launch Comparison</a>
-					<ol style="list-style: none">
-						<li>
-							<a href="#Compare_with_local_models">Compare with local models</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#Compare_with_each_other">Compare with each other</a>
-								</li>
-								<li>
-									<a href="#Compare_with_local_history">Compare with local history</a>
-								</li>
-							</ol>
-						</li>
-						<li>
-							<a href="#Compare_with_remote_models_.28EGit.29">Compare with remote models (EGit)</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#Compare_with_latest">Compare with latest</a>
-								</li>
-								<li>
-									<a href="#Compare_two_differing_branches">Compare two differing branches</a>
-								</li>
-								<li>
-									<a href="#Resource_name_changes">Resource name changes</a>
-								</li>
-							</ol>
-						</li>
-					</ol>
-				</li>
-				<li>
-					<a href="#Features">Features</a>
-					<ol style="list-style: none">
-						<li>
-							<a href="#Grouping_Differences">Grouping Differences</a>
-						</li>
-						<li>
-							<a href="#Filtering_Differences">Filtering Differences</a>
-						</li>
-						<li>
-							<a href="#Handling_Conflicts">Handling Conflicts</a>
-						</li>
-						<li>
-							<a href="#Text_Attribute_Comparison">Text Attribute Comparison</a>
-						</li>
-						<li>
-							<a href="#Graphical_Comparison">Graphical Comparison</a>
-						</li>
-						<li>
-							<a href="#Logical_Model">Logical Model</a>
-						</li>
-						<li>
-							<a href="#UML_Specialization">UML Specialization</a>
-						</li>
-					</ol>
-				</li>
-				<li>
-					<a href="#Customization">Customization</a>
-					<ol style="list-style: none">
-						<li>
-							<a href="#Engines">Engines</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#Match_Engine">Match Engine</a>
-									<ol style="list-style: none">
-										<li>
-											<a href="#Configure_registered_matching_engine">Configure registered matching engine</a>
-											<ol style="list-style: none">
-												<li>
-													<a href="#Matching_strategy_for_default_match_engine">Matching strategy for default match engine</a>
-												</li>
-											</ol>
-										</li>
-										<li>
-											<a href="#Enable.2FDisable_Match_Engines">Enable/Disable Match Engines</a>
-										</li>
-									</ol>
-								</li>
-								<li>
-									<a href="#For_other_engines">For other engines</a>
-									<ol style="list-style: none">
-										<li>
-											<a href="#Choose_the_default_engine">Choose the default engine</a>
-										</li>
-									</ol>
-								</li>
-							</ol>
-						</li>
-						<li>
-							<a href="#Post_processors_customization">Post processors customization</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#Model_Resolvers">Model Resolvers</a>
-									<ol style="list-style: none">
-										<li>
-											<a href="#Choose_a_strategy">Choose a strategy</a>
-										</li>
-										<li>
-											<a href="#Disable_model_resolution">Disable model resolution</a>
-										</li>
-									</ol>
-								</li>
-							</ol>
-						</li>
-						<li>
-							<a href="#User_Interface_customization">User Interface customization</a>
-							<ol style="list-style: none">
-								<li>
-									<a href="#Colors_Customization">Colors Customization</a>
-								</li>
-								<li>
-									<a href="#Filters">Filters</a>
-								</li>
-								<li>
-									<a href="#Groups">Groups</a>
-								</li>
-								<li>
-									<a href="#Items_providers">Items providers</a>
-								</li>
-							</ol>
-						</li>
-					</ol>
-				</li>
-				<li>
-					<a href="#Logical_Model_View">Logical Model View</a>
-					<ol style="list-style: none">
-						<li>
-							<a href="#Toolbar_2">Toolbar</a>
-						</li>
-						<li>
-							<a href="#Contextual_Menu">Contextual Menu</a>
-						</li>
-					</ol>
-				</li>
-				<li>
-					<a href="#Known_Bugs_and_Limitations">Known Bugs and Limitations</a>
-				</li>
-				<li>
-					<a href="#Other_Materials">Other Materials</a>
-				</li>
-			</ol>
-		</div>
+		<h1 id="User_Guide">User Guide</h1>
 		<h2 id="Getting_Started">Getting Started</h2>
 		<h3 id="Installing_EMF_Compare">Installing EMF Compare</h3>
 		<h4 id="Marketplace_Client">Marketplace Client</h4>
@@ -224,7 +36,7 @@
  <a href="http://download.eclipse.org/releases/galileo">http://download.eclipse.org/releases/galileo</a>
 </pre>
 		<p>The 
-			<a href="http://www.eclipse.org/emf/compare/downloads/">Download page</a> lists more specific update sites if you wish to try one of the latest integration builds.
+			<a href="https://www.eclipse.org/emf/compare/download.html">Download page</a> lists more specific update sites if you wish to try one of the latest integration builds.
 		</p>
 		<h4 id="Compatibility">Compatibility</h4>
 		<p>Please note that the EMF Compare development team does its best to maintain downward compatibility towards Helios (Eclipse 3.6). Following is the compatibility chart : </p>
@@ -402,9 +214,12 @@
 			<li>Allows you to accept all non conflicting changes at once.</li>
 			<li>Allows you to reject all non conflicting changes at once.</li>
 		</ol>
-		<h4 id="Contextual_menu_on_differences">Contextual menu on differences</h4>
-		<p>If you do a right-click on a difference in the viewer, a contextual menu now offers you to merge the selected difference. These actions are the same than those in the 
+		<h4 id="Contextual_menu_in_the_overview_of_differences">Contextual menu in the overview of differences</h4>
+		<p>In the area that shows the overview of differences, you also can perform merge actions using the contextual menu (i.e., right-click an item in the tree). These actions correspond to those in the 
 			<a href="#Toolbar">toolbar</a>.
+		</p>
+		<p>If you do a right-click on a 
+			<i>difference</i> in the viewer, a contextual menu offers you to merge the selected difference.
 		</p>
 		<ul>
 			<li>With local models</li>
@@ -417,6 +232,22 @@
 		</ul>
 		<p>
 			<img align="middle" title="EMF Compare's user interface contextual menu" alt="EMF Compare's user interface contextual menu" border="0" src="./../images/EMF_Compare_ContextualMenu_Differences_02.png"/>
+		</p>
+		<p>If you do a right-click on a 
+			<i>model element</i> or a 
+			<i>resource</i>, you can merge all contained non-conflicting differences with one click.
+		</p>
+		<ul>
+			<li>With local models</li>
+		</ul>
+		<p>
+			<img align="middle" title="EMF Compare's user interface contextual menu" alt="EMF Compare's user interface contextual menu" border="0" src="./../images/EMF_Compare_ContextualMenu_ContainedDifferences.png"/>
+		</p>
+		<ul>
+			<li>With a read-only side (comparison with EGit)</li>
+		</ul>
+		<p>
+			<img align="middle" title="EMF Compare's user interface contextual menu" alt="EMF Compare's user interface contextual menu" border="0" src="./../images/EMF_Compare_ContextualMenu_ContainedDifferences_02.png"/>
 		</p>
 		<h4 id="Signification_of_icons_associated_with_differences">Signification of icons associated with differences</h4>
 		<p>When you run a comparison involving two models (a 2-way comparison), the icons associated with differences are:</p>
@@ -665,8 +496,9 @@
 			</tr>
 		</table>
 		<h2 id="Launch_Comparison">Launch Comparison</h2>
-		<p>Once installed, you can compare your files (locally or from any Version Control System) as usual using the 
-			<b>Compare With</b> menu.
+		<p>Once installed, you can compare your files (locally or from EGit Version Control System) as usual using the 
+			<b>Compare With</b> menu. See 
+			<a href="#Known_Bugs_and_Limitations">Known_Bugs_and_Limitations</a> section to see how to benefit from EGit support.
 		</p>
 		<h3 id="Compare_with_local_models">Compare with local models</h3>
 		<h4 id="Compare_with_each_other">Compare with each other</h4>
@@ -689,7 +521,9 @@
 		</p>
 		<h3 id="Compare_with_remote_models_.28EGit.29">Compare with remote models (EGit)</h3>
 		<p>The following displays the important part of a model life cycle with regards to the comparison. The full life cycle can be followed on 
-			<a href="./sample-use-case.html" title="./sample-use-case.html">Sample Use Case</a>
+			<a href="./sample-use-case.html" title="./sample-use-case.html">Sample Use Case</a>.
+			See 
+			<a href="#Known_Bugs_and_Limitations">Known_Bugs_and_Limitations</a> section to see how to benefit from EGit support.
 		</p>
 		<h4 id="Compare_with_latest">Compare with latest</h4>
 		<p>For this test, we'll suppose that you are trying to use EMF Compare on UML models shared under git. This will not go in details about UML and Git. We'll assume that you know how to manipulate an UML model, create or clone a git repository, share a project under it and use standard Git operations.</p>
@@ -929,7 +763,7 @@
 		</p>
 		<h3 id="Graphical_Comparison">Graphical Comparison</h3>
 		<p>EMF compare provides the ability to compare models with Papyrus graphical modeler (GMF Diagrams). To get the graphical comparison, the 
-			<i>EMF Compare Papyrus integration</i> feature and Papyrus have to be installed.
+			<i>EMF Compare Papyrus integration</i> feature and Papyrus have to be installed. Note that the developments about Papyrus integration are not finished yet: the results might be not relevant.
 			The graphical comparison will be launched if you compare diagrams files (.di), or if you compare models that have diagrams associated in the same folder.
 			In the same way as the semantic model comparison, the graphical model comparison uses the same color coding, to distinguish <span style="color:blue">incoming</span> and <span style="color:gray">outgoing</span> changes, and <span style="color:red">conflicts</span>. To put in relief the graphical differences, some decorators are used:
 		</p>
@@ -1002,6 +836,7 @@
 		<h3 id="UML_Specialization">UML Specialization</h3>
 		<p>A specific work has been done with EMF Compare for UML. It consists in an additional filter named 
 			<b>UML refined elements</b>. This filter is active by default when a comparison involves UML resources.
+			Note that the developments about UML integration are not finished yet: the results might be not relevant.
 		</p>
 		<p>
 			<img border="0" src="./../images/EMF_Compare_UML_Filter.png"/>
@@ -1284,14 +1119,14 @@
 
 			<a href="https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;classification=Modeling&amp;columnlist=bug_id%2Cproduct%2Ccomponent%2Cbug_status%2Ctarget_milestone%2Cresolution%2Cchangeddate%2Cshort_desc&amp;known_name=EMFCompare%20all%20open&amp;list_id=11857684&amp;order=changeddate%20DESC%2Ccomponent%2Cbug_id%20DESC&amp;product=EMFCompare&amp;query_based_on=EMFCompare%20all%20open&amp;query_format=advanced">EMF Compare bugs</a>
 		</p>
-		<p>Developments to properly compare shared models (via EGit) are not all included in offical releases EGit and EMF Compare yet. In order to let the customers to benefit such type of comparisons, you can download and install in your eclipse environment customs builds of EGit and EMF Compare that includes these additionnal developments.
+		<p>Developments to compare shared models (via EGit) are not all included in offical releases EGit and EMF Compare yet. In order to let the customers to benefit such type of comparisons, you can download and install in your eclipse environment customs builds of EGit and EMF Compare that includes these additionnal developments. Note that the developments to fully supports comparisons  with shared models via EGit are not finished yet: the results might be not relevant.
 			Here are the update sites:</p>
 		<ul>
-			<li>EGit (4.0.0) with additionnal developments to fully support comparisons with shared models: 
-				<a href="http://download.eclipse.org/modeling/emf/compare/updates/egit-logical/nightly/">http://download.eclipse.org/modeling/emf/compare/updates/egit-logical/nightly/</a>
+			<li>EGit (4.2.0) with additionnal developments to fully support comparisons with shared models: 
+				<a href="http://download.eclipse.org/modeling/emf/compare/updates/egit-logical/integration/">http://download.eclipse.org/modeling/emf/compare/updates/egit-logical/integration/</a>
 			</li>
-			<li>EMF Compare (3.1.0) with additionnal developments to fully support comparisons with shared models: 
-				<a href="http://download.eclipse.org/modeling/emf/compare/updates/logical/emf.compare/nightly/latest/">http://download.eclipse.org/modeling/emf/compare/updates/logical/emf.compare/nightly/latest/</a>
+			<li>EMF Compare (3.2.0) with additionnal developments to fully support comparisons with shared models: 
+				<a href="http://download.eclipse.org/modeling/emf/compare/updates/logical/emf.compare/integration/latest/">http://download.eclipse.org/modeling/emf/compare/updates/logical/emf.compare/integration/latest/</a>
 			</li>
 		</ul>
 		<h2 id="Other_Materials">Other Materials</h2>
@@ -1300,9 +1135,5 @@
 				<a href="http://www.eclipse.org/emf/compare/doc/features/videos/index.html">Videos of 2011 new features</a>
 			</li>
 		</ul>
-		<p>Part of 
-			<a href="../index.html">EMF Compare Documentation</a>
-		</p>
-		<p>Version 3.1.0.201506080946</p>
 	</body>
 </html>
