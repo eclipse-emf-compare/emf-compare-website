@@ -321,15 +321,15 @@
 		<p>The goal of the "Match" phase is to discover which of the objects from model 2 match with which objects of model 1. In other words, this is when we'll say that two objects are one and the same, and that any difference between the two sides of this couple is actually a difference that should be reported as such to the user.</p>
 		<p>By default, EMF Compare browses through elements that are within the scope, and matches them through their identifier if they have one, or through a distance mechanism for all elements that have none. If the scope contains resources, EMF Compare will first match those two-by-two before browsing through all of their contained objects.</p>
 		<p>EMF Compare "finds" the identifier of a given object through a basic function that can be found in 
-			<a href="http://git.eclipse.org/c/emfcompare/org.eclipse.emf.compare.git/tree/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/match/eobject/IdentifierEObjectMatcher.java#n268">IdentifierEObjectMatcher.DefaultIDFunction</a>. In short, if the object is a proxy, its identifier is its URI fragment. Otherwise its XMI ID (the identifier it was given in the XMI file) takes precedence over its functional ID (in ecore, an attribute that serves as an identifier). If the object is not a proxy and has neither XMI nor functional identifier, then the default behavior will simply pass that object over to the proximity algorithms so that it can be matched through its distance with other objects.
+			<a href="https://github.com/eclipse-emf-compare/emf-compare/blob/master/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/match/eobject/IdentifierEObjectMatcher.java#L308">IdentifierEObjectMatcher.DefaultIDFunction</a>. In short, if the object is a proxy, its identifier is its URI fragment. Otherwise its XMI ID (the identifier it was given in the XMI file) takes precedence over its functional ID (in ecore, an attribute that serves as an identifier). If the object is not a proxy and has neither XMI nor functional identifier, then the default behavior will simply pass that object over to the proximity algorithms so that it can be matched through its distance with other objects.
 		</p>
 		<p>PENDING: brief description of the proximity algorithm</p>
 		<p>This behavior can be customized in a number of ways.</p>
 		<h4 id="Overriding_the_Match_engine">Overriding the Match engine</h4>
 		<p>The most powerful (albeit most cumbersome) customization you can implement is to override the match engine EMF Compare uses. To this end you can either implement the whole contract, [
-			<a href="http://git.eclipse.org/c/emfcompare/org.eclipse.emf.compare.git/tree/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/match/IMatchEngine.java">http://git.eclipse.org/c/emfcompare/org.eclipse.emf.compare.git/tree/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/match/IMatchEngine.java</a> 
+			<a href="https://github.com/eclipse-emf-compare/emf-compare/blob/master/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/match/IMatchEngine.java">https://github.com/eclipse-emf-compare/emf-compare/blob/master/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/match/IMatchEngine.java</a> 
 			<i>IMatchEngine</i>], in which case you will have to carefully follow the javadoc's recommendations, or extend the default implementation, [
-			<a href="http://git.eclipse.org/c/emfcompare/org.eclipse.emf.compare.git/tree/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/match/DefaultMatchEngine.java">http://git.eclipse.org/c/emfcompare/org.eclipse.emf.compare.git/tree/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/match/DefaultMatchEngine.java</a> 
+			<a href="https://github.com/eclipse-emf-compare/emf-compare/blob/master/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/match/DefaultMatchEngine.java">https://github.com/eclipse-emf-compare/emf-compare/blob/master/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/match/DefaultMatchEngine.java</a> 
 			<i>DefaultMatchEngine</i>].
 		</p>
 		<p>A custom match engine can be used for your model comparison needs:</p>
@@ -351,7 +351,7 @@ EMFCompare.builder().setMatchEngineFactoryRegistry(registry).build().compare(sco
 		<h4 id="Changing_how_resources_are_matched">Changing how resources are matched</h4>
 		<p>By default, the logic EMF Compare uses to match resources together is very simple: if two resources have the same name (strict equality on the name, without considering folders), they match. When this is not sufficient, EMF Compare will look at the XMI ID of the resources' root(s). If the two resources share at least one root with an equal XMI ID, they match.</p>
 		<p>This can be changed by just implementing your own subclass of the DefaultMatchEngine and overriding its resource matcher. The method of interest here is 
-			<a href="http://git.eclipse.org/c/emfcompare/org.eclipse.emf.compare.git/tree/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/match/DefaultMatchEngine.java#n319">DefaultMatchEngine#createResourceMatcher()</a>.
+			<a href="https://github.com/eclipse-emf-compare/emf-compare/blob/master/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/match/DefaultMatchEngine.java#n319">DefaultMatchEngine#createResourceMatcher()</a>.
 		</p>
 		<h4 id="Defining_custom_identifiers">Defining custom identifiers</h4>
 		<p>In some cases, there might be ways to identify your objects via "identifiers" that cannot be recognized as such by the default mechanism. For example, you might want each of your objects to be matched through their name alone, or through the composition of their name and their type... This can be achieved through code by simply redefining the function used by EMF Compare to find the ID of an object. The following code will tell EMF Compare that the identifier of all "MyEObject" elements is their name, and that any other element should go through the default behavior.</p>
@@ -431,7 +431,7 @@ Comparison result = EMFCompare.builder().setMatchEngineFactoryRegistry(registry)
 			</dd>
 		</dl>
 		<p>Defining a custom post-processor requires you to implement 
-			<a href="http://git.eclipse.org/c/emfcompare/org.eclipse.emf.compare.git/tree/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/postprocessor/IPostProcessor.java">IPostProcessor</a> and registering this sub-class against EMF Compare. The latter can be done via either an extension point, in which case it will be considered for 
+			<a href="https://github.com/eclipse-emf-compare/emf-compare/blob/master/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/postprocessor/IPostProcessor.java">IPostProcessor</a> and registering this sub-class against EMF Compare. The latter can be done via either an extension point, in which case it will be considered for 
 			<b>all</b> comparisons on models that match its enablement, or programmatically if you only want it active for your own actions:
 		</p>
 		<p>
@@ -474,9 +474,9 @@ Comparison comparison = EMFCompare.builder().setPostProcessorRegistry(registry).
 		<p>Customizations of this phase usually aim at ignoring specific differences.</p>
 		<h4 id="Overriding_the_Diff_engine">Overriding the Diff engine</h4>
 		<p>As is the case for the Match phase, the most powerful customization you can implement for the differencing process is to override the diff engine EMF Compare uses. To this end you can either implement the whole contract, [
-			<a href="http://git.eclipse.org/c/emfcompare/org.eclipse.emf.compare.git/tree/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/diff/IDiffEngine.java">http://git.eclipse.org/c/emfcompare/org.eclipse.emf.compare.git/tree/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/diff/IDiffEngine.java</a> 
+			<a href="https://github.com/eclipse-emf-compare/emf-compare/blob/master/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/diff/IDiffEngine.java">https://github.com/eclipse-emf-compare/emf-compare/blob/master/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/diff/IDiffEngine.java</a> 
 			<i>IDiffEngine</i>], in which case you will have to carefully follow the javadoc's recommendations, or extend the default implementation, [
-			<a href="http://git.eclipse.org/c/emfcompare/org.eclipse.emf.compare.git/tree/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/diff/DefaultDiffEngine.java">http://git.eclipse.org/c/emfcompare/org.eclipse.emf.compare.git/tree/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/diff/DefaultDiffEngine.java</a> 
+			<a href="https://github.com/eclipse-emf-compare/emf-compare/blob/master/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/diff/DefaultDiffEngine.java">https://github.com/eclipse-emf-compare/emf-compare/blob/master/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/diff/DefaultDiffEngine.java</a> 
 			<i>DefaultDiffEngine</i>].
 		</p>
 		<p>A custom diff engine can then be used for your comparisons:</p>
@@ -524,8 +524,8 @@ EMFCompare.builder().setDiffEngine(diffEngine).build().compare(scope);
 			<i>Diff Processor</i> gives you a simple entry point to ignore some of the differences the default engine detects, or to slightly alter the 
 			<i>Diff</i> information. You might want to ignore the differences detected on some references for example. Or you might want to react to the detected diff without actually creating the 
 			<i>Comparison</i> model... The implementation is up to you. You can either re-implement the 
-			<a href="http://git.eclipse.org/c/emfcompare/org.eclipse.emf.compare.git/tree/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/diff/IDiffProcessor.java">whole contract</a> or extend the default implementation, [
-			<a href="http://git.eclipse.org/c/emfcompare/org.eclipse.emf.compare.git/tree/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/diff/DiffBuilder.java">http://git.eclipse.org/c/emfcompare/org.eclipse.emf.compare.git/tree/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/diff/DiffBuilder.java</a> 
+			<a href="https://github.com/eclipse-emf-compare/emf-compare/blob/master/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/diff/IDiffProcessor.java">whole contract</a> or extend the default implementation, [
+			<a href="https://github.com/eclipse-emf-compare/emf-compare/blob/master/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/diff/DiffBuilder.java">https://github.com/eclipse-emf-compare/emf-compare/blob/master/plugins/org.eclipse.emf.compare/src/org/eclipse/emf/compare/diff/DiffBuilder.java</a> 
 			<i>DiffBuilder</i>]
 		</p>
 		<p>Here is a simple example that provides EMF Compare with a diff processor that will ignore all differences detected on the "name" attribute of our objects, yet keep the default behavior for all other differences.</p>
