@@ -253,9 +253,6 @@
 			<img align="middle" border="0" src="../images/EMFC_1.3_Perf_Breakdown.png"/>
 		</p>
 		<p>This meant that the memory management of EMF Compare was really limiting as soon as we were dealing with large models (more than 2GB of heap space needed to load models that "weigh" 50 MB on disk). Furthermore, the main time sink was the differencing process, and that could also be narrowed down to the fact that there were plainly too many object to compare : for two-way comparisons, we were loading the model twice, for three-way comparisons, three instances of the model were loaded in memory. Not only that, but we were iterating twice on all models (one for matching, one for differencing).</p>
-		<p>The full report can be downloaded from 
-			<a href="http://www.eclipse.org/emf/compare/doc/compare_scalability.pdf">here</a>.
-		</p>
 		<h5 id="EMF_Compare_2.1">EMF Compare 2.1</h5>
 		<p>Note that these are "wall time" measures : we used a stopwatch to time the duration of the comparison, from a click on the "compare with &gt; each other" action to the opening of the comparison editor.</p>
 		<table border="1" cellspacing="0">
